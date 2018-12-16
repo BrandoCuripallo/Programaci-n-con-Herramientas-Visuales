@@ -31,5 +31,11 @@ namespace Login
         {
             Application.Exit();
         }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            FrmAdministrador frm = new FrmAdministrador();
+            frm.Show();
+        }
     }
 }
