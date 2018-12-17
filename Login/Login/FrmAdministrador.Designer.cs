@@ -31,34 +31,34 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdministrador));
             this.pnlBarra = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlPie = new System.Windows.Forms.Panel();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.pnlContenedor = new System.Windows.Forms.Panel();
-            this.btnMenu = new System.Windows.Forms.Button();
-            this.btnPacientes = new System.Windows.Forms.Button();
-            this.btnFarmacia = new System.Windows.Forms.Button();
-            this.btnLogista = new System.Windows.Forms.Button();
-            this.btnMedicos = new System.Windows.Forms.Button();
             this.pnlLogistica = new System.Windows.Forms.Panel();
-            this.btnEspecialidades = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnRecepcionistas = new System.Windows.Forms.Button();
             this.btnCirugias = new System.Windows.Forms.Button();
+            this.btnEspecialidades = new System.Windows.Forms.Button();
+            this.btnMedicos = new System.Windows.Forms.Button();
             this.pnlFarmacia = new System.Windows.Forms.Panel();
             this.btnFacturacion = new System.Windows.Forms.Button();
             this.btnMedicamentos = new System.Windows.Forms.Button();
             this.btnFarmaceuticos = new System.Windows.Forms.Button();
             this.pnlPacientes = new System.Windows.Forms.Panel();
+            this.btnRegistros = new System.Windows.Forms.Button();
             this.btnRecetasMedicas = new System.Windows.Forms.Button();
             this.btnCitas = new System.Windows.Forms.Button();
             this.btnHistoriasClinicas = new System.Windows.Forms.Button();
-            this.btnRecepcionistas = new System.Windows.Forms.Button();
-            this.btnRegistros = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnLogista = new System.Windows.Forms.Button();
+            this.btnFarmacia = new System.Windows.Forms.Button();
+            this.btnPacientes = new System.Windows.Forms.Button();
+            this.pnlContenedor = new System.Windows.Forms.Panel();
             this.tmrFecha = new System.Windows.Forms.Timer(this.components);
             this.pnlBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,6 +82,17 @@
             this.pnlBarra.Name = "pnlBarra";
             this.pnlBarra.Size = new System.Drawing.Size(844, 43);
             this.pnlBarra.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(44, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 18);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "WILFRIDO VARGAS";
             // 
             // btnMinimizar
             // 
@@ -135,6 +146,28 @@
             this.pnlPie.Size = new System.Drawing.Size(844, 34);
             this.pnlPie.TabIndex = 2;
             // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.White;
+            this.lblFecha.Location = new System.Drawing.Point(11, 8);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(198, 18);
+            this.lblFecha.TabIndex = 1;
+            this.lblFecha.Text = "miércoles, 01 diciembre 2018";
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.White;
+            this.lblHora.Location = new System.Drawing.Point(752, 6);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(72, 21);
+            this.lblHora.TabIndex = 0;
+            this.lblHora.Text = "00:00:00";
+            // 
             // pnlMenu
             // 
             this.pnlMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -154,104 +187,6 @@
             this.pnlMenu.Size = new System.Drawing.Size(50, 433);
             this.pnlMenu.TabIndex = 3;
             // 
-            // pnlContenedor
-            // 
-            this.pnlContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(238)))));
-            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenedor.Location = new System.Drawing.Point(50, 43);
-            this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(794, 433);
-            this.pnlContenedor.TabIndex = 4;
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenu.FlatAppearance.BorderSize = 0;
-            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
-            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
-            this.btnMenu.Location = new System.Drawing.Point(4, 16);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(34, 34);
-            this.btnMenu.TabIndex = 0;
-            this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // btnPacientes
-            // 
-            this.btnPacientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPacientes.FlatAppearance.BorderSize = 0;
-            this.btnPacientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnPacientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPacientes.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPacientes.ForeColor = System.Drawing.Color.Snow;
-            this.btnPacientes.Image = ((System.Drawing.Image)(resources.GetObject("btnPacientes.Image")));
-            this.btnPacientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPacientes.Location = new System.Drawing.Point(0, 56);
-            this.btnPacientes.Name = "btnPacientes";
-            this.btnPacientes.Size = new System.Drawing.Size(190, 43);
-            this.btnPacientes.TabIndex = 1;
-            this.btnPacientes.Text = "Pacientes";
-            this.btnPacientes.UseVisualStyleBackColor = true;
-            this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
-            // 
-            // btnFarmacia
-            // 
-            this.btnFarmacia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFarmacia.FlatAppearance.BorderSize = 0;
-            this.btnFarmacia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnFarmacia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnFarmacia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFarmacia.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFarmacia.ForeColor = System.Drawing.Color.Snow;
-            this.btnFarmacia.Image = ((System.Drawing.Image)(resources.GetObject("btnFarmacia.Image")));
-            this.btnFarmacia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFarmacia.Location = new System.Drawing.Point(0, 99);
-            this.btnFarmacia.Name = "btnFarmacia";
-            this.btnFarmacia.Size = new System.Drawing.Size(190, 43);
-            this.btnFarmacia.TabIndex = 2;
-            this.btnFarmacia.Text = "Farmacia";
-            this.btnFarmacia.UseVisualStyleBackColor = true;
-            this.btnFarmacia.Click += new System.EventHandler(this.btnFarmacia_Click);
-            // 
-            // btnLogista
-            // 
-            this.btnLogista.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogista.FlatAppearance.BorderSize = 0;
-            this.btnLogista.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnLogista.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnLogista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogista.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogista.ForeColor = System.Drawing.Color.Snow;
-            this.btnLogista.Image = ((System.Drawing.Image)(resources.GetObject("btnLogista.Image")));
-            this.btnLogista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogista.Location = new System.Drawing.Point(0, 142);
-            this.btnLogista.Name = "btnLogista";
-            this.btnLogista.Size = new System.Drawing.Size(190, 43);
-            this.btnLogista.TabIndex = 3;
-            this.btnLogista.Text = "Logistica";
-            this.btnLogista.UseVisualStyleBackColor = true;
-            this.btnLogista.Click += new System.EventHandler(this.btnLogista_Click);
-            // 
-            // btnMedicos
-            // 
-            this.btnMedicos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMedicos.FlatAppearance.BorderSize = 0;
-            this.btnMedicos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnMedicos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMedicos.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMedicos.ForeColor = System.Drawing.Color.Snow;
-            this.btnMedicos.Image = ((System.Drawing.Image)(resources.GetObject("btnMedicos.Image")));
-            this.btnMedicos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMedicos.Location = new System.Drawing.Point(0, 42);
-            this.btnMedicos.Name = "btnMedicos";
-            this.btnMedicos.Size = new System.Drawing.Size(167, 43);
-            this.btnMedicos.TabIndex = 4;
-            this.btnMedicos.Text = "Medicos";
-            this.btnMedicos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMedicos.UseVisualStyleBackColor = true;
-            // 
             // pnlLogistica
             // 
             this.pnlLogistica.BackColor = System.Drawing.Color.Teal;
@@ -264,6 +199,42 @@
             this.pnlLogistica.Size = new System.Drawing.Size(167, 169);
             this.pnlLogistica.TabIndex = 0;
             this.pnlLogistica.Visible = false;
+            // 
+            // btnRecepcionistas
+            // 
+            this.btnRecepcionistas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRecepcionistas.FlatAppearance.BorderSize = 0;
+            this.btnRecepcionistas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnRecepcionistas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecepcionistas.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecepcionistas.ForeColor = System.Drawing.Color.Snow;
+            this.btnRecepcionistas.Image = ((System.Drawing.Image)(resources.GetObject("btnRecepcionistas.Image")));
+            this.btnRecepcionistas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecepcionistas.Location = new System.Drawing.Point(0, 0);
+            this.btnRecepcionistas.Name = "btnRecepcionistas";
+            this.btnRecepcionistas.Size = new System.Drawing.Size(167, 43);
+            this.btnRecepcionistas.TabIndex = 7;
+            this.btnRecepcionistas.Text = "Recepcionistas";
+            this.btnRecepcionistas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRecepcionistas.UseVisualStyleBackColor = true;
+            // 
+            // btnCirugias
+            // 
+            this.btnCirugias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCirugias.FlatAppearance.BorderSize = 0;
+            this.btnCirugias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnCirugias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCirugias.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCirugias.ForeColor = System.Drawing.Color.Snow;
+            this.btnCirugias.Image = ((System.Drawing.Image)(resources.GetObject("btnCirugias.Image")));
+            this.btnCirugias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCirugias.Location = new System.Drawing.Point(0, 126);
+            this.btnCirugias.Name = "btnCirugias";
+            this.btnCirugias.Size = new System.Drawing.Size(167, 43);
+            this.btnCirugias.TabIndex = 6;
+            this.btnCirugias.Text = "Cirugias";
+            this.btnCirugias.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCirugias.UseVisualStyleBackColor = true;
             // 
             // btnEspecialidades
             // 
@@ -283,41 +254,23 @@
             this.btnEspecialidades.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEspecialidades.UseVisualStyleBackColor = true;
             // 
-            // btnSalir
+            // btnMedicos
             // 
-            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.Snow;
-            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(0, 185);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(190, 43);
-            this.btnSalir.TabIndex = 4;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            // 
-            // btnCirugias
-            // 
-            this.btnCirugias.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCirugias.FlatAppearance.BorderSize = 0;
-            this.btnCirugias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnCirugias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCirugias.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCirugias.ForeColor = System.Drawing.Color.Snow;
-            this.btnCirugias.Image = ((System.Drawing.Image)(resources.GetObject("btnCirugias.Image")));
-            this.btnCirugias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCirugias.Location = new System.Drawing.Point(0, 126);
-            this.btnCirugias.Name = "btnCirugias";
-            this.btnCirugias.Size = new System.Drawing.Size(167, 43);
-            this.btnCirugias.TabIndex = 6;
-            this.btnCirugias.Text = "Cirugias";
-            this.btnCirugias.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCirugias.UseVisualStyleBackColor = true;
+            this.btnMedicos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMedicos.FlatAppearance.BorderSize = 0;
+            this.btnMedicos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnMedicos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMedicos.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMedicos.ForeColor = System.Drawing.Color.Snow;
+            this.btnMedicos.Image = ((System.Drawing.Image)(resources.GetObject("btnMedicos.Image")));
+            this.btnMedicos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMedicos.Location = new System.Drawing.Point(0, 42);
+            this.btnMedicos.Name = "btnMedicos";
+            this.btnMedicos.Size = new System.Drawing.Size(167, 43);
+            this.btnMedicos.TabIndex = 4;
+            this.btnMedicos.Text = "Medicos";
+            this.btnMedicos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMedicos.UseVisualStyleBackColor = true;
             // 
             // pnlFarmacia
             // 
@@ -398,6 +351,24 @@
             this.pnlPacientes.TabIndex = 8;
             this.pnlPacientes.Visible = false;
             // 
+            // btnRegistros
+            // 
+            this.btnRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistros.FlatAppearance.BorderSize = 0;
+            this.btnRegistros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnRegistros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistros.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistros.ForeColor = System.Drawing.Color.Snow;
+            this.btnRegistros.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistros.Image")));
+            this.btnRegistros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistros.Location = new System.Drawing.Point(0, 0);
+            this.btnRegistros.Name = "btnRegistros";
+            this.btnRegistros.Size = new System.Drawing.Size(167, 43);
+            this.btnRegistros.TabIndex = 7;
+            this.btnRegistros.Text = "Registros";
+            this.btnRegistros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistros.UseVisualStyleBackColor = true;
+            // 
             // btnRecetasMedicas
             // 
             this.btnRecetasMedicas.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -452,74 +423,103 @@
             this.btnHistoriasClinicas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHistoriasClinicas.UseVisualStyleBackColor = true;
             // 
-            // btnRecepcionistas
+            // btnMenu
             // 
-            this.btnRecepcionistas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRecepcionistas.FlatAppearance.BorderSize = 0;
-            this.btnRecepcionistas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnRecepcionistas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecepcionistas.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRecepcionistas.ForeColor = System.Drawing.Color.Snow;
-            this.btnRecepcionistas.Image = ((System.Drawing.Image)(resources.GetObject("btnRecepcionistas.Image")));
-            this.btnRecepcionistas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecepcionistas.Location = new System.Drawing.Point(0, 0);
-            this.btnRecepcionistas.Name = "btnRecepcionistas";
-            this.btnRecepcionistas.Size = new System.Drawing.Size(167, 43);
-            this.btnRecepcionistas.TabIndex = 7;
-            this.btnRecepcionistas.Text = "Recepcionistas";
-            this.btnRecepcionistas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRecepcionistas.UseVisualStyleBackColor = true;
+            this.btnMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenu.FlatAppearance.BorderSize = 0;
+            this.btnMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
+            this.btnMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
+            this.btnMenu.Location = new System.Drawing.Point(4, 16);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(34, 34);
+            this.btnMenu.TabIndex = 0;
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // btnRegistros
+            // btnSalir
             // 
-            this.btnRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistros.FlatAppearance.BorderSize = 0;
-            this.btnRegistros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnRegistros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistros.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistros.ForeColor = System.Drawing.Color.Snow;
-            this.btnRegistros.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistros.Image")));
-            this.btnRegistros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistros.Location = new System.Drawing.Point(0, 0);
-            this.btnRegistros.Name = "btnRegistros";
-            this.btnRegistros.Size = new System.Drawing.Size(167, 43);
-            this.btnRegistros.TabIndex = 7;
-            this.btnRegistros.Text = "Registros";
-            this.btnRegistros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistros.UseVisualStyleBackColor = true;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.Snow;
+            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.Location = new System.Drawing.Point(0, 185);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(190, 43);
+            this.btnSalir.TabIndex = 4;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // btnLogista
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(44, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 18);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "WILFRIDO VARGAS";
+            this.btnLogista.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogista.FlatAppearance.BorderSize = 0;
+            this.btnLogista.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnLogista.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnLogista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogista.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogista.ForeColor = System.Drawing.Color.Snow;
+            this.btnLogista.Image = ((System.Drawing.Image)(resources.GetObject("btnLogista.Image")));
+            this.btnLogista.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogista.Location = new System.Drawing.Point(0, 142);
+            this.btnLogista.Name = "btnLogista";
+            this.btnLogista.Size = new System.Drawing.Size(190, 43);
+            this.btnLogista.TabIndex = 3;
+            this.btnLogista.Text = "Logistica";
+            this.btnLogista.UseVisualStyleBackColor = true;
+            this.btnLogista.Click += new System.EventHandler(this.btnLogista_Click);
             // 
-            // lblHora
+            // btnFarmacia
             // 
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.ForeColor = System.Drawing.Color.White;
-            this.lblHora.Location = new System.Drawing.Point(752, 6);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(72, 21);
-            this.lblHora.TabIndex = 0;
-            this.lblHora.Text = "00:00:00";
+            this.btnFarmacia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFarmacia.FlatAppearance.BorderSize = 0;
+            this.btnFarmacia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnFarmacia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnFarmacia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFarmacia.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFarmacia.ForeColor = System.Drawing.Color.Snow;
+            this.btnFarmacia.Image = ((System.Drawing.Image)(resources.GetObject("btnFarmacia.Image")));
+            this.btnFarmacia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFarmacia.Location = new System.Drawing.Point(0, 99);
+            this.btnFarmacia.Name = "btnFarmacia";
+            this.btnFarmacia.Size = new System.Drawing.Size(190, 43);
+            this.btnFarmacia.TabIndex = 2;
+            this.btnFarmacia.Text = "Farmacia";
+            this.btnFarmacia.UseVisualStyleBackColor = true;
+            this.btnFarmacia.Click += new System.EventHandler(this.btnFarmacia_Click);
             // 
-            // lblFecha
+            // btnPacientes
             // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.Color.White;
-            this.lblFecha.Location = new System.Drawing.Point(11, 8);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(198, 18);
-            this.lblFecha.TabIndex = 1;
-            this.lblFecha.Text = "miércoles, 01 diciembre 2018";
+            this.btnPacientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPacientes.FlatAppearance.BorderSize = 0;
+            this.btnPacientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnPacientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnPacientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPacientes.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPacientes.ForeColor = System.Drawing.Color.Snow;
+            this.btnPacientes.Image = ((System.Drawing.Image)(resources.GetObject("btnPacientes.Image")));
+            this.btnPacientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPacientes.Location = new System.Drawing.Point(0, 56);
+            this.btnPacientes.Name = "btnPacientes";
+            this.btnPacientes.Size = new System.Drawing.Size(190, 43);
+            this.btnPacientes.TabIndex = 1;
+            this.btnPacientes.Text = "Pacientes";
+            this.btnPacientes.UseVisualStyleBackColor = true;
+            this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
+            // 
+            // pnlContenedor
+            // 
+            this.pnlContenedor.BackColor = System.Drawing.Color.White;
+            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenedor.Location = new System.Drawing.Point(50, 43);
+            this.pnlContenedor.Name = "pnlContenedor";
+            this.pnlContenedor.Size = new System.Drawing.Size(794, 433);
+            this.pnlContenedor.TabIndex = 4;
             // 
             // tmrFecha
             // 
