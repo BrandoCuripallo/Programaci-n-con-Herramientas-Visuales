@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdministrador));
             this.pnlBarra = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -73,7 +73,7 @@
             // 
             this.pnlBarra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.pnlBarra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlBarra.Controls.Add(this.label1);
+            this.pnlBarra.Controls.Add(this.lblNombre);
             this.pnlBarra.Controls.Add(this.btnMinimizar);
             this.pnlBarra.Controls.Add(this.btnCerrar);
             this.pnlBarra.Controls.Add(this.pictureBox1);
@@ -83,16 +83,16 @@
             this.pnlBarra.Size = new System.Drawing.Size(844, 43);
             this.pnlBarra.TabIndex = 1;
             // 
-            // label1
+            // lblNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(44, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 18);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "WILFRIDO VARGAS";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.White;
+            this.lblNombre.Location = new System.Drawing.Point(44, 13);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(159, 18);
+            this.lblNombre.TabIndex = 8;
+            this.lblNombre.Text = "WILFRIDO VARGAS";
             // 
             // btnMinimizar
             // 
@@ -583,7 +583,7 @@
         private System.Windows.Forms.Button btnHistoriasClinicas;
         private System.Windows.Forms.Button btnRecepcionistas;
         private System.Windows.Forms.Button btnRegistros;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer tmrFecha;

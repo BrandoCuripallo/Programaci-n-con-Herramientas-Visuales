@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIngresarPaciente));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCedula = new System.Windows.Forms.TextBox();
+            this.txtNombres = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtApellidoPaterno = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtApellidoMaterno = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtCanton = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.rdbMasculino = new System.Windows.Forms.RadioButton();
@@ -79,19 +79,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cédula";
             // 
-            // textBox1
+            // txtCedula
             // 
-            this.textBox1.Location = new System.Drawing.Point(175, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtCedula.Location = new System.Drawing.Point(175, 43);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(163, 20);
+            this.txtCedula.TabIndex = 1;
             // 
-            // textBox2
+            // txtNombres
             // 
-            this.textBox2.Location = new System.Drawing.Point(139, 82);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(199, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtNombres.Location = new System.Drawing.Point(139, 82);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(199, 20);
+            this.txtNombres.TabIndex = 3;
             // 
             // label2
             // 
@@ -104,12 +104,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Nombres";
             // 
-            // textBox3
+            // txtApellidoPaterno
             // 
-            this.textBox3.Location = new System.Drawing.Point(139, 126);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(199, 20);
-            this.textBox3.TabIndex = 5;
+            this.txtApellidoPaterno.Location = new System.Drawing.Point(139, 126);
+            this.txtApellidoPaterno.Name = "txtApellidoPaterno";
+            this.txtApellidoPaterno.Size = new System.Drawing.Size(199, 20);
+            this.txtApellidoPaterno.TabIndex = 5;
             // 
             // label3
             // 
@@ -122,12 +122,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Apellido Paterno";
             // 
-            // textBox4
+            // txtApellidoMaterno
             // 
-            this.textBox4.Location = new System.Drawing.Point(139, 166);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 20);
-            this.textBox4.TabIndex = 7;
+            this.txtApellidoMaterno.Location = new System.Drawing.Point(139, 166);
+            this.txtApellidoMaterno.Name = "txtApellidoMaterno";
+            this.txtApellidoMaterno.Size = new System.Drawing.Size(199, 20);
+            this.txtApellidoMaterno.TabIndex = 7;
             // 
             // label4
             // 
@@ -140,12 +140,12 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Apellido Materno";
             // 
-            // textBox5
+            // txtCanton
             // 
-            this.textBox5.Location = new System.Drawing.Point(92, 63);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(121, 20);
-            this.textBox5.TabIndex = 9;
+            this.txtCanton.Location = new System.Drawing.Point(92, 63);
+            this.txtCanton.Name = "txtCanton";
+            this.txtCanton.Size = new System.Drawing.Size(121, 20);
+            this.txtCanton.TabIndex = 9;
             // 
             // label5
             // 
@@ -158,12 +158,12 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "FECHA DE NACIMIENTO";
             // 
-            // textBox6
+            // txtDireccion
             // 
-            this.textBox6.Location = new System.Drawing.Point(92, 92);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 11;
+            this.txtDireccion.Location = new System.Drawing.Point(92, 92);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(171, 20);
+            this.txtDireccion.TabIndex = 11;
             // 
             // label6
             // 
@@ -176,12 +176,12 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Correo Electrónico";
             // 
-            // textBox7
+            // txtTelefono
             // 
-            this.textBox7.Location = new System.Drawing.Point(92, 123);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 13;
+            this.txtTelefono.Location = new System.Drawing.Point(92, 123);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(100, 20);
+            this.txtTelefono.TabIndex = 13;
             // 
             // label7
             // 
@@ -205,12 +205,12 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "LUGAR DE RESIDENCIA";
             // 
-            // textBox9
+            // txtCorreo
             // 
-            this.textBox9.Location = new System.Drawing.Point(139, 208);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(199, 20);
-            this.textBox9.TabIndex = 17;
+            this.txtCorreo.Location = new System.Drawing.Point(139, 208);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(199, 20);
+            this.txtCorreo.TabIndex = 17;
             // 
             // label9
             // 
@@ -260,7 +260,7 @@
             this.panel1.Controls.Add(this.rdbMasculino);
             this.panel1.Controls.Add(this.rdbFemenino);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(252, 252);
+            this.panel1.Location = new System.Drawing.Point(274, 252);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(97, 69);
             this.panel1.TabIndex = 21;
@@ -281,12 +281,12 @@
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.cbxProvincia);
-            this.panel2.Controls.Add(this.textBox7);
-            this.panel2.Controls.Add(this.textBox5);
-            this.panel2.Controls.Add(this.textBox6);
+            this.panel2.Controls.Add(this.txtTelefono);
+            this.panel2.Controls.Add(this.txtCanton);
+            this.panel2.Controls.Add(this.txtDireccion);
             this.panel2.Location = new System.Drawing.Point(2, 252);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(226, 156);
+            this.panel2.Size = new System.Drawing.Size(266, 156);
             this.panel2.TabIndex = 23;
             // 
             // label12
@@ -356,15 +356,15 @@
             // 
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtCedula);
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.txtNombres);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Controls.Add(this.textBox9);
+            this.panel3.Controls.Add(this.txtApellidoPaterno);
+            this.panel3.Controls.Add(this.txtCorreo);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.textBox4);
+            this.panel3.Controls.Add(this.txtApellidoMaterno);
             this.panel3.Location = new System.Drawing.Point(2, 1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(369, 245);
@@ -442,21 +442,21 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCedula;
+        private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtApellidoPaterno;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtApellidoMaterno;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCanton;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.RadioButton rdbMasculino;

@@ -1,6 +1,6 @@
 ﻿namespace Login
 {
-    partial class FrmRegistroDoctor
+    partial class FrmRegistroCirugia
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroDoctor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroCirugia));
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvDoctores = new System.Windows.Forms.DataGridView();
+            this.dgvCirugias = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDoctores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCirugias)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEliminar
@@ -48,7 +48,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(605, 178);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(116, 33);
-            this.btnEliminar.TabIndex = 11;
+            this.btnEliminar.TabIndex = 17;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -63,7 +63,7 @@
             this.btnModificar.Location = new System.Drawing.Point(605, 119);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(116, 33);
-            this.btnModificar.TabIndex = 10;
+            this.btnModificar.TabIndex = 16;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -78,7 +78,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(605, 64);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(116, 33);
-            this.btnNuevo.TabIndex = 9;
+            this.btnNuevo.TabIndex = 15;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
@@ -90,17 +90,17 @@
             this.label1.ForeColor = System.Drawing.Color.SteelBlue;
             this.label1.Location = new System.Drawing.Point(238, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(267, 25);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "REGISTRO DE MÉDICOS";
+            this.label1.Size = new System.Drawing.Size(271, 25);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "REGISTRO DE CIRUGÍAS";
             // 
-            // dgvDoctores
+            // dgvCirugias
             // 
-            this.dgvDoctores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDoctores.Location = new System.Drawing.Point(12, 64);
-            this.dgvDoctores.Name = "dgvDoctores";
-            this.dgvDoctores.Size = new System.Drawing.Size(536, 261);
-            this.dgvDoctores.TabIndex = 7;
+            this.dgvCirugias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCirugias.Location = new System.Drawing.Point(12, 64);
+            this.dgvCirugias.Name = "dgvCirugias";
+            this.dgvCirugias.Size = new System.Drawing.Size(536, 261);
+            this.dgvCirugias.TabIndex = 13;
             // 
             // btnCerrar
             // 
@@ -112,10 +112,10 @@
             this.btnCerrar.Location = new System.Drawing.Point(12, 12);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(25, 25);
-            this.btnCerrar.TabIndex = 6;
+            this.btnCerrar.TabIndex = 12;
             this.btnCerrar.UseVisualStyleBackColor = true;
             // 
-            // FrmRegistroDoctor
+            // FrmRegistroCirugia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -125,13 +125,13 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvDoctores);
+            this.Controls.Add(this.dgvCirugias);
             this.Controls.Add(this.btnCerrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmRegistroDoctor";
-            this.Text = "FrmRegistroDoctor";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDoctores)).EndInit();
+            this.Name = "FrmRegistroCirugia";
+            this.Text = "FrmRegistroCirugia";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCirugias)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,7 +143,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvDoctores;
+        private System.Windows.Forms.DataGridView dgvCirugias;
         private System.Windows.Forms.Button btnCerrar;
     }
 }

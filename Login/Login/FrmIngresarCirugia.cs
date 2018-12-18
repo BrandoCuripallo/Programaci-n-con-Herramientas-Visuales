@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class FrmMedicamento : Form
+    public partial class FrmIngresarCirugia : Form
     {
-        public FrmMedicamento()
+        public FrmIngresarCirugia()
         {
             InitializeComponent();
         }
