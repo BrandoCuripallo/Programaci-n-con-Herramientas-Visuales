@@ -1,6 +1,6 @@
 ﻿namespace Login
 {
-    partial class FrmRegistroEspecialidad
+    partial class FrmRegistroFactura
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroEspecialidad));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroFactura));
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
+            this.dgvFacturas = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
             this.SuspendLayout();
             // 
             // btnEliminar
@@ -44,10 +44,10 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(447, 349);
+            this.btnEliminar.Location = new System.Drawing.Point(444, 349);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(116, 33);
-            this.btnEliminar.TabIndex = 35;
+            this.btnEliminar.TabIndex = 28;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -59,10 +59,10 @@
             this.btnModificar.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(276, 349);
+            this.btnModificar.Location = new System.Drawing.Point(272, 349);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(116, 33);
-            this.btnModificar.TabIndex = 34;
+            this.btnModificar.TabIndex = 27;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -74,10 +74,10 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(90, 349);
+            this.btnNuevo.Location = new System.Drawing.Point(101, 349);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(116, 33);
-            this.btnNuevo.TabIndex = 33;
+            this.btnNuevo.TabIndex = 26;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
@@ -88,21 +88,21 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bell MT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label1.Location = new System.Drawing.Point(168, 9);
+            this.label1.Location = new System.Drawing.Point(177, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(352, 25);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "REGISTRO DE ESPECIALIDADES";
+            this.label1.Size = new System.Drawing.Size(282, 25);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "REGISTRO DE FACTURAS";
             // 
-            // dgvEspecialidades
+            // dgvFacturas
             // 
-            this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEspecialidades.Location = new System.Drawing.Point(12, 64);
-            this.dgvEspecialidades.Name = "dgvEspecialidades";
-            this.dgvEspecialidades.Size = new System.Drawing.Size(631, 261);
-            this.dgvEspecialidades.TabIndex = 31;
+            this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFacturas.Location = new System.Drawing.Point(12, 64);
+            this.dgvFacturas.Name = "dgvFacturas";
+            this.dgvFacturas.Size = new System.Drawing.Size(631, 261);
+            this.dgvFacturas.TabIndex = 24;
             // 
-            // FrmRegistroEspecialidad
+            // FrmRegistroFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -112,12 +112,12 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvEspecialidades);
+            this.Controls.Add(this.dgvFacturas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmRegistroEspecialidad";
-            this.Text = "FrmRegistroEspecialidad";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
+            this.Name = "FrmRegistroFactura";
+            this.Text = "FrmRegistroFactura";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,6 +129,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvEspecialidades;
+        private System.Windows.Forms.DataGridView dgvFacturas;
     }
 }

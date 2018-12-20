@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class FrmRegistroRecepcionista : Form
+    public partial class FrmRegistroReceta : Form
     {
-        public FrmRegistroRecepcionista()
+        public FrmRegistroReceta()
         {
             InitializeComponent();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FrmIngresarRecepcionista frmIngresarRecepcionista = new FrmIngresarRecepcionista();
-            frmIngresarRecepcionista.Show();
+            FrmIngresarReceta frmIngresarReceta = new FrmIngresarReceta();
+            frmIngresarReceta.Show();
         }
     }
 }

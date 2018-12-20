@@ -60,6 +60,8 @@
             this.btnPacientes = new System.Windows.Forms.Button();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.tmrFecha = new System.Windows.Forms.Timer(this.components);
+            this.tmrMostrar = new System.Windows.Forms.Timer(this.components);
+            this.tmrOcultar = new System.Windows.Forms.Timer(this.components);
             this.pnlBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPie.SuspendLayout();
@@ -217,6 +219,7 @@
             this.btnRecepcionistas.Text = "Recepcionistas";
             this.btnRecepcionistas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRecepcionistas.UseVisualStyleBackColor = true;
+            this.btnRecepcionistas.Click += new System.EventHandler(this.btnRecepcionistas_Click);
             // 
             // btnCirugias
             // 
@@ -235,6 +238,7 @@
             this.btnCirugias.Text = "Cirugias";
             this.btnCirugias.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCirugias.UseVisualStyleBackColor = true;
+            this.btnCirugias.Click += new System.EventHandler(this.btnCirugias_Click);
             // 
             // btnEspecialidades
             // 
@@ -253,6 +257,7 @@
             this.btnEspecialidades.Text = "Especialidades";
             this.btnEspecialidades.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEspecialidades.UseVisualStyleBackColor = true;
+            this.btnEspecialidades.Click += new System.EventHandler(this.btnEspecialidades_Click);
             // 
             // btnMedicos
             // 
@@ -271,6 +276,7 @@
             this.btnMedicos.Text = "Medicos";
             this.btnMedicos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMedicos.UseVisualStyleBackColor = true;
+            this.btnMedicos.Click += new System.EventHandler(this.btnMedicos_Click);
             // 
             // pnlFarmacia
             // 
@@ -301,6 +307,7 @@
             this.btnFacturacion.Text = "Facturacion";
             this.btnFacturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFacturacion.UseVisualStyleBackColor = true;
+            this.btnFacturacion.Click += new System.EventHandler(this.btnFacturacion_Click);
             // 
             // btnMedicamentos
             // 
@@ -319,6 +326,7 @@
             this.btnMedicamentos.Text = "Medicamentos";
             this.btnMedicamentos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMedicamentos.UseVisualStyleBackColor = true;
+            this.btnMedicamentos.Click += new System.EventHandler(this.btnMedicamentos_Click);
             // 
             // btnFarmaceuticos
             // 
@@ -337,6 +345,7 @@
             this.btnFarmaceuticos.Text = "Farmaceuticos";
             this.btnFarmaceuticos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFarmaceuticos.UseVisualStyleBackColor = true;
+            this.btnFarmaceuticos.Click += new System.EventHandler(this.btnFarmaceuticos_Click);
             // 
             // pnlPacientes
             // 
@@ -368,6 +377,7 @@
             this.btnRegistros.Text = "Registros";
             this.btnRegistros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRegistros.UseVisualStyleBackColor = true;
+            this.btnRegistros.Click += new System.EventHandler(this.btnRegistros_Click);
             // 
             // btnRecetasMedicas
             // 
@@ -386,6 +396,7 @@
             this.btnRecetasMedicas.Text = "Recetas";
             this.btnRecetasMedicas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRecetasMedicas.UseVisualStyleBackColor = true;
+            this.btnRecetasMedicas.Click += new System.EventHandler(this.btnRecetasMedicas_Click);
             // 
             // btnCitas
             // 
@@ -404,6 +415,7 @@
             this.btnCitas.Text = "Citas";
             this.btnCitas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCitas.UseVisualStyleBackColor = true;
+            this.btnCitas.Click += new System.EventHandler(this.btnCitas_Click);
             // 
             // btnHistoriasClinicas
             // 
@@ -422,6 +434,7 @@
             this.btnHistoriasClinicas.Text = "Historia Clinica";
             this.btnHistoriasClinicas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHistoriasClinicas.UseVisualStyleBackColor = true;
+            this.btnHistoriasClinicas.Click += new System.EventHandler(this.btnHistoriasClinicas_Click);
             // 
             // btnMenu
             // 
@@ -454,6 +467,7 @@
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnLogista
             // 
@@ -527,6 +541,14 @@
             this.tmrFecha.Interval = 1000;
             this.tmrFecha.Tick += new System.EventHandler(this.tmrFecha_Tick);
             // 
+            // tmrMostrar
+            // 
+            this.tmrMostrar.Tick += new System.EventHandler(this.tmrMostrar_Tick);
+            // 
+            // tmrOcultar
+            // 
+            this.tmrOcultar.Tick += new System.EventHandler(this.tmrOcultar_Tick);
+            // 
             // FrmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -539,9 +561,11 @@
             this.Controls.Add(this.pnlBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.Name = "FrmAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAdministrador";
+            this.Load += new System.EventHandler(this.FrmAdministrador_Load);
             this.pnlBarra.ResumeLayout(false);
             this.pnlBarra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -565,7 +589,6 @@
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Button btnPacientes;
         private System.Windows.Forms.Button btnMenu;
-        private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.Panel pnlLogistica;
         private System.Windows.Forms.Button btnMedicos;
         private System.Windows.Forms.Button btnLogista;
@@ -587,5 +610,8 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer tmrFecha;
+        public System.Windows.Forms.Panel pnlContenedor;
+        private System.Windows.Forms.Timer tmrMostrar;
+        private System.Windows.Forms.Timer tmrOcultar;
     }
 }

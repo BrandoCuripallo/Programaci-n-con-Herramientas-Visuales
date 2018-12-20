@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class FrmRegistroDoctor : Form
+    public partial class FrmIngresarCita : Form
     {
-        public FrmRegistroDoctor()
+        public FrmIngresarCita()
         {
             InitializeComponent();
         }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            FrmIngresarDoctor frmIngresarDoctor = new FrmIngresarDoctor();
-            frmIngresarDoctor.Show();
-        }
-
     }
 }

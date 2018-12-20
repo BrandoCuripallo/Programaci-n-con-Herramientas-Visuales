@@ -16,5 +16,13 @@ namespace Login
         {
             InitializeComponent();
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmIngresarFarmaceutico frmIngresarFarmaceutico = new FrmIngresarFarmaceutico();
+            frmIngresarFarmaceutico.Show();
+        }
+
+        
     }
 }
