@@ -124,7 +124,6 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Enabled = false;
             this.txtCedula.Location = new System.Drawing.Point(189, 43);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(163, 20);

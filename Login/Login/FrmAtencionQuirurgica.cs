@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Login
 {
-    public partial class FrmHistoriaClinica : Form
+    public partial class FrmAtencionQuirurgica : Form
     {
-        public FrmHistoriaClinica()
+        public FrmAtencionQuirurgica()
         {
             InitializeComponent();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmIngresarOperacion frmIngresarOperacion = new FrmIngresarOperacion();
+            frmIngresarOperacion.Show();
         }
     }
 }

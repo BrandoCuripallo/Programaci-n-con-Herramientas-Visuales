@@ -1,6 +1,6 @@
 ﻿namespace Login
 {
-    partial class FrmHistoriaClinica
+    partial class FrmRegistroHistoriaClinica
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHistoriaClinica));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistroHistoriaClinica));
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.btnVisualizar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvHistorias = new System.Windows.Forms.DataGridView();
@@ -44,28 +43,13 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(425, 349);
+            this.btnEliminar.Location = new System.Drawing.Point(351, 349);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(116, 33);
             this.btnEliminar.TabIndex = 10;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.Color.SteelBlue;
-            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(264, 349);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(116, 33);
-            this.btnModificar.TabIndex = 9;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnModificar.UseVisualStyleBackColor = true;
             // 
             // btnVisualizar
             // 
@@ -74,13 +58,14 @@
             this.btnVisualizar.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnVisualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnVisualizar.Image")));
             this.btnVisualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVisualizar.Location = new System.Drawing.Point(92, 349);
+            this.btnVisualizar.Location = new System.Drawing.Point(190, 349);
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Size = new System.Drawing.Size(116, 33);
-            this.btnVisualizar.TabIndex = 8;
-            this.btnVisualizar.Text = "Nuevo";
+            this.btnVisualizar.TabIndex = 9;
+            this.btnVisualizar.Text = "Visualizar";
             this.btnVisualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVisualizar.UseVisualStyleBackColor = true;
+            this.btnVisualizar.Click += new System.EventHandler(this.btnVisualizar_Click);
             // 
             // label1
             // 
@@ -108,7 +93,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(778, 394);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnVisualizar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvHistorias);
@@ -125,7 +109,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnVisualizar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvHistorias;

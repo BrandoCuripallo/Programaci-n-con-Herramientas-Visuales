@@ -37,5 +37,17 @@ namespace Login
             FrmAdministrador frm = new FrmAdministrador();
             frm.Show();
         }
+
+        private void cbxModo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbxModo.Text == "PACIENTE")
+            {
+                lblUsuario.Text = "CÉDULA";
+            }
+            else
+            {
+                lblUsuario.Text = "USUARIO";
+            }
+        }
     }
 }

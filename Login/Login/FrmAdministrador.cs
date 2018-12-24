@@ -21,12 +21,12 @@ namespace Login
         {
             if (pnlPacientes.Visible == false)
             {
-                btnFarmacia.Location = new Point(0, 271);
+                btnFarmacia.Location = new Point(0, 309);
                 pnlPacientes.Visible = true;
                 pnlFarmacia.Visible = false;
                 pnlLogistica.Visible = false;
-                btnLogista.Location = new Point(0, 314);
-                btnSalir.Location = new Point(0, 357);
+                btnLogista.Location = new Point(0, 352);
+                btnSalir.Location = new Point(0, 395);
                 panelExtendido();
             }
             else
@@ -87,11 +87,11 @@ namespace Login
         private void btnPosicionInicial()
         {
             btnFarmacia.Location = new Point(0, 99);
+            btnLogista.Location = new Point(0, 142);
+            btnSalir.Location = new Point(0, 185);
             pnlPacientes.Visible = false;
             pnlFarmacia.Visible = false;
             pnlLogistica.Visible = false;
-            btnLogista.Location = new Point(0, 142);
-            btnSalir.Location = new Point(0, 185);
         }
         private void panelExtendido()
         {
@@ -200,10 +200,14 @@ namespace Login
 
         private void btnHistoriasClinicas_Click(object sender, EventArgs e)
         {
-            FrmHistoriaClinica frmHistoriaClinica = new FrmHistoriaClinica();
+            FrmRegistroHistoriaClinica frmHistoriaClinica = new FrmRegistroHistoriaClinica();
             abrirFormHijo(frmHistoriaClinica);
         }
-
+        private void btnOperaciones_Click(object sender, EventArgs e)
+        {
+            FrmAtencionQuirurgica frmAtencionQuirurgica = new FrmAtencionQuirurgica();
+            abrirFormHijo(frmAtencionQuirurgica);
+        }
         private void tmrMostrar_Tick(object sender, EventArgs e)
         {
             for(int i = 50; i <= 167; i++)
