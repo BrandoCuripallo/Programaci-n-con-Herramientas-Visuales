@@ -1,4 +1,5 @@
 ﻿using System;
+using Login.Clases;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Login
 {
     public partial class FrmAdministrador : Form
     {
+        private Administrador administrador;
         public FrmAdministrador()
         {
             InitializeComponent();
@@ -128,6 +130,8 @@ namespace Login
         private void btnRegistros_Click(object sender, EventArgs e)
         {
             FrmRegistroPaciente frmRegistroPaciente = new FrmRegistroPaciente();
+            frmRegistroPaciente.llenarDataGridView();
+            frmRegistroPaciente.asignarAdministrador(this.administrador);
             abrirFormHijo(frmRegistroPaciente);
         }
 
@@ -176,6 +180,7 @@ namespace Login
 
         private void FrmAdministrador_Load(object sender, EventArgs e)
         {
+            lblNombre.Text = administrador.Nombres + " " + administrador.ApellidoPaterno + " " + administrador.ApellidoMaterno;
             FrmInicio frmInicio = new FrmInicio();
             abrirFormHijo(frmInicio);
         }
@@ -226,6 +231,10 @@ namespace Login
             }
             btnPosicionInicial();
             tmrOcultar.Enabled = false;
+        }
+        public void asignarAdministrador(Object administrador)
+        {
+            this.administrador = (Administrador)administrador;
         }
     }
 }

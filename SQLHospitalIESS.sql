@@ -3,8 +3,8 @@ GO
 USE HospitalIESS
 GO
 CREATE TABLE tblAdministrador (cedulaAdministrador varchar(10) PRIMARY KEY, nombres varchar(50), 
-apellidoPaterno varchar(25), apellidoMaterno varchar(25), fechaNacimiento date, edad int, sexo varchar(10), 
-correoElectronico varchar(50), provincia varchar(20), ciudad varchar(20), dirección varchar(50), 
+apellidoPaterno varchar(25), apellidoMaterno varchar(25), fechaNacimiento date, sexo varchar(10), 
+correoElectronico varchar(50), provincia varchar(20), ciudad varchar(20), direccion varchar(50), 
 telefono varchar(10), usuario varchar(50) UNIQUE, contrasenia varchar(50))
 GO
 CREATE TABLE tblEspecialidad (codigoEspecialidad int PRIMARY KEY IDENTITY, nombreEspecialidad varchar(25))
@@ -12,24 +12,24 @@ GO
 CREATE TABLE tblCirugia (idCirugia int PRIMARY KEY IDENTITY, descripcion varchar(100))
 GO
 CREATE TABLE tblDoctor (cedulaDoctor varchar(10) PRIMARY KEY, nombres varchar(50), apellidoPaterno varchar(25), 
-apellidoMaterno varchar(25), fechaNacimiento date, edad int, sexo varchar(10), correoElectronico varchar(50), 
-provincia varchar(20), ciudad varchar(20), dirección varchar(50), telefono varchar(10), usuario varchar(50) UNIQUE, 
+apellidoMaterno varchar(25), fechaNacimiento date, sexo varchar(10), correoElectronico varchar(50), 
+provincia varchar(20), ciudad varchar(20), direccion varchar(50), telefono varchar(10), usuario varchar(50) UNIQUE, 
 contrasenia varchar(50), codigoEspecialidad int FOREIGN KEY REFERENCES tblEspecialidad (codigoEspecialidad) 
 ON UPDATE CASCADE)
 GO
 CREATE TABLE tblRecepcionista (cedulaRecepcionista varchar(10) PRIMARY KEY, nombres varchar(50), 
-apellidoPaterno varchar(25), apellidoMaterno varchar(25), fechaNacimiento date, edad int, sexo varchar(10), 
-correoElectronico varchar(50), provincia varchar(20), ciudad varchar(20), dirección varchar(25), 
+apellidoPaterno varchar(25), apellidoMaterno varchar(25), fechaNacimiento date, sexo varchar(10), 
+correoElectronico varchar(50), provincia varchar(20), ciudad varchar(20), direccion varchar(25), 
 telefono varchar(10), usuario varchar(50) UNIQUE, contrasenia varchar(50))
 GO
 CREATE TABLE tblFarmaceutico (cedulaFarmaceutico varchar(10) PRIMARY KEY, nombres varchar(50), 
-apellidoPaterno varchar(25), apellidoMaterno varchar(25), fechaNacimiento date, edad int, sexo varchar(10), 
-correoElectronico varchar(50), provincia varchar(20), ciudad varchar(20), dirección varchar(50), 
+apellidoPaterno varchar(25), apellidoMaterno varchar(25), fechaNacimiento date, sexo varchar(10), 
+correoElectronico varchar(50), provincia varchar(20), ciudad varchar(20), direccion varchar(50), 
 telefono varchar(10), usuario varchar(50) UNIQUE, contrasenia varchar(50))
 GO
 CREATE TABLE tblPaciente (cedulaPaciente varchar(10) PRIMARY KEY, nombres varchar(50), apellidoPaterno varchar(25), 
-apellidoMaterno varchar(25), fechaNacimiento date, edad int, sexo varchar(10), correoElectronico varchar(50), 
-provincia varchar(20), ciudad varchar(20), dirección varchar(25), telefono varchar(10), contrasenia varchar(50))
+apellidoMaterno varchar(25), fechaNacimiento date, sexo varchar(10), correoElectronico varchar(50), 
+provincia varchar(20), ciudad varchar(20), direccion varchar(25), telefono varchar(10), contrasenia varchar(50))
 GO
 CREATE TABLE tblHistoriaClinica (numeroHistoria int PRIMARY KEY IDENTITY, cedulaPaciente varchar(10) FOREIGN KEY REFERENCES 
 tblPaciente (cedulaPaciente) ON UPDATE CASCADE ON DELETE CASCADE)
@@ -67,3 +67,15 @@ GO
 CREATE TABLE tblRecetaMedicamento (idRecetaMedicamento int PRIMARY KEY IDENTITY, idReceta int FOREIGN KEY REFERENCES 
 tblReceta (idReceta) ON UPDATE CASCADE, codigoMedicamento varchar(5) FOREIGN KEY REFERENCES 
 tblMedicamento (codigoMedicamento) ON UPDATE CASCADE)
+GO
+INSERT INTO tblAdministrador VALUES ('1716116809', 'Alejandro Esteban', 'Guerrero', 'Tipán', '21/08/1994', 'Masculino', 
+'alejandro.guerrero@epn.edu.ec', 'Pichincha', 'Quito', 'El Inca', '0987858621', 'aegt94', 'holaMundo')
+GO
+INSERT INTO tblPaciente VALUES ('0503628109', 'Nataly Gissela', 'Bermeo', 'Ayala', '05/11/1995', 'Femenino', 
+'nataly.bermeo@epn.edu.ec', 'Pichincha', 'Quito', 'La Vicentina', '0984307012', '12345')
+GO
+USE HospitalIESS
+GO
+SELECT * FROM tblPaciente
+GO
+ALTER TABLE tblAdministrador RENAME COLUMN dirección to direccion

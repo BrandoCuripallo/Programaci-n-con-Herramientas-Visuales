@@ -93,9 +93,9 @@
             this.lblNombre.ForeColor = System.Drawing.Color.White;
             this.lblNombre.Location = new System.Drawing.Point(44, 13);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(159, 18);
+            this.lblNombre.Size = new System.Drawing.Size(155, 18);
             this.lblNombre.TabIndex = 8;
-            this.lblNombre.Text = "WILFRIDO VARGAS";
+            this.lblNombre.Text = "NOMBRE USUARIO";
             // 
             // btnMinimizar
             // 

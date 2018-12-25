@@ -11,12 +11,11 @@ namespace Login.Clases
         private string usuario;
         private string contrasenia;
         private List<CitaMedica> citas;
-
-        public Recepcionista(string usuario, string contrasenia, List<CitaMedica> citas)
+        public Recepcionista(string usuario, string contrasenia)
         {
             this.Usuario = usuario;
             this.Contrasenia = contrasenia;
-            this.Citas = citas;
+            citas = new List<CitaMedica>();
         }
 
         public string Usuario { get => usuario; set => usuario = value; }

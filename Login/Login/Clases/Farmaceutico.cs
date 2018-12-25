@@ -12,11 +12,11 @@ namespace Login.Clases
         private string contrasenia;
         private List<Factura> facturas;
 
-        public Farmaceutico(string usuario, string contrasenia, List<Factura> facturas)
+        public Farmaceutico(string usuario, string contrasenia)
         {
             this.Usuario = usuario;
             this.Contrasenia = contrasenia;
-            this.Facturas = facturas;
+            facturas = new List<Factura>();
         }
 
         public string Usuario { get => usuario; set => usuario = value; }

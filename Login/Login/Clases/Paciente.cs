@@ -13,14 +13,18 @@ namespace Login.Clases
         private List<AtencionQuirurgica> cirugias;
         private List<Factura> facturas;
         private List<Receta> recetas;
-
-        public Paciente(string contraseniaPaciente, List<CitaMedica> citas, List<AtencionQuirurgica> cirugias, List<Factura> facturas, List<Receta> recetas)
+        public Paciente()
         {
+
+        }
+        public Paciente(string cedula, string contraseniaPaciente)
+        {
+            Cedula = cedula;
             this.ContraseniaPaciente = contraseniaPaciente;
-            this.Citas = citas;
-            this.Cirugias = cirugias;
-            this.Facturas = facturas;
-            this.Recetas = recetas;
+            this.Citas = new List<CitaMedica>();
+            this.Cirugias = new List<AtencionQuirurgica>();
+            this.Facturas = new List<Factura>();
+            this.Recetas = new List<Receta>();
         }
 
         public string ContraseniaPaciente { get => contraseniaPaciente; set => contraseniaPaciente = value; }
