@@ -41,7 +41,7 @@
             this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.cbxModo = new System.Windows.Forms.ComboBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
@@ -123,7 +123,7 @@
             this.pnlLogin.Controls.Add(this.txtContrasenia);
             this.pnlLogin.Controls.Add(this.txtUsuario);
             this.pnlLogin.Controls.Add(this.label3);
-            this.pnlLogin.Controls.Add(this.label2);
+            this.pnlLogin.Controls.Add(this.lblUsuario);
             this.pnlLogin.Controls.Add(this.cbxModo);
             this.pnlLogin.Controls.Add(this.label1);
             this.pnlLogin.Controls.Add(this.shapeContainer1);
@@ -207,16 +207,16 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "PASSWORD";
             // 
-            // label2
+            // lblUsuario
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bell MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label2.Location = new System.Drawing.Point(104, 75);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 24);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "USUARIO";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Bell MT", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblUsuario.Location = new System.Drawing.Point(104, 75);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(96, 24);
+            this.lblUsuario.TabIndex = 9;
+            this.lblUsuario.Text = "USUARIO";
             // 
             // cbxModo
             // 
@@ -226,11 +226,13 @@
             "ADMINISTRADOR",
             "DOCTOR",
             "RECEPCIONISTA",
-            "FARMACEÚTICO"});
+            "FARMACEÚTICO",
+            "PACIENTE"});
             this.cbxModo.Location = new System.Drawing.Point(50, 46);
             this.cbxModo.Name = "cbxModo";
             this.cbxModo.Size = new System.Drawing.Size(199, 21);
             this.cbxModo.TabIndex = 1;
+            this.cbxModo.SelectedIndexChanged += new System.EventHandler(this.cbxModo_SelectedIndexChanged);
             // 
             // shapeContainer1
             // 
@@ -295,7 +297,7 @@
         private System.Windows.Forms.TextBox txtContrasenia;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ComboBox cbxModo;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;

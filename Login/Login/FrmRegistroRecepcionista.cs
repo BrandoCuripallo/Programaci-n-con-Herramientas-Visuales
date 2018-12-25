@@ -16,5 +16,11 @@ namespace Login
         {
             InitializeComponent();
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmIngresarRecepcionista frmIngresarRecepcionista = new FrmIngresarRecepcionista();
+            frmIngresarRecepcionista.Show();
+        }
     }
 }

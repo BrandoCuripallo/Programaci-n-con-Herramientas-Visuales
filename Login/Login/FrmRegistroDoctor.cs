@@ -16,5 +16,12 @@ namespace Login
         {
             InitializeComponent();
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmIngresarDoctor frmIngresarDoctor = new FrmIngresarDoctor();
+            frmIngresarDoctor.Show();
+        }
+
     }
 }

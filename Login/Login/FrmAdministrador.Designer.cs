@@ -48,18 +48,21 @@
             this.btnFacturacion = new System.Windows.Forms.Button();
             this.btnMedicamentos = new System.Windows.Forms.Button();
             this.btnFarmaceuticos = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.pnlPacientes = new System.Windows.Forms.Panel();
+            this.btnOperaciones = new System.Windows.Forms.Button();
             this.btnRegistros = new System.Windows.Forms.Button();
             this.btnRecetasMedicas = new System.Windows.Forms.Button();
             this.btnCitas = new System.Windows.Forms.Button();
             this.btnHistoriasClinicas = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.btnLogista = new System.Windows.Forms.Button();
             this.btnFarmacia = new System.Windows.Forms.Button();
             this.btnPacientes = new System.Windows.Forms.Button();
-            this.pnlContenedor = new System.Windows.Forms.Panel();
             this.tmrFecha = new System.Windows.Forms.Timer(this.components);
+            this.tmrMostrar = new System.Windows.Forms.Timer(this.components);
+            this.tmrOcultar = new System.Windows.Forms.Timer(this.components);
+            this.pnlContenedor = new System.Windows.Forms.Panel();
             this.pnlBarra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPie.SuspendLayout();
@@ -90,9 +93,9 @@
             this.lblNombre.ForeColor = System.Drawing.Color.White;
             this.lblNombre.Location = new System.Drawing.Point(44, 13);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(159, 18);
+            this.lblNombre.Size = new System.Drawing.Size(155, 18);
             this.lblNombre.TabIndex = 8;
-            this.lblNombre.Text = "WILFRIDO VARGAS";
+            this.lblNombre.Text = "NOMBRE USUARIO";
             // 
             // btnMinimizar
             // 
@@ -141,7 +144,7 @@
             this.pnlPie.Controls.Add(this.lblFecha);
             this.pnlPie.Controls.Add(this.lblHora);
             this.pnlPie.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlPie.Location = new System.Drawing.Point(0, 476);
+            this.pnlPie.Location = new System.Drawing.Point(0, 519);
             this.pnlPie.Name = "pnlPie";
             this.pnlPie.Size = new System.Drawing.Size(844, 34);
             this.pnlPie.TabIndex = 2;
@@ -175,16 +178,16 @@
             this.pnlMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMenu.Controls.Add(this.pnlLogistica);
             this.pnlMenu.Controls.Add(this.pnlFarmacia);
-            this.pnlMenu.Controls.Add(this.pnlPacientes);
             this.pnlMenu.Controls.Add(this.btnMenu);
             this.pnlMenu.Controls.Add(this.btnSalir);
+            this.pnlMenu.Controls.Add(this.pnlPacientes);
             this.pnlMenu.Controls.Add(this.btnLogista);
             this.pnlMenu.Controls.Add(this.btnFarmacia);
             this.pnlMenu.Controls.Add(this.btnPacientes);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenu.Location = new System.Drawing.Point(0, 43);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(50, 433);
+            this.pnlMenu.Size = new System.Drawing.Size(50, 476);
             this.pnlMenu.TabIndex = 3;
             // 
             // pnlLogistica
@@ -217,6 +220,7 @@
             this.btnRecepcionistas.Text = "Recepcionistas";
             this.btnRecepcionistas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRecepcionistas.UseVisualStyleBackColor = true;
+            this.btnRecepcionistas.Click += new System.EventHandler(this.btnRecepcionistas_Click);
             // 
             // btnCirugias
             // 
@@ -235,6 +239,7 @@
             this.btnCirugias.Text = "Cirugias";
             this.btnCirugias.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCirugias.UseVisualStyleBackColor = true;
+            this.btnCirugias.Click += new System.EventHandler(this.btnCirugias_Click);
             // 
             // btnEspecialidades
             // 
@@ -253,6 +258,7 @@
             this.btnEspecialidades.Text = "Especialidades";
             this.btnEspecialidades.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEspecialidades.UseVisualStyleBackColor = true;
+            this.btnEspecialidades.Click += new System.EventHandler(this.btnEspecialidades_Click);
             // 
             // btnMedicos
             // 
@@ -271,6 +277,7 @@
             this.btnMedicos.Text = "Medicos";
             this.btnMedicos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMedicos.UseVisualStyleBackColor = true;
+            this.btnMedicos.Click += new System.EventHandler(this.btnMedicos_Click);
             // 
             // pnlFarmacia
             // 
@@ -301,6 +308,7 @@
             this.btnFacturacion.Text = "Facturacion";
             this.btnFacturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFacturacion.UseVisualStyleBackColor = true;
+            this.btnFacturacion.Click += new System.EventHandler(this.btnFacturacion_Click);
             // 
             // btnMedicamentos
             // 
@@ -319,6 +327,7 @@
             this.btnMedicamentos.Text = "Medicamentos";
             this.btnMedicamentos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnMedicamentos.UseVisualStyleBackColor = true;
+            this.btnMedicamentos.Click += new System.EventHandler(this.btnMedicamentos_Click);
             // 
             // btnFarmaceuticos
             // 
@@ -337,91 +346,7 @@
             this.btnFarmaceuticos.Text = "Farmaceuticos";
             this.btnFarmaceuticos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFarmaceuticos.UseVisualStyleBackColor = true;
-            // 
-            // pnlPacientes
-            // 
-            this.pnlPacientes.BackColor = System.Drawing.Color.Teal;
-            this.pnlPacientes.Controls.Add(this.btnRegistros);
-            this.pnlPacientes.Controls.Add(this.btnRecetasMedicas);
-            this.pnlPacientes.Controls.Add(this.btnCitas);
-            this.pnlPacientes.Controls.Add(this.btnHistoriasClinicas);
-            this.pnlPacientes.Location = new System.Drawing.Point(0, 99);
-            this.pnlPacientes.Name = "pnlPacientes";
-            this.pnlPacientes.Size = new System.Drawing.Size(167, 167);
-            this.pnlPacientes.TabIndex = 8;
-            this.pnlPacientes.Visible = false;
-            // 
-            // btnRegistros
-            // 
-            this.btnRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistros.FlatAppearance.BorderSize = 0;
-            this.btnRegistros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnRegistros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistros.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistros.ForeColor = System.Drawing.Color.Snow;
-            this.btnRegistros.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistros.Image")));
-            this.btnRegistros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistros.Location = new System.Drawing.Point(0, 0);
-            this.btnRegistros.Name = "btnRegistros";
-            this.btnRegistros.Size = new System.Drawing.Size(167, 43);
-            this.btnRegistros.TabIndex = 7;
-            this.btnRegistros.Text = "Registros";
-            this.btnRegistros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistros.UseVisualStyleBackColor = true;
-            // 
-            // btnRecetasMedicas
-            // 
-            this.btnRecetasMedicas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRecetasMedicas.FlatAppearance.BorderSize = 0;
-            this.btnRecetasMedicas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnRecetasMedicas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecetasMedicas.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRecetasMedicas.ForeColor = System.Drawing.Color.Snow;
-            this.btnRecetasMedicas.Image = ((System.Drawing.Image)(resources.GetObject("btnRecetasMedicas.Image")));
-            this.btnRecetasMedicas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecetasMedicas.Location = new System.Drawing.Point(0, 124);
-            this.btnRecetasMedicas.Name = "btnRecetasMedicas";
-            this.btnRecetasMedicas.Size = new System.Drawing.Size(167, 43);
-            this.btnRecetasMedicas.TabIndex = 6;
-            this.btnRecetasMedicas.Text = "Recetas";
-            this.btnRecetasMedicas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRecetasMedicas.UseVisualStyleBackColor = true;
-            // 
-            // btnCitas
-            // 
-            this.btnCitas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCitas.FlatAppearance.BorderSize = 0;
-            this.btnCitas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnCitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCitas.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCitas.ForeColor = System.Drawing.Color.Snow;
-            this.btnCitas.Image = ((System.Drawing.Image)(resources.GetObject("btnCitas.Image")));
-            this.btnCitas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCitas.Location = new System.Drawing.Point(0, 86);
-            this.btnCitas.Name = "btnCitas";
-            this.btnCitas.Size = new System.Drawing.Size(167, 43);
-            this.btnCitas.TabIndex = 5;
-            this.btnCitas.Text = "Citas";
-            this.btnCitas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCitas.UseVisualStyleBackColor = true;
-            // 
-            // btnHistoriasClinicas
-            // 
-            this.btnHistoriasClinicas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHistoriasClinicas.FlatAppearance.BorderSize = 0;
-            this.btnHistoriasClinicas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnHistoriasClinicas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistoriasClinicas.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistoriasClinicas.ForeColor = System.Drawing.Color.Snow;
-            this.btnHistoriasClinicas.Image = ((System.Drawing.Image)(resources.GetObject("btnHistoriasClinicas.Image")));
-            this.btnHistoriasClinicas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistoriasClinicas.Location = new System.Drawing.Point(0, 43);
-            this.btnHistoriasClinicas.Name = "btnHistoriasClinicas";
-            this.btnHistoriasClinicas.Size = new System.Drawing.Size(167, 43);
-            this.btnHistoriasClinicas.TabIndex = 4;
-            this.btnHistoriasClinicas.Text = "Historia Clinica";
-            this.btnHistoriasClinicas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnHistoriasClinicas.UseVisualStyleBackColor = true;
+            this.btnFarmaceuticos.Click += new System.EventHandler(this.btnFarmaceuticos_Click);
             // 
             // btnMenu
             // 
@@ -454,6 +379,116 @@
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // pnlPacientes
+            // 
+            this.pnlPacientes.BackColor = System.Drawing.Color.Teal;
+            this.pnlPacientes.Controls.Add(this.btnOperaciones);
+            this.pnlPacientes.Controls.Add(this.btnRegistros);
+            this.pnlPacientes.Controls.Add(this.btnRecetasMedicas);
+            this.pnlPacientes.Controls.Add(this.btnCitas);
+            this.pnlPacientes.Controls.Add(this.btnHistoriasClinicas);
+            this.pnlPacientes.Location = new System.Drawing.Point(0, 99);
+            this.pnlPacientes.Name = "pnlPacientes";
+            this.pnlPacientes.Size = new System.Drawing.Size(167, 210);
+            this.pnlPacientes.TabIndex = 8;
+            this.pnlPacientes.Visible = false;
+            // 
+            // btnOperaciones
+            // 
+            this.btnOperaciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOperaciones.FlatAppearance.BorderSize = 0;
+            this.btnOperaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnOperaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOperaciones.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOperaciones.ForeColor = System.Drawing.Color.Snow;
+            this.btnOperaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnOperaciones.Image")));
+            this.btnOperaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOperaciones.Location = new System.Drawing.Point(0, 167);
+            this.btnOperaciones.Name = "btnOperaciones";
+            this.btnOperaciones.Size = new System.Drawing.Size(167, 43);
+            this.btnOperaciones.TabIndex = 8;
+            this.btnOperaciones.Text = "Operaciones";
+            this.btnOperaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOperaciones.UseVisualStyleBackColor = true;
+            this.btnOperaciones.Click += new System.EventHandler(this.btnOperaciones_Click);
+            // 
+            // btnRegistros
+            // 
+            this.btnRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistros.FlatAppearance.BorderSize = 0;
+            this.btnRegistros.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnRegistros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistros.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistros.ForeColor = System.Drawing.Color.Snow;
+            this.btnRegistros.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistros.Image")));
+            this.btnRegistros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistros.Location = new System.Drawing.Point(0, 0);
+            this.btnRegistros.Name = "btnRegistros";
+            this.btnRegistros.Size = new System.Drawing.Size(167, 43);
+            this.btnRegistros.TabIndex = 7;
+            this.btnRegistros.Text = "Registros";
+            this.btnRegistros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistros.UseVisualStyleBackColor = true;
+            this.btnRegistros.Click += new System.EventHandler(this.btnRegistros_Click);
+            // 
+            // btnRecetasMedicas
+            // 
+            this.btnRecetasMedicas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRecetasMedicas.FlatAppearance.BorderSize = 0;
+            this.btnRecetasMedicas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnRecetasMedicas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecetasMedicas.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecetasMedicas.ForeColor = System.Drawing.Color.Snow;
+            this.btnRecetasMedicas.Image = ((System.Drawing.Image)(resources.GetObject("btnRecetasMedicas.Image")));
+            this.btnRecetasMedicas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecetasMedicas.Location = new System.Drawing.Point(0, 124);
+            this.btnRecetasMedicas.Name = "btnRecetasMedicas";
+            this.btnRecetasMedicas.Size = new System.Drawing.Size(167, 43);
+            this.btnRecetasMedicas.TabIndex = 6;
+            this.btnRecetasMedicas.Text = "Recetas";
+            this.btnRecetasMedicas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRecetasMedicas.UseVisualStyleBackColor = true;
+            this.btnRecetasMedicas.Click += new System.EventHandler(this.btnRecetasMedicas_Click);
+            // 
+            // btnCitas
+            // 
+            this.btnCitas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCitas.FlatAppearance.BorderSize = 0;
+            this.btnCitas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnCitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCitas.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCitas.ForeColor = System.Drawing.Color.Snow;
+            this.btnCitas.Image = ((System.Drawing.Image)(resources.GetObject("btnCitas.Image")));
+            this.btnCitas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCitas.Location = new System.Drawing.Point(0, 86);
+            this.btnCitas.Name = "btnCitas";
+            this.btnCitas.Size = new System.Drawing.Size(167, 43);
+            this.btnCitas.TabIndex = 5;
+            this.btnCitas.Text = "Citas";
+            this.btnCitas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCitas.UseVisualStyleBackColor = true;
+            this.btnCitas.Click += new System.EventHandler(this.btnCitas_Click);
+            // 
+            // btnHistoriasClinicas
+            // 
+            this.btnHistoriasClinicas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistoriasClinicas.FlatAppearance.BorderSize = 0;
+            this.btnHistoriasClinicas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnHistoriasClinicas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistoriasClinicas.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistoriasClinicas.ForeColor = System.Drawing.Color.Snow;
+            this.btnHistoriasClinicas.Image = ((System.Drawing.Image)(resources.GetObject("btnHistoriasClinicas.Image")));
+            this.btnHistoriasClinicas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistoriasClinicas.Location = new System.Drawing.Point(0, 43);
+            this.btnHistoriasClinicas.Name = "btnHistoriasClinicas";
+            this.btnHistoriasClinicas.Size = new System.Drawing.Size(167, 43);
+            this.btnHistoriasClinicas.TabIndex = 4;
+            this.btnHistoriasClinicas.Text = "Historia Clinica";
+            this.btnHistoriasClinicas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHistoriasClinicas.UseVisualStyleBackColor = true;
+            this.btnHistoriasClinicas.Click += new System.EventHandler(this.btnHistoriasClinicas_Click);
             // 
             // btnLogista
             // 
@@ -512,27 +547,35 @@
             this.btnPacientes.UseVisualStyleBackColor = true;
             this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
             // 
-            // pnlContenedor
-            // 
-            this.pnlContenedor.BackColor = System.Drawing.Color.White;
-            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContenedor.Location = new System.Drawing.Point(50, 43);
-            this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(794, 433);
-            this.pnlContenedor.TabIndex = 4;
-            // 
             // tmrFecha
             // 
             this.tmrFecha.Enabled = true;
             this.tmrFecha.Interval = 1000;
             this.tmrFecha.Tick += new System.EventHandler(this.tmrFecha_Tick);
             // 
+            // tmrMostrar
+            // 
+            this.tmrMostrar.Tick += new System.EventHandler(this.tmrMostrar_Tick);
+            // 
+            // tmrOcultar
+            // 
+            this.tmrOcultar.Tick += new System.EventHandler(this.tmrOcultar_Tick);
+            // 
+            // pnlContenedor
+            // 
+            this.pnlContenedor.BackColor = System.Drawing.Color.White;
+            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContenedor.Location = new System.Drawing.Point(50, 43);
+            this.pnlContenedor.Name = "pnlContenedor";
+            this.pnlContenedor.Size = new System.Drawing.Size(794, 476);
+            this.pnlContenedor.TabIndex = 4;
+            // 
             // FrmAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(844, 510);
+            this.ClientSize = new System.Drawing.Size(844, 553);
             this.Controls.Add(this.pnlContenedor);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.pnlPie);
@@ -542,6 +585,7 @@
             this.Name = "FrmAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAdministrador";
+            this.Load += new System.EventHandler(this.FrmAdministrador_Load);
             this.pnlBarra.ResumeLayout(false);
             this.pnlBarra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -565,7 +609,6 @@
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Button btnPacientes;
         private System.Windows.Forms.Button btnMenu;
-        private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.Panel pnlLogistica;
         private System.Windows.Forms.Button btnMedicos;
         private System.Windows.Forms.Button btnLogista;
@@ -587,5 +630,9 @@
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer tmrFecha;
+        private System.Windows.Forms.Timer tmrMostrar;
+        private System.Windows.Forms.Timer tmrOcultar;
+        private System.Windows.Forms.Button btnOperaciones;
+        public System.Windows.Forms.Panel pnlContenedor;
     }
 }

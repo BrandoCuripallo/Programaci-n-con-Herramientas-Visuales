@@ -46,7 +46,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.mcdFechaNacimiento = new System.Windows.Forms.MonthCalendar();
             this.rdbMasculino = new System.Windows.Forms.RadioButton();
             this.rdbFemenino = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -82,9 +82,11 @@
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(175, 43);
+            this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(163, 20);
             this.txtCedula.TabIndex = 1;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // txtNombres
             // 
@@ -92,6 +94,7 @@
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(199, 20);
             this.txtNombres.TabIndex = 3;
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             // 
             // label2
             // 
@@ -110,6 +113,7 @@
             this.txtApellidoPaterno.Name = "txtApellidoPaterno";
             this.txtApellidoPaterno.Size = new System.Drawing.Size(199, 20);
             this.txtApellidoPaterno.TabIndex = 5;
+            this.txtApellidoPaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoPaterno_KeyPress);
             // 
             // label3
             // 
@@ -128,6 +132,7 @@
             this.txtApellidoMaterno.Name = "txtApellidoMaterno";
             this.txtApellidoMaterno.Size = new System.Drawing.Size(199, 20);
             this.txtApellidoMaterno.TabIndex = 7;
+            this.txtApellidoMaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoMaterno_KeyPress);
             // 
             // label4
             // 
@@ -144,8 +149,9 @@
             // 
             this.txtCanton.Location = new System.Drawing.Point(92, 63);
             this.txtCanton.Name = "txtCanton";
-            this.txtCanton.Size = new System.Drawing.Size(121, 20);
+            this.txtCanton.Size = new System.Drawing.Size(171, 20);
             this.txtCanton.TabIndex = 9;
+            this.txtCanton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCanton_KeyPress);
             // 
             // label5
             // 
@@ -179,9 +185,11 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(92, 123);
+            this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(100, 20);
             this.txtTelefono.TabIndex = 13;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label7
             // 
@@ -223,15 +231,16 @@
             this.label9.TabIndex = 16;
             this.label9.Text = "SEXO";
             // 
-            // monthCalendar1
+            // mcdFechaNacimiento
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(388, 29);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 18;
+            this.mcdFechaNacimiento.Location = new System.Drawing.Point(388, 29);
+            this.mcdFechaNacimiento.Name = "mcdFechaNacimiento";
+            this.mcdFechaNacimiento.TabIndex = 18;
             // 
             // rdbMasculino
             // 
             this.rdbMasculino.AutoSize = true;
+            this.rdbMasculino.Checked = true;
             this.rdbMasculino.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbMasculino.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.rdbMasculino.Location = new System.Drawing.Point(3, 25);
@@ -251,7 +260,6 @@
             this.rdbFemenino.Name = "rdbFemenino";
             this.rdbFemenino.Size = new System.Drawing.Size(88, 23);
             this.rdbFemenino.TabIndex = 20;
-            this.rdbFemenino.TabStop = true;
             this.rdbFemenino.Text = "Femenino";
             this.rdbFemenino.UseVisualStyleBackColor = true;
             // 
@@ -267,7 +275,33 @@
             // 
             // cbxProvincia
             // 
+            this.cbxProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxProvincia.FormattingEnabled = true;
+            this.cbxProvincia.Items.AddRange(new object[] {
+            "Esmeraldas",
+            "Manabí",
+            "Guayas",
+            "Los Ríos",
+            "Santa Elena",
+            "El Oro",
+            "Carchi",
+            "Imbabura",
+            "Pichincha",
+            "Santo Domingo de Los Tsáchilas",
+            "Cotopaxi",
+            "Tungurahua",
+            "Chimborazo",
+            "Bolívar",
+            "Cañar",
+            "Azuay",
+            "Loja",
+            "Sucumbíos",
+            "Napo",
+            "Orellana",
+            "Pastaza",
+            "Morona Santiago",
+            "Zamora Chinchipe",
+            "Galápagos"});
             this.cbxProvincia.Location = new System.Drawing.Point(92, 31);
             this.cbxProvincia.Name = "cbxProvincia";
             this.cbxProvincia.Size = new System.Drawing.Size(121, 21);
@@ -336,6 +370,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -351,6 +386,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // panel3
             // 
@@ -422,11 +458,13 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.mcdFechaNacimiento);
             this.Controls.Add(this.label5);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmIngresarPaciente";
-            this.Text = "FrmIngresarPaciente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Pacientes";
+            this.Load += new System.EventHandler(this.FrmIngresarPaciente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -442,27 +480,15 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtApellidoPaterno;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtApellidoMaterno;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtCanton;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.RadioButton rdbMasculino;
-        private System.Windows.Forms.RadioButton rdbFemenino;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cbxProvincia;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
@@ -473,6 +499,18 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtContrasenia;
+        public System.Windows.Forms.TextBox txtCedula;
+        public System.Windows.Forms.TextBox txtNombres;
+        public System.Windows.Forms.TextBox txtApellidoPaterno;
+        public System.Windows.Forms.TextBox txtApellidoMaterno;
+        public System.Windows.Forms.TextBox txtCanton;
+        public System.Windows.Forms.TextBox txtDireccion;
+        public System.Windows.Forms.TextBox txtTelefono;
+        public System.Windows.Forms.TextBox txtCorreo;
+        public System.Windows.Forms.MonthCalendar mcdFechaNacimiento;
+        public System.Windows.Forms.RadioButton rdbMasculino;
+        public System.Windows.Forms.RadioButton rdbFemenino;
+        public System.Windows.Forms.ComboBox cbxProvincia;
+        public System.Windows.Forms.TextBox txtContrasenia;
     }
 }

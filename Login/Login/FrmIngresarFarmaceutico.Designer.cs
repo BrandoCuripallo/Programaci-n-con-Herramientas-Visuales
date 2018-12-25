@@ -80,7 +80,7 @@
             this.panel4.Controls.Add(this.txtUsuario);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.txtContrasenia);
-            this.panel4.Location = new System.Drawing.Point(377, 204);
+            this.panel4.Location = new System.Drawing.Point(377, 304);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(259, 96);
             this.panel4.TabIndex = 54;
@@ -301,7 +301,7 @@
             this.panel2.Controls.Add(this.txtTelefono);
             this.panel2.Controls.Add(this.txtCanton);
             this.panel2.Controls.Add(this.txtDireccion);
-            this.panel2.Location = new System.Drawing.Point(2, 252);
+            this.panel2.Location = new System.Drawing.Point(48, 255);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(266, 156);
             this.panel2.TabIndex = 49;
@@ -395,7 +395,7 @@
             this.panel1.Controls.Add(this.rdbMasculino);
             this.panel1.Controls.Add(this.rdbFemenino);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(274, 252);
+            this.panel1.Location = new System.Drawing.Point(457, 210);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(97, 69);
             this.panel1.TabIndex = 48;
@@ -471,7 +471,8 @@
             this.Controls.Add(this.label5);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmIngresarFarmaceutico";
-            this.Text = "FrmIngresarFarmaceutico";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Farmaceúticos";
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

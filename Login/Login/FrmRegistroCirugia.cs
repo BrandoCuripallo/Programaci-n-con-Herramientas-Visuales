@@ -16,5 +16,16 @@ namespace Login
         {
             InitializeComponent();
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmIngresarCirugia frmIngresarCirugia = new FrmIngresarCirugia();
+            frmIngresarCirugia.Show();
+        }
+
+        private void FrmRegistroCirugia_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
