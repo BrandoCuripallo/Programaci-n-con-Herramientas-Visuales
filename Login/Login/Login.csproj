@@ -147,6 +147,7 @@
     <Compile Include="FrmRegistroEspecialidad.Designer.cs">
       <DependentUpon>FrmRegistroEspecialidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="Paciente.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
