@@ -138,18 +138,24 @@ namespace Login
         private void btnFarmaceuticos_Click(object sender, EventArgs e)
         {
             FrmRegistroFarmaceutico frmRegistroFarmaceutico = new FrmRegistroFarmaceutico();
+            frmRegistroFarmaceutico.llenarDataGridView();
+            frmRegistroFarmaceutico.asignarAdministrador(this.administrador);
             abrirFormHijo(frmRegistroFarmaceutico);
         }
 
         private void btnCirugias_Click(object sender, EventArgs e)
         {
             FrmRegistroCirugia frmRegistroCirugia = new FrmRegistroCirugia();
+            frmRegistroCirugia.asignarAdministrador(this.administrador);
+            frmRegistroCirugia.llenarDataGridView();
             abrirFormHijo(frmRegistroCirugia);
         }
 
         private void btnEspecialidades_Click(object sender, EventArgs e)
         {
             FrmRegistroEspecialidad frmRegistroEspecialidad = new FrmRegistroEspecialidad();
+            frmRegistroEspecialidad.llenarDataGridView();
+            frmRegistroEspecialidad.asignarAdministrador(this.administrador);
             abrirFormHijo(frmRegistroEspecialidad);
         }
 
@@ -162,6 +168,9 @@ namespace Login
         private void btnMedicos_Click(object sender, EventArgs e)
         {
             FrmRegistroDoctor frmRegistroDoctor = new FrmRegistroDoctor();
+            frmRegistroDoctor.llenarDataGridView();
+            frmRegistroDoctor.asignarAdministrador(this.administrador);
+            frmRegistroDoctor.llenarEspecialidades();
             abrirFormHijo(frmRegistroDoctor);
         }
 

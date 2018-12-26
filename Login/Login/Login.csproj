@@ -123,23 +123,11 @@
     <Compile Include="FrmRegistroHistoriaClinica.Designer.cs">
       <DependentUpon>FrmRegistroHistoriaClinica.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmIngresarCirugia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmIngresarCirugia.Designer.cs">
-      <DependentUpon>FrmIngresarCirugia.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmIngresarDoctor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmIngresarDoctor.Designer.cs">
       <DependentUpon>FrmIngresarDoctor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmIngresarEspecialidad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmIngresarEspecialidad.Designer.cs">
-      <DependentUpon>FrmIngresarEspecialidad.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmIngresarFarmaceutico.cs">
       <SubType>Form</SubType>
@@ -260,14 +248,8 @@
     <EmbeddedResource Include="FrmRegistroHistoriaClinica.resx">
       <DependentUpon>FrmRegistroHistoriaClinica.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmIngresarCirugia.resx">
-      <DependentUpon>FrmIngresarCirugia.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresarDoctor.resx">
       <DependentUpon>FrmIngresarDoctor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmIngresarEspecialidad.resx">
-      <DependentUpon>FrmIngresarEspecialidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngresarFarmaceutico.resx">
       <DependentUpon>FrmIngresarFarmaceutico.cs</DependentUpon>

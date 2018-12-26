@@ -158,7 +158,7 @@ namespace Login
                                                                     limpiarTextos();
                                                                 }
                                                                 else
-                                                                    MessageBox.Show("El paciente ya se existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                                    MessageBox.Show("El paciente ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                             }
                                                             else
                                                             {

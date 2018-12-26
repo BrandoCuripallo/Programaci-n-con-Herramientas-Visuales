@@ -73,9 +73,10 @@ namespace Login
                 tbl.Columns.Add("Ciudad");
                 tbl.Columns.Add("Dirección");
                 tbl.Columns.Add("Teléfono");
-                foreach(var aux in pacientes)
+                tbl.Columns.Add("Contraseñia");
+                foreach (var aux in pacientes)
                 {
-                    tbl.Rows.Add(aux.Cedula, aux.Nombres, aux.ApellidoPaterno, aux.ApellidoMaterno, aux.getFechaNacimiento(), aux.Edad, aux.Sexo, aux.CorreoElectronico, aux.Provincia, aux.Canton, aux.Direccion, aux.Telefono);
+                    tbl.Rows.Add(aux.Cedula, aux.Nombres, aux.ApellidoPaterno, aux.ApellidoMaterno, aux.getFechaNacimiento(), aux.Edad, aux.Sexo, aux.CorreoElectronico, aux.Provincia, aux.Canton, aux.Direccion, aux.Telefono, aux.ContraseniaPaciente);
                 }
                 dgvPacientes.DataSource = tbl;
             }
@@ -132,7 +133,7 @@ namespace Login
                 if (administrador.eliminarPaciente(paciente.Cedula))
                     MessageBox.Show("Paciente eliminado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
-                    MessageBox.Show("El paciente no se puedo eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El paciente no se pudo eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

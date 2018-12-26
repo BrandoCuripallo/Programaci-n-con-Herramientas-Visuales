@@ -10,7 +10,10 @@ namespace Login.Clases
     {
         private int idCirugia;
         private string nombreCirugia;
+        public Cirugia()
+        {
 
+        }
         public Cirugia(int idCirugia, string nombreCirugia)
         {
             this.IdCirugia = idCirugia;

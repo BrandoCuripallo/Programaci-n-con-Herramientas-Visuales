@@ -11,7 +11,10 @@ namespace Login.Clases
         private string usuario;
         private string contrasenia;
         private List<Factura> facturas;
+        public Farmaceutico()
+        {
 
+        }
         public Farmaceutico(string usuario, string contrasenia)
         {
             this.Usuario = usuario;

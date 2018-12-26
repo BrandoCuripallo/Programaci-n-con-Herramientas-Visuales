@@ -14,6 +14,10 @@ namespace Login.Clases
         private List<CitaMedica> citas;
         private List<Atencion> atenciones;
         private List<AtencionQuirurgica> cirugias;
+        public Doctor()
+        {
+
+        }
         public Doctor(string usuario, string contrasenia)
         {
             this.usuarioDoctor = usuario;
