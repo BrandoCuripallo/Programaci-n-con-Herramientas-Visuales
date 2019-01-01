@@ -11,7 +11,10 @@ namespace Login.Clases
         private int numeroHistoria;
         private Paciente paciente;
         private List<Atencion> atenciones;
+        public HistoriaClinica()
+        {
 
+        }
         public HistoriaClinica(int numeroHistoria, Paciente paciente, List<Atencion> atenciones)
         {
             this.NumeroHistoria = numeroHistoria;

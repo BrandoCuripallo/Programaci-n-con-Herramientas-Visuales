@@ -102,38 +102,52 @@ namespace Login
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            paciente = administrador.buscarPaciente(paciente.Cedula);
-            FrmIngresarPaciente frmIngresarPaciente = new FrmIngresarPaciente();
-            frmIngresarPaciente.cedula = paciente.Cedula;
-            frmIngresarPaciente.asignarAdministrador(this.administrador);
-            frmIngresarPaciente.editar = true;
-            frmIngresarPaciente.txtCedula.Text = paciente.Cedula;
-            frmIngresarPaciente.txtNombres.Text = paciente.Nombres;
-            frmIngresarPaciente.txtApellidoPaterno.Text = paciente.ApellidoPaterno;
-            frmIngresarPaciente.txtApellidoMaterno.Text = paciente.ApellidoMaterno;
-            frmIngresarPaciente.txtCorreo.Text = paciente.CorreoElectronico;
-            frmIngresarPaciente.cbxProvincia.Text = paciente.Provincia;
-            frmIngresarPaciente.txtCanton.Text = paciente.Canton;
-            frmIngresarPaciente.txtDireccion.Text = paciente.Direccion;
-            frmIngresarPaciente.txtTelefono.Text = paciente.Telefono;
-            frmIngresarPaciente.txtContrasenia.Text = paciente.ContraseniaPaciente;
-            frmIngresarPaciente.mcdFechaNacimiento.SetDate(Convert.ToDateTime(paciente.getFechaNacimiento()));
-            if (paciente.Sexo == "Masculino")
-                frmIngresarPaciente.rdbMasculino.Checked = true;
-            else
-                frmIngresarPaciente.rdbFemenino.Checked = true;
-            frmIngresarPaciente.Show();
+            try
+            {
+                paciente = administrador.buscarPaciente(paciente.Cedula);
+                FrmIngresarPaciente frmIngresarPaciente = new FrmIngresarPaciente();
+                frmIngresarPaciente.cedula = paciente.Cedula;
+                frmIngresarPaciente.asignarAdministrador(this.administrador);
+                frmIngresarPaciente.editar = true;
+                frmIngresarPaciente.txtCedula.Text = paciente.Cedula;
+                frmIngresarPaciente.txtNombres.Text = paciente.Nombres;
+                frmIngresarPaciente.txtApellidoPaterno.Text = paciente.ApellidoPaterno;
+                frmIngresarPaciente.txtApellidoMaterno.Text = paciente.ApellidoMaterno;
+                frmIngresarPaciente.txtCorreo.Text = paciente.CorreoElectronico;
+                frmIngresarPaciente.cbxProvincia.Text = paciente.Provincia;
+                frmIngresarPaciente.txtCanton.Text = paciente.Canton;
+                frmIngresarPaciente.txtDireccion.Text = paciente.Direccion;
+                frmIngresarPaciente.txtTelefono.Text = paciente.Telefono;
+                frmIngresarPaciente.txtContrasenia.Text = paciente.ContraseniaPaciente;
+                frmIngresarPaciente.mcdFechaNacimiento.SetDate(Convert.ToDateTime(paciente.getFechaNacimiento()));
+                if (paciente.Sexo == "Masculino")
+                    frmIngresarPaciente.rdbMasculino.Checked = true;
+                else
+                    frmIngresarPaciente.rdbFemenino.Checked = true;
+                frmIngresarPaciente.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione un registro para modificar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("¿Está seguro en eliminar el paciente?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultado == DialogResult.Yes)
+            try
             {
-                if (administrador.eliminarPaciente(paciente.Cedula))
-                    MessageBox.Show("Paciente eliminado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("El paciente no se pudo eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult resultado = MessageBox.Show("Al eliminar el paciente se eliminará junto con su historial.\n¿Está seguro en eliminar el paciente?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    if (administrador.eliminarPaciente(paciente.Cedula))
+                        MessageBox.Show("Paciente eliminado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("El paciente no se pudo eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione un registro para eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

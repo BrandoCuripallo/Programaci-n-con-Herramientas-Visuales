@@ -162,6 +162,8 @@ namespace Login
         private void btnMedicamentos_Click(object sender, EventArgs e)
         {
             FrmRegistroMedicamento frmRegistroMedicamento = new FrmRegistroMedicamento();
+            frmRegistroMedicamento.asignarAdministrador(this.administrador);
+            frmRegistroMedicamento.llenarDataGridView();
             abrirFormHijo(frmRegistroMedicamento);
         }
 
@@ -177,11 +179,14 @@ namespace Login
         private void btnRecepcionistas_Click(object sender, EventArgs e)
         {
             FrmRegistroRecepcionista frmRegistroRecepcionista = new FrmRegistroRecepcionista();
+            frmRegistroRecepcionista.llenarDataGridView();
+            frmRegistroRecepcionista.asignarAdministrador(this.administrador);
             abrirFormHijo(frmRegistroRecepcionista);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Usted acaba de salir del sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();
             this.Close();
@@ -197,29 +202,46 @@ namespace Login
         private void btnCitas_Click(object sender, EventArgs e)
         {
             FrmRegistroCita frmRegistroCita = new FrmRegistroCita();
+            frmRegistroCita.asignarAdministrador(this.administrador);
+            frmRegistroCita.llenarEspecialidades();
+            frmRegistroCita.llenarDoctores();
+            frmRegistroCita.llenarDataGridView();
             abrirFormHijo(frmRegistroCita);
         }
 
         private void btnRecetasMedicas_Click(object sender, EventArgs e)
         {
             FrmRegistroReceta frmRegistroReceta = new FrmRegistroReceta();
+            frmRegistroReceta.asignarAdministrador(this.administrador);
+            frmRegistroReceta.llenarMedicamentos();
+            frmRegistroReceta.llenarDataGridView();
             abrirFormHijo(frmRegistroReceta);
         }
 
         private void btnFacturacion_Click(object sender, EventArgs e)
         {
             FrmRegistroFactura frmRegistroFactura = new FrmRegistroFactura();
+            frmRegistroFactura.asignarAdministrador(this.administrador);
+            frmRegistroFactura.llenarMedicamentos();
+            frmRegistroFactura.llenarDataGridView();
             abrirFormHijo(frmRegistroFactura);
         }
 
         private void btnHistoriasClinicas_Click(object sender, EventArgs e)
         {
             FrmRegistroHistoriaClinica frmHistoriaClinica = new FrmRegistroHistoriaClinica();
+            frmHistoriaClinica.asignarAdministrador(this.administrador);
+            frmHistoriaClinica.llenarHistoriasClinicas();
+            frmHistoriaClinica.llenarDataGridView();
             abrirFormHijo(frmHistoriaClinica);
         }
         private void btnOperaciones_Click(object sender, EventArgs e)
         {
             FrmAtencionQuirurgica frmAtencionQuirurgica = new FrmAtencionQuirurgica();
+            frmAtencionQuirurgica.asignarAdministrador(this.administrador);
+            frmAtencionQuirurgica.llenarCirugias();
+            frmAtencionQuirurgica.llenarDoctores();
+            frmAtencionQuirurgica.llenarDataGridView();
             abrirFormHijo(frmAtencionQuirurgica);
         }
         private void tmrMostrar_Tick(object sender, EventArgs e)

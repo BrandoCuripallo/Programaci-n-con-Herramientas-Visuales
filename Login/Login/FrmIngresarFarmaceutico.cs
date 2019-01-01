@@ -63,9 +63,9 @@ namespace Login
 
         private void txtApellidoPaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if ((char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) || (e.KeyChar == (char)Keys.Space))
             {
-                MessageBox.Show("Solo se permiten letras", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permiten letras y un solo apellido", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -73,9 +73,9 @@ namespace Login
 
         private void txtApellidoMaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if ((char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) || (e.KeyChar == (char)Keys.Space))
             {
-                MessageBox.Show("Solo se permiten letras", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permiten letras y un solo apellido", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -136,51 +136,55 @@ namespace Login
                                                     {
                                                         if (validarEmail(txtCorreo.Text))
                                                         {
-                                                            try
+                                                            DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                                            if (resultado == DialogResult.Yes)
                                                             {
-                                                                farmaceutico = new Farmaceutico();
-                                                                farmaceutico.Cedula = txtCedula.Text;
-                                                                farmaceutico.Nombres = txtNombres.Text;
-                                                                farmaceutico.ApellidoPaterno = txtApellidoPaterno.Text;
-                                                                farmaceutico.ApellidoMaterno = txtApellidoMaterno.Text;
-                                                                farmaceutico.setFechaNacimiento(mcdFechaNacimiento.SelectionRange.Start.Date);
-                                                                farmaceutico.calcularEdad();
-                                                                if (rdbMasculino.Checked)
-                                                                    farmaceutico.Sexo = rdbMasculino.Text;
-                                                                else
-                                                                    farmaceutico.Sexo = rdbFemenino.Text;
-                                                                farmaceutico.CorreoElectronico = txtCorreo.Text;
-                                                                farmaceutico.Provincia = cbxProvincia.Text;
-                                                                farmaceutico.Canton = txtCanton.Text;
-                                                                farmaceutico.Direccion = txtDireccion.Text;
-                                                                farmaceutico.Telefono = txtTelefono.Text;
-                                                                farmaceutico.Usuario = txtUsuario.Text;
-                                                                farmaceutico.Contrasenia = txtContrasenia.Text;
-                                                                if (editar)
+                                                                try
                                                                 {
-                                                                    if (administrador.modificarFarmaceutico(farmaceutico, cedula))
+                                                                    farmaceutico = new Farmaceutico();
+                                                                    farmaceutico.Cedula = txtCedula.Text;
+                                                                    farmaceutico.Nombres = txtNombres.Text;
+                                                                    farmaceutico.ApellidoPaterno = txtApellidoPaterno.Text;
+                                                                    farmaceutico.ApellidoMaterno = txtApellidoMaterno.Text;
+                                                                    farmaceutico.setFechaNacimiento(mcdFechaNacimiento.SelectionRange.Start.Date);
+                                                                    farmaceutico.calcularEdad();
+                                                                    if (rdbMasculino.Checked)
+                                                                        farmaceutico.Sexo = rdbMasculino.Text;
+                                                                    else
+                                                                        farmaceutico.Sexo = rdbFemenino.Text;
+                                                                    farmaceutico.CorreoElectronico = txtCorreo.Text;
+                                                                    farmaceutico.Provincia = cbxProvincia.Text;
+                                                                    farmaceutico.Canton = txtCanton.Text;
+                                                                    farmaceutico.Direccion = txtDireccion.Text;
+                                                                    farmaceutico.Telefono = txtTelefono.Text;
+                                                                    farmaceutico.Usuario = txtUsuario.Text;
+                                                                    farmaceutico.Contrasenia = txtContrasenia.Text;
+                                                                    if (editar)
                                                                     {
-                                                                        MessageBox.Show("Farmaceútico modificado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                        limpiarTextos();
+                                                                        if (administrador.modificarFarmaceutico(farmaceutico, cedula))
+                                                                        {
+                                                                            MessageBox.Show("Farmaceútico modificado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                            limpiarTextos();
+                                                                        }
+                                                                        else
+                                                                            MessageBox.Show("El farmaceútico ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                     }
                                                                     else
-                                                                        MessageBox.Show("El farmaceútico ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                }
-                                                                else
-                                                                {
-                                                                    if (administrador.ingresarFarmaceutico(farmaceutico))
                                                                     {
+                                                                        if (administrador.ingresarFarmaceutico(farmaceutico))
+                                                                        {
 
-                                                                        MessageBox.Show("Farmaceútico ingresado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                        limpiarTextos();
+                                                                            MessageBox.Show("Farmaceútico ingresado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                            limpiarTextos();
+                                                                        }
+                                                                        else
+                                                                            MessageBox.Show("El farmaceútico ya se encuentra registrado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                     }
-                                                                    else
-                                                                        MessageBox.Show("El farmaceútico ya se encuentra registrado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                 }
-                                                            }
-                                                            catch
-                                                            {
-                                                                MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                                catch
+                                                                {
+                                                                    MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                                }
                                                             }
                                                         }
                                                         else

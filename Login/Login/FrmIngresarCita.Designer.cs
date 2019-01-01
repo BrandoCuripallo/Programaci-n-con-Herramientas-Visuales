@@ -31,17 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIngresarCita));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbxProvincia = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbxProvincia = new System.Windows.Forms.ComboBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtCanton = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -62,20 +63,30 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtNumeroCita = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBuscarRecepcionista = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCedulaRecepcionista = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtApellidoPaternoRecepcionista = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtNombresRecepcionista = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(510, 218);
+            this.pictureBox1.Location = new System.Drawing.Point(507, 274);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 128);
             this.pictureBox1.TabIndex = 37;
@@ -83,6 +94,8 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnBuscar);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtCedula);
@@ -95,10 +108,24 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.txtApellidoMaterno);
-            this.panel3.Location = new System.Drawing.Point(4, 3);
+            this.panel3.Location = new System.Drawing.Point(6, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(368, 408);
             this.panel3.TabIndex = 36;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(162, 43);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(21, 21);
+            this.btnBuscar.TabIndex = 46;
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label13
             // 
@@ -125,9 +152,11 @@
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(189, 43);
+            this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(163, 20);
             this.txtCedula.TabIndex = 1;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // label2
             // 
@@ -142,19 +171,55 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.cbxProvincia);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.cbxProvincia);
             this.panel2.Controls.Add(this.txtTelefono);
             this.panel2.Controls.Add(this.txtCanton);
             this.panel2.Controls.Add(this.txtDireccion);
             this.panel2.Location = new System.Drawing.Point(13, 243);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(266, 156);
+            this.panel2.Size = new System.Drawing.Size(339, 156);
             this.panel2.TabIndex = 33;
+            // 
+            // cbxProvincia
+            // 
+            this.cbxProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxProvincia.Enabled = false;
+            this.cbxProvincia.FormattingEnabled = true;
+            this.cbxProvincia.Items.AddRange(new object[] {
+            "Esmeraldas",
+            "Manabí",
+            "Guayas",
+            "Los Ríos",
+            "Santa Elena",
+            "El Oro",
+            "Carchi",
+            "Imbabura",
+            "Pichincha",
+            "Santo Domingo de Los Tsáchilas",
+            "Cotopaxi",
+            "Tungurahua",
+            "Chimborazo",
+            "Bolívar",
+            "Cañar",
+            "Azuay",
+            "Loja",
+            "Sucumbíos",
+            "Napo",
+            "Orellana",
+            "Pastaza",
+            "Morona Santiago",
+            "Zamora Chinchipe",
+            "Galápagos"});
+            this.cbxProvincia.Location = new System.Drawing.Point(156, 31);
+            this.cbxProvincia.Name = "cbxProvincia";
+            this.cbxProvincia.Size = new System.Drawing.Size(171, 21);
+            this.cbxProvincia.TabIndex = 27;
             // 
             // label12
             // 
@@ -211,29 +276,20 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Provincia";
             // 
-            // cbxProvincia
-            // 
-            this.cbxProvincia.Enabled = false;
-            this.cbxProvincia.FormattingEnabled = true;
-            this.cbxProvincia.Location = new System.Drawing.Point(92, 31);
-            this.cbxProvincia.Name = "cbxProvincia";
-            this.cbxProvincia.Size = new System.Drawing.Size(121, 21);
-            this.cbxProvincia.TabIndex = 22;
-            // 
             // txtTelefono
             // 
             this.txtTelefono.Enabled = false;
-            this.txtTelefono.Location = new System.Drawing.Point(92, 123);
+            this.txtTelefono.Location = new System.Drawing.Point(218, 125);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(100, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(109, 20);
             this.txtTelefono.TabIndex = 13;
             // 
             // txtCanton
             // 
             this.txtCanton.Enabled = false;
-            this.txtCanton.Location = new System.Drawing.Point(92, 63);
+            this.txtCanton.Location = new System.Drawing.Point(190, 63);
             this.txtCanton.Name = "txtCanton";
-            this.txtCanton.Size = new System.Drawing.Size(121, 20);
+            this.txtCanton.Size = new System.Drawing.Size(137, 20);
             this.txtCanton.TabIndex = 9;
             // 
             // txtDireccion
@@ -241,7 +297,7 @@
             this.txtDireccion.Enabled = false;
             this.txtDireccion.Location = new System.Drawing.Point(92, 92);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(171, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(235, 20);
             this.txtDireccion.TabIndex = 11;
             // 
             // txtNombres
@@ -316,13 +372,14 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(647, 378);
+            this.btnCancelar.Location = new System.Drawing.Point(611, 434);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 33);
             this.btnCancelar.TabIndex = 35;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -331,16 +388,18 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(392, 378);
+            this.btnGuardar.Location = new System.Drawing.Point(419, 434);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(116, 33);
             this.btnGuardar.TabIndex = 34;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.dtpFechaCita);
             this.panel4.Controls.Add(this.cbxDoctor);
             this.panel4.Controls.Add(this.cbxEspecialidad);
@@ -348,13 +407,13 @@
             this.panel4.Controls.Add(this.label20);
             this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.txtNumeroCita);
-            this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.label17);
+            this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.label19);
             this.panel4.Location = new System.Drawing.Point(379, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(384, 209);
+            this.panel4.Size = new System.Drawing.Size(384, 228);
             this.panel4.TabIndex = 38;
             // 
             // dtpFechaCita
@@ -366,23 +425,27 @@
             // 
             // cbxDoctor
             // 
+            this.cbxDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDoctor.FormattingEnabled = true;
-            this.cbxDoctor.Location = new System.Drawing.Point(166, 177);
+            this.cbxDoctor.Location = new System.Drawing.Point(166, 138);
             this.cbxDoctor.Name = "cbxDoctor";
             this.cbxDoctor.Size = new System.Drawing.Size(199, 21);
             this.cbxDoctor.TabIndex = 64;
             // 
             // cbxEspecialidad
             // 
+            this.cbxEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxEspecialidad.FormattingEnabled = true;
-            this.cbxEspecialidad.Location = new System.Drawing.Point(217, 137);
+            this.cbxEspecialidad.Location = new System.Drawing.Point(217, 98);
             this.cbxEspecialidad.Name = "cbxEspecialidad";
             this.cbxEspecialidad.Size = new System.Drawing.Size(148, 21);
             this.cbxEspecialidad.TabIndex = 63;
+            this.cbxEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cbxEspecialidad_SelectedIndexChanged);
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(125, 88);
+            this.txtDescripcion.Location = new System.Drawing.Point(126, 171);
+            this.txtDescripcion.MaxLength = 100;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(240, 38);
             this.txtDescripcion.TabIndex = 62;
@@ -418,6 +481,17 @@
             this.txtNumeroCita.Size = new System.Drawing.Size(70, 20);
             this.txtNumeroCita.TabIndex = 51;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label17.Location = new System.Drawing.Point(23, 171);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(54, 19);
+            this.label17.TabIndex = 54;
+            this.label17.Text = "Motivo";
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -429,23 +503,12 @@
             this.label15.TabIndex = 52;
             this.label15.Text = "Fecha";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label17.Location = new System.Drawing.Point(22, 88);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(81, 19);
-            this.label17.TabIndex = 54;
-            this.label17.Text = "Descripción";
-            // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label18.Location = new System.Drawing.Point(22, 137);
+            this.label18.Location = new System.Drawing.Point(22, 98);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(87, 19);
             this.label18.TabIndex = 56;
@@ -456,18 +519,119 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label19.Location = new System.Drawing.Point(22, 177);
+            this.label19.Location = new System.Drawing.Point(22, 138);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(51, 19);
             this.label19.TabIndex = 58;
             this.label19.Text = "Doctor";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnBuscarRecepcionista);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.txtCedulaRecepcionista);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.txtApellidoPaternoRecepcionista);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.txtNombresRecepcionista);
+            this.panel1.Location = new System.Drawing.Point(6, 426);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(383, 148);
+            this.panel1.TabIndex = 51;
+            // 
+            // btnBuscarRecepcionista
+            // 
+            this.btnBuscarRecepcionista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarRecepcionista.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarRecepcionista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.btnBuscarRecepcionista.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarRecepcionista.Image")));
+            this.btnBuscarRecepcionista.Location = new System.Drawing.Point(177, 56);
+            this.btnBuscarRecepcionista.Name = "btnBuscarRecepcionista";
+            this.btnBuscarRecepcionista.Size = new System.Drawing.Size(21, 21);
+            this.btnBuscarRecepcionista.TabIndex = 46;
+            this.btnBuscarRecepcionista.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarRecepcionista.UseVisualStyleBackColor = true;
+            this.btnBuscarRecepcionista.Click += new System.EventHandler(this.btnBuscarRecepcionista_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label9.Location = new System.Drawing.Point(93, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(218, 19);
+            this.label9.TabIndex = 46;
+            this.label9.Text = "DATOS DEL RECEPCIONISTA";
+            // 
+            // txtCedulaRecepcionista
+            // 
+            this.txtCedulaRecepcionista.Location = new System.Drawing.Point(206, 57);
+            this.txtCedulaRecepcionista.MaxLength = 10;
+            this.txtCedulaRecepcionista.Name = "txtCedulaRecepcionista";
+            this.txtCedulaRecepcionista.Size = new System.Drawing.Size(163, 20);
+            this.txtCedulaRecepcionista.TabIndex = 26;
+            this.txtCedulaRecepcionista.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCedulaRecepcionista.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaRecepcionista_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label5.Location = new System.Drawing.Point(9, 84);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 19);
+            this.label5.TabIndex = 46;
+            this.label5.Text = "Nombres";
+            // 
+            // txtApellidoPaternoRecepcionista
+            // 
+            this.txtApellidoPaternoRecepcionista.Enabled = false;
+            this.txtApellidoPaternoRecepcionista.Location = new System.Drawing.Point(170, 115);
+            this.txtApellidoPaternoRecepcionista.Name = "txtApellidoPaternoRecepcionista";
+            this.txtApellidoPaternoRecepcionista.Size = new System.Drawing.Size(199, 20);
+            this.txtApellidoPaternoRecepcionista.TabIndex = 49;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label16.Location = new System.Drawing.Point(9, 58);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(161, 19);
+            this.label16.TabIndex = 25;
+            this.label16.Text = "Cédula del Recepcionista";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label21.Location = new System.Drawing.Point(9, 115);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(112, 19);
+            this.label21.TabIndex = 48;
+            this.label21.Text = "Apellido Paterno";
+            // 
+            // txtNombresRecepcionista
+            // 
+            this.txtNombresRecepcionista.Enabled = false;
+            this.txtNombresRecepcionista.Location = new System.Drawing.Point(170, 84);
+            this.txtNombresRecepcionista.Name = "txtNombresRecepcionista";
+            this.txtNombresRecepcionista.Size = new System.Drawing.Size(199, 20);
+            this.txtNombresRecepcionista.TabIndex = 47;
             // 
             // FrmIngresarCita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(775, 419);
+            this.ClientSize = new System.Drawing.Size(775, 589);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel3);
@@ -484,24 +648,20 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtApellidoPaterno;
-        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtApellidoMaterno;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel panel2;
@@ -510,21 +670,37 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbxProvincia;
-        private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.TextBox txtCanton;
-        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtNumeroCita;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DateTimePicker dtpFechaCita;
-        private System.Windows.Forms.ComboBox cbxDoctor;
-        private System.Windows.Forms.ComboBox cbxEspecialidad;
-        private System.Windows.Forms.RichTextBox txtDescripcion;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.TextBox txtCedulaRecepcionista;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox txtApellidoPaternoRecepcionista;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label21;
+        public System.Windows.Forms.TextBox txtNombresRecepcionista;
+        public System.Windows.Forms.ComboBox cbxProvincia;
+        public System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.TextBox txtCedula;
+        public System.Windows.Forms.TextBox txtNombres;
+        public System.Windows.Forms.TextBox txtApellidoPaterno;
+        public System.Windows.Forms.TextBox txtCorreo;
+        public System.Windows.Forms.TextBox txtApellidoMaterno;
+        public System.Windows.Forms.TextBox txtTelefono;
+        public System.Windows.Forms.TextBox txtCanton;
+        public System.Windows.Forms.TextBox txtDireccion;
+        public System.Windows.Forms.TextBox txtNumeroCita;
+        public System.Windows.Forms.DateTimePicker dtpFechaCita;
+        public System.Windows.Forms.ComboBox cbxDoctor;
+        public System.Windows.Forms.ComboBox cbxEspecialidad;
+        public System.Windows.Forms.RichTextBox txtDescripcion;
+        public System.Windows.Forms.Button btnBuscarRecepcionista;
+        public System.Windows.Forms.Button btnBuscar;
     }
 }

@@ -103,39 +103,53 @@ namespace Login
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            farmaceutico = administrador.buscarFarmaceutico(farmaceutico.Cedula);
-            FrmIngresarFarmaceutico frmIngresarFarmaceutico = new FrmIngresarFarmaceutico();
-            frmIngresarFarmaceutico.cedula = farmaceutico.Cedula;
-            frmIngresarFarmaceutico.asignarAdministrador(this.administrador);
-            frmIngresarFarmaceutico.editar = true;
-            frmIngresarFarmaceutico.txtCedula.Text = farmaceutico.Cedula;
-            frmIngresarFarmaceutico.txtNombres.Text = farmaceutico.Nombres;
-            frmIngresarFarmaceutico.txtApellidoPaterno.Text = farmaceutico.ApellidoPaterno;
-            frmIngresarFarmaceutico.txtApellidoMaterno.Text = farmaceutico.ApellidoMaterno;
-            frmIngresarFarmaceutico.txtCorreo.Text = farmaceutico.CorreoElectronico;
-            frmIngresarFarmaceutico.cbxProvincia.Text = farmaceutico.Provincia;
-            frmIngresarFarmaceutico.txtCanton.Text = farmaceutico.Canton;
-            frmIngresarFarmaceutico.txtDireccion.Text = farmaceutico.Direccion;
-            frmIngresarFarmaceutico.txtTelefono.Text = farmaceutico.Telefono;
-            frmIngresarFarmaceutico.mcdFechaNacimiento.SetDate(Convert.ToDateTime(farmaceutico.getFechaNacimiento()));
-            frmIngresarFarmaceutico.txtUsuario.Text = farmaceutico.Usuario;
-            frmIngresarFarmaceutico.txtContrasenia.Text = farmaceutico.Contrasenia;
-            if (farmaceutico.Sexo == "Masculino")
-                frmIngresarFarmaceutico.rdbMasculino.Checked = true;
-            else
-                frmIngresarFarmaceutico.rdbFemenino.Checked = true;
-            frmIngresarFarmaceutico.Show();
+            try
+            {
+                farmaceutico = administrador.buscarFarmaceutico(farmaceutico.Cedula);
+                FrmIngresarFarmaceutico frmIngresarFarmaceutico = new FrmIngresarFarmaceutico();
+                frmIngresarFarmaceutico.cedula = farmaceutico.Cedula;
+                frmIngresarFarmaceutico.asignarAdministrador(this.administrador);
+                frmIngresarFarmaceutico.editar = true;
+                frmIngresarFarmaceutico.txtCedula.Text = farmaceutico.Cedula;
+                frmIngresarFarmaceutico.txtNombres.Text = farmaceutico.Nombres;
+                frmIngresarFarmaceutico.txtApellidoPaterno.Text = farmaceutico.ApellidoPaterno;
+                frmIngresarFarmaceutico.txtApellidoMaterno.Text = farmaceutico.ApellidoMaterno;
+                frmIngresarFarmaceutico.txtCorreo.Text = farmaceutico.CorreoElectronico;
+                frmIngresarFarmaceutico.cbxProvincia.Text = farmaceutico.Provincia;
+                frmIngresarFarmaceutico.txtCanton.Text = farmaceutico.Canton;
+                frmIngresarFarmaceutico.txtDireccion.Text = farmaceutico.Direccion;
+                frmIngresarFarmaceutico.txtTelefono.Text = farmaceutico.Telefono;
+                frmIngresarFarmaceutico.mcdFechaNacimiento.SetDate(Convert.ToDateTime(farmaceutico.getFechaNacimiento()));
+                frmIngresarFarmaceutico.txtUsuario.Text = farmaceutico.Usuario;
+                frmIngresarFarmaceutico.txtContrasenia.Text = farmaceutico.Contrasenia;
+                if (farmaceutico.Sexo == "Masculino")
+                    frmIngresarFarmaceutico.rdbMasculino.Checked = true;
+                else
+                    frmIngresarFarmaceutico.rdbFemenino.Checked = true;
+                frmIngresarFarmaceutico.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione un registro para modificar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("¿Está seguro en eliminar el farmaceútico?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultado == DialogResult.Yes)
+            try
             {
-                if (administrador.eliminarFarmaceutico(farmaceutico.Cedula))
-                    MessageBox.Show("Farmaceútico eliminado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("El farmaceútico no se pudo eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult resultado = MessageBox.Show("¿Está seguro en eliminar el farmaceútico?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    if (administrador.eliminarFarmaceutico(farmaceutico.Cedula))
+                        MessageBox.Show("Farmaceútico eliminado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("El farmaceútico no se pudo eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione un registro para eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

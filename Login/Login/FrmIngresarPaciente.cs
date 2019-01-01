@@ -59,9 +59,9 @@ namespace Login
 
         private void txtApellidoPaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if ((char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) || (e.KeyChar == (char)Keys.Space))
             {
-                MessageBox.Show("Solo se permiten letras", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permiten letras y un solo apellido", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -69,9 +69,9 @@ namespace Login
 
         private void txtApellidoMaterno_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if ((char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) || (e.KeyChar == (char)Keys.Space))
             {
-                MessageBox.Show("Solo se permiten letras", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Solo se permiten letras y un solo apellido", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -131,50 +131,55 @@ namespace Login
                                                 {
                                                     if (validarEmail(txtCorreo.Text))
                                                     {
-                                                        try
+                                                        DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                                        if (resultado == DialogResult.Yes)
                                                         {
-                                                            paciente = new Paciente();
-                                                            paciente.Cedula = txtCedula.Text;
-                                                            paciente.Nombres = txtNombres.Text;
-                                                            paciente.ApellidoPaterno = txtApellidoPaterno.Text;
-                                                            paciente.ApellidoMaterno = txtApellidoMaterno.Text;
-                                                            paciente.setFechaNacimiento(mcdFechaNacimiento.SelectionRange.Start.Date);
-                                                            paciente.calcularEdad();
-                                                            if (rdbMasculino.Checked)
-                                                                paciente.Sexo = rdbMasculino.Text;
-                                                            else
-                                                                paciente.Sexo = rdbFemenino.Text;
-                                                            paciente.CorreoElectronico = txtCorreo.Text;
-                                                            paciente.Provincia = cbxProvincia.Text;
-                                                            paciente.Canton = txtCanton.Text;
-                                                            paciente.Direccion = txtDireccion.Text;
-                                                            paciente.Telefono = txtTelefono.Text;
-                                                            paciente.ContraseniaPaciente = txtContrasenia.Text;
-                                                            if (editar)
+                                                            try
                                                             {
-                                                                if (administrador.modificarPaciente(paciente, cedula))
+                                                                paciente = new Paciente();
+                                                                paciente.Cedula = txtCedula.Text;
+                                                                paciente.Nombres = txtNombres.Text;
+                                                                paciente.ApellidoPaterno = txtApellidoPaterno.Text;
+                                                                paciente.ApellidoMaterno = txtApellidoMaterno.Text;
+                                                                paciente.setFechaNacimiento(mcdFechaNacimiento.SelectionRange.Start.Date);
+                                                                paciente.calcularEdad();
+                                                                if (rdbMasculino.Checked)
+                                                                    paciente.Sexo = rdbMasculino.Text;
+                                                                else
+                                                                    paciente.Sexo = rdbFemenino.Text;
+                                                                paciente.CorreoElectronico = txtCorreo.Text;
+                                                                paciente.Provincia = cbxProvincia.Text;
+                                                                paciente.Canton = txtCanton.Text;
+                                                                paciente.Direccion = txtDireccion.Text;
+                                                                paciente.Telefono = txtTelefono.Text;
+                                                                paciente.ContraseniaPaciente = txtContrasenia.Text;
+                                                                if (editar)
                                                                 {
-                                                                    MessageBox.Show("Paciente modificado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                    limpiarTextos();
+                                                                    if (administrador.modificarPaciente(paciente, cedula))
+                                                                    {
+                                                                        MessageBox.Show("Paciente modificado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                        limpiarTextos();
+                                                                    }
+                                                                    else
+                                                                        MessageBox.Show("El paciente ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                 }
                                                                 else
-                                                                    MessageBox.Show("El paciente ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                            }
-                                                            else
-                                                            {
-                                                                if (administrador.ingresarPaciente(paciente))
                                                                 {
-                                                                    MessageBox.Show("Paciente ingresado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                    limpiarTextos();
+                                                                    if (administrador.ingresarPaciente(paciente))
+                                                                    {
+                                                                        MessageBox.Show("Paciente ingresado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                        limpiarTextos();
+                                                                    }
+                                                                    else
+                                                                        MessageBox.Show("El paciente ya se encuentra registrado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                 }
-                                                                else
-                                                                    MessageBox.Show("El paciente ya se encuentra registrado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                            }
+                                                            catch
+                                                            {
+                                                                MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                                             }
                                                         }
-                                                        catch
-                                                        {
-                                                            MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                        }
+                                                        
                                                     }
                                                     else
                                                         MessageBox.Show("La dirección de Correo Electrónico es incorrecta", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);

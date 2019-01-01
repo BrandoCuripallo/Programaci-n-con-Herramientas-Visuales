@@ -30,10 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIngresarFactura));
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtStock = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.cbxProductos = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
@@ -45,6 +48,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -63,18 +67,32 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCedulaFarmaceutico = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtNombresFarmaceutico = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtApellidoPaternoFarmaceutico = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBuscarFarmaceútico = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Controls.Add(this.txtStock);
+            this.panel4.Controls.Add(this.btnEliminar);
             this.panel4.Controls.Add(this.btnAgregar);
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.cbxProductos);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.txtCantidad);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Controls.Add(this.txtTotal);
             this.panel4.Controls.Add(this.dgvProductos);
@@ -89,6 +107,43 @@
             this.panel4.Size = new System.Drawing.Size(726, 298);
             this.panel4.TabIndex = 43;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label10.Location = new System.Drawing.Point(557, 65);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 19);
+            this.label10.TabIndex = 74;
+            this.label10.Text = "Stock";
+            // 
+            // txtStock
+            // 
+            this.txtStock.Enabled = false;
+            this.txtStock.Location = new System.Drawing.Point(650, 65);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(51, 20);
+            this.txtStock.TabIndex = 73;
+            this.txtStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(573, 193);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(116, 33);
+            this.btnEliminar.TabIndex = 72;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // btnAgregar
             // 
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -96,20 +151,21 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(570, 101);
+            this.btnAgregar.Location = new System.Drawing.Point(573, 140);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(116, 33);
             this.btnAgregar.TabIndex = 44;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label18.Location = new System.Drawing.Point(480, 65);
+            this.label18.Location = new System.Drawing.Point(557, 101);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(66, 19);
             this.label18.TabIndex = 71;
@@ -117,44 +173,53 @@
             // 
             // cbxProductos
             // 
+            this.cbxProductos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxProductos.FormattingEnabled = true;
             this.cbxProductos.Location = new System.Drawing.Point(570, 34);
             this.cbxProductos.Name = "cbxProductos";
             this.cbxProductos.Size = new System.Drawing.Size(148, 21);
             this.cbxProductos.TabIndex = 70;
+            this.cbxProductos.SelectedIndexChanged += new System.EventHandler(this.cbxProductos_SelectedIndexChanged);
             // 
-            // textBox1
+            // txtCantidad
             // 
-            this.textBox1.Location = new System.Drawing.Point(667, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(51, 20);
-            this.textBox1.TabIndex = 69;
+            this.txtCantidad.Location = new System.Drawing.Point(650, 101);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(51, 20);
+            this.txtCantidad.TabIndex = 69;
+            this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label16.Location = new System.Drawing.Point(480, 34);
+            this.label16.Location = new System.Drawing.Point(472, 34);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 19);
+            this.label16.Size = new System.Drawing.Size(92, 19);
             this.label16.TabIndex = 68;
-            this.label16.Text = "Producto";
+            this.label16.Text = "Medicamento";
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(648, 261);
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(629, 261);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(70, 20);
+            this.txtTotal.Size = new System.Drawing.Size(89, 20);
             this.txtTotal.TabIndex = 67;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // dgvProductos
             // 
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Location = new System.Drawing.Point(30, 101);
             this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(491, 180);
             this.dgvProductos.TabIndex = 66;
+            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
             // 
             // dtpFechaEmision
             // 
@@ -192,6 +257,7 @@
             this.txtNumeroFactura.Name = "txtNumeroFactura";
             this.txtNumeroFactura.Size = new System.Drawing.Size(70, 20);
             this.txtNumeroFactura.TabIndex = 51;
+            this.txtNumeroFactura.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label15
             // 
@@ -211,9 +277,9 @@
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.label17.Location = new System.Drawing.Point(569, 264);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(42, 19);
+            this.label17.Size = new System.Drawing.Size(54, 19);
             this.label17.TabIndex = 54;
-            this.label17.Text = "Total";
+            this.label17.Text = "Total $";
             // 
             // pictureBox1
             // 
@@ -226,6 +292,8 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnBuscar);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label11);
@@ -241,10 +309,24 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.txtApellidoMaterno);
-            this.panel3.Location = new System.Drawing.Point(4, 3);
+            this.panel3.Location = new System.Drawing.Point(7, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(369, 283);
             this.panel3.TabIndex = 41;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(162, 42);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(21, 21);
+            this.btnBuscar.TabIndex = 45;
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label12
             // 
@@ -293,9 +375,12 @@
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(189, 43);
+            this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(163, 20);
             this.txtCedula.TabIndex = 1;
+            this.txtCedula.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // label2
             // 
@@ -312,6 +397,7 @@
             // 
             this.txtTelefono.Enabled = false;
             this.txtTelefono.Location = new System.Drawing.Point(252, 254);
+            this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(100, 20);
             this.txtTelefono.TabIndex = 13;
@@ -396,13 +482,14 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(559, 370);
+            this.btnCancelar.Location = new System.Drawing.Point(777, 367);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 33);
             this.btnCancelar.TabIndex = 40;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -411,13 +498,14 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(211, 370);
+            this.btnGuardar.Location = new System.Drawing.Point(429, 367);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(116, 33);
             this.btnGuardar.TabIndex = 39;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnImprimir
             // 
@@ -426,7 +514,7 @@
             this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(383, 370);
+            this.btnImprimir.Location = new System.Drawing.Point(601, 367);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(116, 33);
             this.btnImprimir.TabIndex = 44;
@@ -434,12 +522,113 @@
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimir.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label5.Location = new System.Drawing.Point(9, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(162, 19);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Cédula del Farmaceútico";
+            // 
+            // txtCedulaFarmaceutico
+            // 
+            this.txtCedulaFarmaceutico.Location = new System.Drawing.Point(206, 57);
+            this.txtCedulaFarmaceutico.MaxLength = 10;
+            this.txtCedulaFarmaceutico.Name = "txtCedulaFarmaceutico";
+            this.txtCedulaFarmaceutico.Size = new System.Drawing.Size(163, 20);
+            this.txtCedulaFarmaceutico.TabIndex = 26;
+            this.txtCedulaFarmaceutico.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCedulaFarmaceutico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaFarmaceutico_KeyPress);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label7.Location = new System.Drawing.Point(9, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 19);
+            this.label7.TabIndex = 46;
+            this.label7.Text = "Nombres";
+            // 
+            // txtNombresFarmaceutico
+            // 
+            this.txtNombresFarmaceutico.Enabled = false;
+            this.txtNombresFarmaceutico.Location = new System.Drawing.Point(170, 84);
+            this.txtNombresFarmaceutico.Name = "txtNombresFarmaceutico";
+            this.txtNombresFarmaceutico.Size = new System.Drawing.Size(199, 20);
+            this.txtNombresFarmaceutico.TabIndex = 47;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label8.Location = new System.Drawing.Point(9, 115);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(112, 19);
+            this.label8.TabIndex = 48;
+            this.label8.Text = "Apellido Paterno";
+            // 
+            // txtApellidoPaternoFarmaceutico
+            // 
+            this.txtApellidoPaternoFarmaceutico.Enabled = false;
+            this.txtApellidoPaternoFarmaceutico.Location = new System.Drawing.Point(170, 115);
+            this.txtApellidoPaternoFarmaceutico.Name = "txtApellidoPaternoFarmaceutico";
+            this.txtApellidoPaternoFarmaceutico.Size = new System.Drawing.Size(199, 20);
+            this.txtApellidoPaternoFarmaceutico.TabIndex = 49;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label9.Location = new System.Drawing.Point(93, 20);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(219, 19);
+            this.label9.TabIndex = 46;
+            this.label9.Text = "DATOS DEL FARMACEÚTICO";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnBuscarFarmaceútico);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.txtCedulaFarmaceutico);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.txtApellidoPaternoFarmaceutico);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.txtNombresFarmaceutico);
+            this.panel1.Location = new System.Drawing.Point(8, 307);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(383, 148);
+            this.panel1.TabIndex = 50;
+            // 
+            // btnBuscarFarmaceútico
+            // 
+            this.btnBuscarFarmaceútico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarFarmaceútico.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarFarmaceútico.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.btnBuscarFarmaceútico.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarFarmaceútico.Image")));
+            this.btnBuscarFarmaceútico.Location = new System.Drawing.Point(177, 56);
+            this.btnBuscarFarmaceútico.Name = "btnBuscarFarmaceútico";
+            this.btnBuscarFarmaceútico.Size = new System.Drawing.Size(21, 21);
+            this.btnBuscarFarmaceútico.TabIndex = 46;
+            this.btnBuscarFarmaceútico.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarFarmaceútico.UseVisualStyleBackColor = true;
+            this.btnBuscarFarmaceútico.Click += new System.EventHandler(this.btnBuscarFarmaceútico_Click);
+            // 
             // FrmIngresarFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1117, 460);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.pictureBox1);
@@ -456,6 +645,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -465,36 +656,49 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox cbxProductos;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.DateTimePicker dtpFechaEmision;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtNumeroFactura;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtApellidoPaterno;
-        private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtApellidoMaterno;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.TextBox txtDireccion;
+        public System.Windows.Forms.ComboBox cbxProductos;
+        public System.Windows.Forms.TextBox txtCantidad;
+        public System.Windows.Forms.TextBox txtTotal;
+        public System.Windows.Forms.DateTimePicker dtpFechaEmision;
+        public System.Windows.Forms.TextBox txtNumeroFactura;
+        public System.Windows.Forms.TextBox txtCedula;
+        public System.Windows.Forms.TextBox txtNombres;
+        public System.Windows.Forms.TextBox txtApellidoPaterno;
+        public System.Windows.Forms.TextBox txtCorreo;
+        public System.Windows.Forms.TextBox txtApellidoMaterno;
+        public System.Windows.Forms.TextBox txtTelefono;
+        public System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox txtCedulaFarmaceutico;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox txtNombresFarmaceutico;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.TextBox txtApellidoPaternoFarmaceutico;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Button btnBuscar;
+        public System.Windows.Forms.Button btnBuscarFarmaceútico;
+        private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox txtStock;
     }
 }

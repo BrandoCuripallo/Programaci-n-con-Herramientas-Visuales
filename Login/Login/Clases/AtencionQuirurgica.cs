@@ -14,7 +14,10 @@ namespace Login.Clases
         private Doctor doctor;
         private string descripcion;
         private DateTime fechaCirugia;
+        public AtencionQuirurgica()
+        {
 
+        }
         public AtencionQuirurgica(int idAtencionQuirurgica, Paciente paciente, Cirugia cirugia, Doctor doctor, string descripcion, DateTime fechaCirugia)
         {
             this.IdAtencionQuirurgica = idAtencionQuirurgica;

@@ -11,13 +11,16 @@ namespace Login.Clases
         private int idAtencion;
         private Doctor doctor;
         private DateTime fechaAtencion;
-        private float temperatura;
-        private float altura;
-        private float peso;
+        private double temperatura;
+        private double altura;
+        private double peso;
         private string diagnostico;
         private string indicaciones;
+        public Atencion()
+        {
 
-        public Atencion(int idAtencion, Doctor doctor, DateTime fechaAtencion, float temperatura, float altura, float peso, string diagnostico, string indicaciones)
+        }
+        public Atencion(int idAtencion, Doctor doctor, DateTime fechaAtencion, double temperatura, double altura, double peso, string diagnostico, string indicaciones)
         {
             this.IdAtencion = idAtencion;
             this.Doctor = doctor;
@@ -32,9 +35,9 @@ namespace Login.Clases
         public int IdAtencion { get => idAtencion; set => idAtencion = value; }
         public Doctor Doctor { get => doctor; set => doctor = value; }
         public DateTime FechaAtencion { get => fechaAtencion; set => fechaAtencion = value; }
-        public float Temperatura { get => temperatura; set => temperatura = value; }
-        public float Altura { get => altura; set => altura = value; }
-        public float Peso { get => peso; set => peso = value; }
+        public double Temperatura { get => temperatura; set => temperatura = value; }
+        public double Altura { get => altura; set => altura = value; }
+        public double Peso { get => peso; set => peso = value; }
         public string Diagnostico { get => diagnostico; set => diagnostico = value; }
         public string Indicaciones { get => indicaciones; set => indicaciones = value; }
     }

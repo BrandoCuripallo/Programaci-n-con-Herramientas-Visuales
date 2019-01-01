@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\DataBase.cs" />
+    <Compile Include="Clases\Indicacion.cs" />
     <Compile Include="FrmIngresarAtencion.cs">
       <SubType>Form</SubType>
     </Compile>

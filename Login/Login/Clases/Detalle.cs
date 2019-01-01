@@ -11,8 +11,11 @@ namespace Login.Clases
         private int idDetalle;
         private Medicamento medicamento;
         private int cantidad;
-        private float subtotal;
+        private double subtotal;
+        public Detalle()
+        {
 
+        }
         public Detalle(int idDetalle, Medicamento medicamento, int cantidad)
         {
             this.IdDetalle = idDetalle;
@@ -23,7 +26,7 @@ namespace Login.Clases
 
         public int IdDetalle { get => idDetalle; set => idDetalle = value; }
         public int Cantidad { get => cantidad; set => cantidad = value; }
-        public float Subtotal { get => subtotal; set => subtotal = value; }
+        public double Subtotal { get => subtotal; set => subtotal = value; }
         internal Medicamento Medicamento { get => medicamento; set => medicamento = value; }
     }
 }

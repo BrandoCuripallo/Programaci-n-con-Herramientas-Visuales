@@ -15,7 +15,10 @@ namespace Login.Clases
         private Especialidad especialidad;
         private Doctor doctor;
         private Recepcionista recepcionista;
+        public CitaMedica()
+        {
 
+        }
         public CitaMedica(int numeroCita, Paciente paciente, DateTime fechaCita, string descripcion, Especialidad especialidad, Doctor doctor, Recepcionista recepcionista)
         {
             this.NumeroCita = numeroCita;

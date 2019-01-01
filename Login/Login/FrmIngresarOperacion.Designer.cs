@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIngresarOperacion));
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dtpFechaCita = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaCirugia = new System.Windows.Forms.DateTimePicker();
             this.cbxDoctor = new System.Windows.Forms.ComboBox();
             this.cbxCirugia = new System.Windows.Forms.ComboBox();
             this.txtDescripcion = new System.Windows.Forms.RichTextBox();
@@ -43,6 +43,7 @@
             this.label19 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
@@ -61,50 +62,55 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dtpFechaCita);
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.dtpFechaCirugia);
             this.panel4.Controls.Add(this.cbxDoctor);
             this.panel4.Controls.Add(this.cbxCirugia);
             this.panel4.Controls.Add(this.txtDescripcion);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Controls.Add(this.label14);
+            this.panel4.Controls.Add(this.label17);
             this.panel4.Controls.Add(this.txtNumeroCirugia);
             this.panel4.Controls.Add(this.label15);
-            this.panel4.Controls.Add(this.label17);
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.label19);
-            this.panel4.Location = new System.Drawing.Point(2, 218);
+            this.panel4.Location = new System.Drawing.Point(13, 218);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(370, 209);
             this.panel4.TabIndex = 43;
             // 
-            // dtpFechaCita
+            // dtpFechaCirugia
             // 
-            this.dtpFechaCita.Location = new System.Drawing.Point(155, 60);
-            this.dtpFechaCita.Name = "dtpFechaCita";
-            this.dtpFechaCita.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaCita.TabIndex = 65;
+            this.dtpFechaCirugia.Location = new System.Drawing.Point(155, 60);
+            this.dtpFechaCirugia.Name = "dtpFechaCirugia";
+            this.dtpFechaCirugia.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaCirugia.TabIndex = 65;
             // 
             // cbxDoctor
             // 
+            this.cbxDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDoctor.FormattingEnabled = true;
-            this.cbxDoctor.Location = new System.Drawing.Point(155, 175);
+            this.cbxDoctor.Location = new System.Drawing.Point(156, 124);
             this.cbxDoctor.Name = "cbxDoctor";
             this.cbxDoctor.Size = new System.Drawing.Size(199, 21);
             this.cbxDoctor.TabIndex = 64;
             // 
             // cbxCirugia
             // 
+            this.cbxCirugia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCirugia.FormattingEnabled = true;
-            this.cbxCirugia.Location = new System.Drawing.Point(206, 135);
+            this.cbxCirugia.Location = new System.Drawing.Point(207, 93);
             this.cbxCirugia.Name = "cbxCirugia";
             this.cbxCirugia.Size = new System.Drawing.Size(148, 21);
             this.cbxCirugia.TabIndex = 63;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(114, 86);
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(115, 151);
+            this.txtDescripcion.MaxLength = 100;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(240, 38);
+            this.txtDescripcion.Size = new System.Drawing.Size(240, 48);
             this.txtDescripcion.TabIndex = 62;
             this.txtDescripcion.Text = "";
             // 
@@ -154,7 +160,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label17.Location = new System.Drawing.Point(11, 86);
+            this.label17.Location = new System.Drawing.Point(11, 161);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(81, 19);
             this.label17.TabIndex = 54;
@@ -165,7 +171,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label18.Location = new System.Drawing.Point(11, 135);
+            this.label18.Location = new System.Drawing.Point(12, 93);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(56, 19);
             this.label18.TabIndex = 56;
@@ -176,7 +182,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label19.Location = new System.Drawing.Point(11, 175);
+            this.label19.Location = new System.Drawing.Point(12, 124);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(51, 19);
             this.label19.TabIndex = 58;
@@ -193,6 +199,8 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnBuscar);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtCedula);
@@ -202,10 +210,24 @@
             this.panel3.Controls.Add(this.txtApellidoPaterno);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.txtApellidoMaterno);
-            this.panel3.Location = new System.Drawing.Point(4, 3);
+            this.panel3.Location = new System.Drawing.Point(15, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(368, 209);
             this.panel3.TabIndex = 41;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(162, 42);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(21, 21);
+            this.btnBuscar.TabIndex = 47;
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label13
             // 
@@ -232,9 +254,11 @@
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(189, 43);
+            this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(163, 20);
             this.txtCedula.TabIndex = 1;
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             // 
             // label2
             // 
@@ -307,6 +331,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -322,6 +347,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // FrmIngresarOperacion
             // 
@@ -350,13 +376,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DateTimePicker dtpFechaCita;
-        private System.Windows.Forms.ComboBox cbxDoctor;
-        private System.Windows.Forms.ComboBox cbxCirugia;
-        private System.Windows.Forms.RichTextBox txtDescripcion;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtNumeroCirugia;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
@@ -365,14 +386,20 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtApellidoPaterno;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtApellidoMaterno;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
+        public System.Windows.Forms.DateTimePicker dtpFechaCirugia;
+        public System.Windows.Forms.ComboBox cbxDoctor;
+        public System.Windows.Forms.ComboBox cbxCirugia;
+        public System.Windows.Forms.RichTextBox txtDescripcion;
+        public System.Windows.Forms.TextBox txtNumeroCirugia;
+        public System.Windows.Forms.TextBox txtCedula;
+        public System.Windows.Forms.TextBox txtNombres;
+        public System.Windows.Forms.TextBox txtApellidoPaterno;
+        public System.Windows.Forms.TextBox txtApellidoMaterno;
+        public System.Windows.Forms.Button btnBuscar;
     }
 }

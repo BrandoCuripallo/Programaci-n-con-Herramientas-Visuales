@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Login.Clases
 {
-    class Recepcionista
+    class Recepcionista : Persona
     {
         private string usuario;
         private string contrasenia;
         private List<CitaMedica> citas;
+        public Recepcionista()
+        {
+
+        }
         public Recepcionista(string usuario, string contrasenia)
         {
             this.Usuario = usuario;

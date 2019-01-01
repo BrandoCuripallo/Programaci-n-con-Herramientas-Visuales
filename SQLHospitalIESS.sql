@@ -4,43 +4,42 @@ USE HospitalIESS
 GO
 CREATE TABLE tblAdministrador (cedulaAdministrador varchar(10) PRIMARY KEY, nombres varchar(50), 
 apellidoPaterno varchar(25), apellidoMaterno varchar(25), fechaNacimiento date, sexo varchar(10), 
-correoElectronico varchar(50), provincia varchar(20), ciudad varchar(20), direccion varchar(50), 
+correoElectronico varchar(50), provincia varchar(30), ciudad varchar(50), direccion varchar(50), 
 telefono varchar(10), usuario varchar(50) UNIQUE, contrasenia varchar(50))
 GO
-CREATE TABLE tblEspecialidad (codigoEspecialidad int PRIMARY KEY IDENTITY, nombreEspecialidad varchar(25))
+CREATE TABLE tblEspecialidad (codigoEspecialidad int PRIMARY KEY IDENTITY, nombreEspecialidad varchar(25), 
+descripcion varchar(50))
 GO
-CREATE TABLE tblCirugia (idCirugia int PRIMARY KEY IDENTITY, descripcion varchar(100))
+CREATE TABLE tblCirugia (idCirugia int PRIMARY KEY IDENTITY, nombreCirugia varchar(100))
 GO
 CREATE TABLE tblDoctor (cedulaDoctor varchar(10) PRIMARY KEY, nombres varchar(50), apellidoPaterno varchar(25), 
 apellidoMaterno varchar(25), fechaNacimiento date, sexo varchar(10), correoElectronico varchar(50), 
-provincia varchar(20), ciudad varchar(20), direccion varchar(50), telefono varchar(10), usuario varchar(50) UNIQUE, 
+provincia varchar(30), ciudad varchar(50), direccion varchar(50), telefono varchar(10), usuario varchar(50) UNIQUE, 
 contrasenia varchar(50), codigoEspecialidad int FOREIGN KEY REFERENCES tblEspecialidad (codigoEspecialidad) 
 ON UPDATE CASCADE)
 GO
 CREATE TABLE tblRecepcionista (cedulaRecepcionista varchar(10) PRIMARY KEY, nombres varchar(50), 
 apellidoPaterno varchar(25), apellidoMaterno varchar(25), fechaNacimiento date, sexo varchar(10), 
-correoElectronico varchar(50), provincia varchar(20), ciudad varchar(20), direccion varchar(25), 
+correoElectronico varchar(50), provincia varchar(30), ciudad varchar(50), direccion varchar(50), 
 telefono varchar(10), usuario varchar(50) UNIQUE, contrasenia varchar(50))
 GO
 CREATE TABLE tblFarmaceutico (cedulaFarmaceutico varchar(10) PRIMARY KEY, nombres varchar(50), 
 apellidoPaterno varchar(25), apellidoMaterno varchar(25), fechaNacimiento date, sexo varchar(10), 
-correoElectronico varchar(50), provincia varchar(20), ciudad varchar(20), direccion varchar(50), 
+correoElectronico varchar(50), provincia varchar(30), ciudad varchar(50), direccion varchar(50), 
 telefono varchar(10), usuario varchar(50) UNIQUE, contrasenia varchar(50))
 GO
 CREATE TABLE tblPaciente (cedulaPaciente varchar(10) PRIMARY KEY, nombres varchar(50), apellidoPaterno varchar(25), 
 apellidoMaterno varchar(25), fechaNacimiento date, sexo varchar(10), correoElectronico varchar(50), 
-provincia varchar(20), ciudad varchar(20), direccion varchar(25), telefono varchar(10), contrasenia varchar(50))
+provincia varchar(30), ciudad varchar(50), direccion varchar(50), telefono varchar(10), contrasenia varchar(50))
 GO
 CREATE TABLE tblHistoriaClinica (numeroHistoria int PRIMARY KEY IDENTITY, cedulaPaciente varchar(10) FOREIGN KEY REFERENCES 
 tblPaciente (cedulaPaciente) ON UPDATE CASCADE ON DELETE CASCADE)
 GO
-CREATE TABLE tblHistoriaClinicaDoctor (idHistoriaClinicaDoctor int PRIMARY KEY IDENTITY, cedulaDoctor varchar(10) 
-FOREIGN KEY REFERENCES tblDoctor (cedulaDoctor) ON UPDATE CASCADE, numeroHistoria int FOREIGN KEY REFERENCES 
-tblHistoriaClinica (numeroHistoria) ON UPDATE CASCADE ON DELETE CASCADE, fecha datetime, temperaturaPaciente float, 
-altura float, peso float, diagnostico varchar(100), indicaciones varchar(100))
+CREATE TABLE tblHistoriaClinicaDoctor (numeroHistoria int FOREIGN KEY REFERENCES tblHistoriaClinica (numeroHistoria) ON UPDATE CASCADE ON DELETE CASCADE, 
+fecha datetime, temperaturaPaciente float, altura float, peso float, diagnostico varchar(100), indicaciones varchar(100), cedulaDoctor varchar(10) FOREIGN KEY REFERENCES tblDoctor (cedulaDoctor) ON UPDATE CASCADE,)
 GO
 CREATE TABLE tblCitaMedica (idCita int PRIMARY KEY IDENTITY, fechaCita datetime, descripcion varchar(100), cedulaPaciente 
-varchar(10) FOREIGN KEY REFERENCES tblPaciente (cedulaPaciente), codigoEspecialidad int 
+varchar(10) FOREIGN KEY REFERENCES tblPaciente (cedulaPaciente) ON UPDATE CASCADE ON DELETE CASCADE, codigoEspecialidad int 
 FOREIGN KEY REFERENCES tblEspecialidad (codigoEspecialidad), cedulaRecepcionista varchar(10) 
 FOREIGN KEY REFERENCES tblRecepcionista (cedulaRecepcionista), cedulaDoctor varchar(10) 
 FOREIGN KEY REFERENCES tblDoctor (cedulaDoctor))
@@ -50,32 +49,20 @@ ON UPDATE CASCADE ON DELETE CASCADE, cedulaDoctor varchar(10) FOREIGN KEY REFERE
 cedulaPaciente varchar(10) FOREIGN KEY REFERENCES tblPaciente (cedulaPaciente) ON UPDATE CASCADE ON DELETE CASCADE, descripcion varchar(100), fecha datetime)
 GO
 CREATE TABLE tblFactura (idFactura int PRIMARY KEY IDENTITY, cedulaFarmaceutico varchar(10) 
-FOREIGN KEY REFERENCES tblFarmaceutico (cedulaFarmaceutico) ON UPDATE CASCADE, cedulaPaciente varchar(10) 
-FOREIGN KEY REFERENCES tblPaciente (cedulaPaciente) ON UPDATE CASCADE, fechaEmision date, total float)
+FOREIGN KEY REFERENCES tblFarmaceutico (cedulaFarmaceutico), cedulaPaciente varchar(10) 
+FOREIGN KEY REFERENCES tblPaciente (cedulaPaciente) ON UPDATE CASCADE ON DELETE CASCADE, fechaEmision date, total money)
 GO
-CREATE TABLE tblMedicamento (codigoMedicamento varchar(5) PRIMARY KEY, nombreMedicamento varchar(50), descripcion varchar(50), stock int, 
-precioUnitario float)
+CREATE TABLE tblMedicamento (codigoMedicamento varchar(5) PRIMARY KEY, nombreMedicamento varchar(50), descripcion varchar(100), stock int, 
+precioUnitario money)
 GO
-CREATE TABLE tblMedicamentoFactura (idMedicamentoFactura int PRIMARY KEY IDENTITY, idFactura int FOREIGN KEY REFERENCES 
+CREATE TABLE tblMedicamentoFactura (idFactura int FOREIGN KEY REFERENCES 
 tblFactura (idFactura) ON UPDATE CASCADE ON DELETE CASCADE, codigoMedicamento varchar(5) FOREIGN KEY REFERENCES 
-tblMedicamento (codigoMedicamento) ON UPDATE CASCADE, cantidad int, subtotal float)
+tblMedicamento (codigoMedicamento), cantidad int, subtotal money)
 GO
 CREATE TABLE tblReceta (idReceta int PRIMARY KEY IDENTITY, cedulaPaciente varchar(10) FOREIGN KEY REFERENCES 
 tblPaciente (cedulaPaciente) ON UPDATE CASCADE, cedulaDoctor varchar(10) FOREIGN KEY REFERENCES 
-tblDoctor (cedulaDoctor) ON UPDATE CASCADE, fechaEmision date, indicaciones varchar(150))
+tblDoctor (cedulaDoctor) ON UPDATE CASCADE, fechaEmision date)
 GO
-CREATE TABLE tblRecetaMedicamento (idRecetaMedicamento int PRIMARY KEY IDENTITY, idReceta int FOREIGN KEY REFERENCES 
-tblReceta (idReceta) ON UPDATE CASCADE, codigoMedicamento varchar(5) FOREIGN KEY REFERENCES 
-tblMedicamento (codigoMedicamento) ON UPDATE CASCADE)
+CREATE TABLE tblRecetaMedicamento (idReceta int FOREIGN KEY REFERENCES tblReceta (idReceta) ON UPDATE CASCADE ON DELETE CASCADE, 
+codigoMedicamento varchar(5) FOREIGN KEY REFERENCES tblMedicamento (codigoMedicamento) ON UPDATE CASCADE, indicaciones varchar(150))
 GO
-INSERT INTO tblAdministrador VALUES ('1716116809', 'Alejandro Esteban', 'Guerrero', 'Tipán', '21/08/1994', 'Masculino', 
-'alejandro.guerrero@epn.edu.ec', 'Pichincha', 'Quito', 'El Inca', '0987858621', 'aegt94', 'holaMundo')
-GO
-INSERT INTO tblPaciente VALUES ('0503628109', 'Nataly Gissela', 'Bermeo', 'Ayala', '05/11/1995', 'Femenino', 
-'nataly.bermeo@epn.edu.ec', 'Pichincha', 'Quito', 'La Vicentina', '0984307012', '12345')
-GO
-USE HospitalIESS
-GO
-SELECT * FROM tblPaciente
-GO
-ALTER TABLE tblAdministrador RENAME COLUMN dirección to direccion

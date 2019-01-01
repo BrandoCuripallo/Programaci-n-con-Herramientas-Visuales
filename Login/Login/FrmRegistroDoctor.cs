@@ -113,6 +113,7 @@ namespace Login
         }
         public void llenarEspecialidades()
         {
+            especialidad = new Especialidad();
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "SELECT * FROM tblEspecialidad";
             SqlCommand comando = new SqlCommand(consulta, conexion);
@@ -134,42 +135,56 @@ namespace Login
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("¿Está seguro en eliminar el doctor?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultado == DialogResult.Yes)
+            try
             {
-                if (administrador.eliminarDoctor(doctor.Cedula))
-                    MessageBox.Show("Doctor eliminado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("El doctor no se pudo eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult resultado = MessageBox.Show("¿Está seguro en eliminar el doctor?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    if (administrador.eliminarDoctor(doctor.Cedula))
+                        MessageBox.Show("Doctor eliminado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("El doctor no se pudo eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione un registro para eliminar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            doctor = administrador.buscarDoctor(doctor.Cedula);
-            FrmIngresarDoctor frmIngresarDoctor = new FrmIngresarDoctor();
-            frmIngresarDoctor.cedula = doctor.Cedula;
-            frmIngresarDoctor.asignarAdministrador(this.administrador);
-            frmIngresarDoctor.editar = true;
-            frmIngresarDoctor.txtCedula.Text = doctor.Cedula;
-            frmIngresarDoctor.txtNombres.Text = doctor.Nombres;
-            frmIngresarDoctor.txtApellidoPaterno.Text = doctor.ApellidoPaterno;
-            frmIngresarDoctor.txtApellidoMaterno.Text = doctor.ApellidoMaterno;
-            frmIngresarDoctor.txtCorreo.Text = doctor.CorreoElectronico;
-            frmIngresarDoctor.cbxProvincia.Text = doctor.Provincia;
-            frmIngresarDoctor.txtCanton.Text = doctor.Canton;
-            frmIngresarDoctor.txtDireccion.Text = doctor.Direccion;
-            frmIngresarDoctor.txtTelefono.Text = doctor.Telefono;
-            frmIngresarDoctor.mcdFechaNacimiento.SetDate(Convert.ToDateTime(doctor.getFechaNacimiento()));
-            frmIngresarDoctor.txtUsuario.Text = doctor.UsuarioDoctor;
-            frmIngresarDoctor.txtContrasenia.Text = doctor.ContraseniaDoctor;
-            frmIngresarDoctor.llenarEspecialidades(this.especialidades);
-            frmIngresarDoctor.cbxEspecialidad.Text = doctor.Especialidad.NombreEspecialidad;
-            if (doctor.Sexo == "Masculino")
-                frmIngresarDoctor.rdbMasculino.Checked = true;
-            else
-                frmIngresarDoctor.rdbFemenino.Checked = true;
-            frmIngresarDoctor.Show();
+            try
+            {
+                doctor = administrador.buscarDoctor(doctor.Cedula);
+                FrmIngresarDoctor frmIngresarDoctor = new FrmIngresarDoctor();
+                frmIngresarDoctor.cedula = doctor.Cedula;
+                frmIngresarDoctor.asignarAdministrador(this.administrador);
+                frmIngresarDoctor.editar = true;
+                frmIngresarDoctor.txtCedula.Text = doctor.Cedula;
+                frmIngresarDoctor.txtNombres.Text = doctor.Nombres;
+                frmIngresarDoctor.txtApellidoPaterno.Text = doctor.ApellidoPaterno;
+                frmIngresarDoctor.txtApellidoMaterno.Text = doctor.ApellidoMaterno;
+                frmIngresarDoctor.txtCorreo.Text = doctor.CorreoElectronico;
+                frmIngresarDoctor.cbxProvincia.Text = doctor.Provincia;
+                frmIngresarDoctor.txtCanton.Text = doctor.Canton;
+                frmIngresarDoctor.txtDireccion.Text = doctor.Direccion;
+                frmIngresarDoctor.txtTelefono.Text = doctor.Telefono;
+                frmIngresarDoctor.mcdFechaNacimiento.SetDate(Convert.ToDateTime(doctor.getFechaNacimiento()));
+                frmIngresarDoctor.txtUsuario.Text = doctor.UsuarioDoctor;
+                frmIngresarDoctor.txtContrasenia.Text = doctor.ContraseniaDoctor;
+                frmIngresarDoctor.llenarEspecialidades(this.especialidades);
+                frmIngresarDoctor.cbxEspecialidad.Text = doctor.Especialidad.NombreEspecialidad;
+                if (doctor.Sexo == "Masculino")
+                    frmIngresarDoctor.rdbMasculino.Checked = true;
+                else
+                    frmIngresarDoctor.rdbFemenino.Checked = true;
+                frmIngresarDoctor.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione un registro para modificar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

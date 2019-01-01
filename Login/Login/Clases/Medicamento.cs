@@ -12,21 +12,24 @@ namespace Login.Clases
         private string nombreMedicamento;
         private string descripcion;
         private int stock;
-        private float precioUnitario;
+        private double precioUnitario;
+        public Medicamento()
+        {
 
-        public Medicamento(string codigoMedicamento, string nombreMedicamento, string descripcion, int stock, float precioUnitario)
+        }
+        public Medicamento(string codigoMedicamento, string nombreMedicamento, string descripcion, int stock, double precioUnitario)
         {
             this.CodigoMedicamento = codigoMedicamento;
             this.NombreMedicamento = nombreMedicamento;
             this.Descripcion = descripcion;
             this.Stock = stock;
-            this.PrecioUnitario = precioUnitario;
+            this.precioUnitario = precioUnitario;
         }
 
         public string CodigoMedicamento { get => codigoMedicamento; set => codigoMedicamento = value; }
         public string NombreMedicamento { get => nombreMedicamento; set => nombreMedicamento = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public int Stock { get => stock; set => stock = value; }
-        public float PrecioUnitario { get => precioUnitario; set => precioUnitario = value; }
+        public double PrecioUnitario { get => precioUnitario; set => precioUnitario = value; }
     }
 }
