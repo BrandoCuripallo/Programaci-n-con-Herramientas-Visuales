@@ -216,6 +216,30 @@
     </Compile>
     <Compile Include="Clases\Paciente.cs" />
     <Compile Include="Clases\Persona.cs" />
+    <Compile Include="Pacientes\FrmPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pacientes\FrmPaciente.Designer.cs">
+      <DependentUpon>FrmPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes\FrmPacienteCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pacientes\FrmPacienteCita.Designer.cs">
+      <DependentUpon>FrmPacienteCita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes\FrmPacienteFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pacientes\FrmPacienteFactura.Designer.cs">
+      <DependentUpon>FrmPacienteFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pacientes\FrmPacienteReceta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pacientes\FrmPacienteReceta.Designer.cs">
+      <DependentUpon>FrmPacienteReceta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Clases\Recepcionista.cs" />
@@ -294,6 +318,18 @@
     <EmbeddedResource Include="FrmRegistroReceta.resx">
       <DependentUpon>FrmRegistroReceta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pacientes\FrmPaciente.resx">
+      <DependentUpon>FrmPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pacientes\FrmPacienteCita.resx">
+      <DependentUpon>FrmPacienteCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pacientes\FrmPacienteFactura.resx">
+      <DependentUpon>FrmPacienteFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pacientes\FrmPacienteReceta.resx">
+      <DependentUpon>FrmPacienteReceta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -316,5 +352,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

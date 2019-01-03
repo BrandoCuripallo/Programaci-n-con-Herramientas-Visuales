@@ -39,7 +39,7 @@
             this.txtIndicaciones = new System.Windows.Forms.RichTextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.cbxMedicamentos = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblMedicamento = new System.Windows.Forms.Label();
             this.dtpFechaEmision = new System.Windows.Forms.DateTimePicker();
             this.label20 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -90,7 +90,7 @@
             this.panel4.Controls.Add(this.txtIndicaciones);
             this.panel4.Controls.Add(this.btnAgregar);
             this.panel4.Controls.Add(this.cbxMedicamentos);
-            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.lblMedicamento);
             this.panel4.Controls.Add(this.dtpFechaEmision);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Controls.Add(this.label14);
@@ -200,16 +200,16 @@
             this.cbxMedicamentos.TabIndex = 70;
             this.cbxMedicamentos.SelectedIndexChanged += new System.EventHandler(this.cbxMedicamentos_SelectedIndexChanged);
             // 
-            // label16
+            // lblMedicamento
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label16.Location = new System.Drawing.Point(389, 34);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(92, 19);
-            this.label16.TabIndex = 68;
-            this.label16.Text = "Medicamento";
+            this.lblMedicamento.AutoSize = true;
+            this.lblMedicamento.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedicamento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.lblMedicamento.Location = new System.Drawing.Point(389, 34);
+            this.lblMedicamento.Name = "lblMedicamento";
+            this.lblMedicamento.Size = new System.Drawing.Size(92, 19);
+            this.lblMedicamento.TabIndex = 68;
+            this.lblMedicamento.Text = "Medicamento";
             // 
             // dtpFechaEmision
             // 
@@ -614,8 +614,6 @@
 
         #endregion
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -629,8 +627,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.ComboBox cbxMedicamentos;
         public System.Windows.Forms.DateTimePicker dtpFechaEmision;
@@ -643,8 +639,6 @@
         public System.Windows.Forms.TextBox txtCorreo;
         public System.Windows.Forms.TextBox txtApellidoMaterno;
         public System.Windows.Forms.RichTextBox txtIndicaciones;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnBuscarDoctor;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox txtCedulaDoctor;
         private System.Windows.Forms.Label label7;
@@ -652,8 +646,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label21;
         public System.Windows.Forms.TextBox txtNombresDoctor;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvMedicamentos;
+        public System.Windows.Forms.Button btnBuscarDoctor;
+        public System.Windows.Forms.Button btnBuscar;
+        public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Button btnGuardar;
+        public System.Windows.Forms.Button btnAgregar;
+        public System.Windows.Forms.Button btnEliminar;
+        public System.Windows.Forms.Label lblMedicamento;
+        public System.Windows.Forms.Panel panel1;
     }
 }

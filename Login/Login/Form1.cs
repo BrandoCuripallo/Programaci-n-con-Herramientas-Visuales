@@ -1,4 +1,5 @@
 ﻿using Login.Clases;
+using Login.Pacientes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,6 +70,18 @@ namespace Login
                                 break;
                             case "PACIENTE":
                                 Paciente paciente = new Paciente(txtUsuario.Text, txtContrasenia.Text);
+                                if (paciente.validarPaciente())
+                                {
+                                    MessageBox.Show("Bienvenido al sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    FrmPaciente frmPaciente = new FrmPaciente();
+                                    frmPaciente.asignarPaciente(paciente);
+                                    frmPaciente.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Usuario no existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
                                 break;
                         }
                     }

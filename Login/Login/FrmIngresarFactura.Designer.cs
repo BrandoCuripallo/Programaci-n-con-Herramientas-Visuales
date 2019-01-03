@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIngresarFactura));
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblStock = new System.Windows.Forms.Label();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.cbxProductos = new System.Windows.Forms.ComboBox();
             this.txtCantidad = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblMedicamento = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.dtpFechaEmision = new System.Windows.Forms.DateTimePicker();
@@ -86,14 +86,14 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label10);
+            this.panel4.Controls.Add(this.lblStock);
             this.panel4.Controls.Add(this.txtStock);
             this.panel4.Controls.Add(this.btnEliminar);
             this.panel4.Controls.Add(this.btnAgregar);
-            this.panel4.Controls.Add(this.label18);
+            this.panel4.Controls.Add(this.lblCantidad);
             this.panel4.Controls.Add(this.cbxProductos);
             this.panel4.Controls.Add(this.txtCantidad);
-            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.lblMedicamento);
             this.panel4.Controls.Add(this.txtTotal);
             this.panel4.Controls.Add(this.dgvProductos);
             this.panel4.Controls.Add(this.dtpFechaEmision);
@@ -107,16 +107,16 @@
             this.panel4.Size = new System.Drawing.Size(726, 298);
             this.panel4.TabIndex = 43;
             // 
-            // label10
+            // lblStock
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label10.Location = new System.Drawing.Point(557, 65);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 19);
-            this.label10.TabIndex = 74;
-            this.label10.Text = "Stock";
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.lblStock.Location = new System.Drawing.Point(557, 65);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(43, 19);
+            this.lblStock.TabIndex = 74;
+            this.lblStock.Text = "Stock";
             // 
             // txtStock
             // 
@@ -160,16 +160,16 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // label18
+            // lblCantidad
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label18.Location = new System.Drawing.Point(557, 101);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(66, 19);
-            this.label18.TabIndex = 71;
-            this.label18.Text = "Cantidad";
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.lblCantidad.Location = new System.Drawing.Point(557, 101);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(66, 19);
+            this.lblCantidad.TabIndex = 71;
+            this.lblCantidad.Text = "Cantidad";
             // 
             // cbxProductos
             // 
@@ -190,16 +190,16 @@
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
-            // label16
+            // lblMedicamento
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label16.Location = new System.Drawing.Point(472, 34);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(92, 19);
-            this.label16.TabIndex = 68;
-            this.label16.Text = "Medicamento";
+            this.lblMedicamento.AutoSize = true;
+            this.lblMedicamento.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedicamento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.lblMedicamento.Location = new System.Drawing.Point(472, 34);
+            this.lblMedicamento.Name = "lblMedicamento";
+            this.lblMedicamento.Size = new System.Drawing.Size(92, 19);
+            this.lblMedicamento.TabIndex = 68;
+            this.lblMedicamento.Text = "Medicamento";
             // 
             // txtTotal
             // 
@@ -655,10 +655,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -671,9 +667,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.ComboBox cbxProductos;
@@ -690,16 +683,23 @@
         public System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtCedulaFarmaceutico;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.TextBox txtNombresFarmaceutico;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox txtApellidoPaternoFarmaceutico;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button btnBuscar;
         public System.Windows.Forms.Button btnBuscarFarmaceútico;
-        private System.Windows.Forms.Label label10;
         public System.Windows.Forms.TextBox txtStock;
+        public System.Windows.Forms.Button btnAgregar;
+        public System.Windows.Forms.Label lblCantidad;
+        public System.Windows.Forms.Label lblMedicamento;
+        public System.Windows.Forms.DataGridView dgvProductos;
+        public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Button btnGuardar;
+        public System.Windows.Forms.Button btnImprimir;
+        public System.Windows.Forms.Button btnEliminar;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Label lblStock;
     }
 }
