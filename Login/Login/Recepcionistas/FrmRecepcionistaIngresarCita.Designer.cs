@@ -1,6 +1,6 @@
-﻿namespace Login
+﻿namespace Login.Recepcionistas
 {
-    partial class FrmIngresarCita
+    partial class FrmRecepcionistaIngresarCita
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIngresarCita));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRecepcionistaIngresarCita));
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dtpFechaCita = new System.Windows.Forms.DateTimePicker();
+            this.cbxDoctor = new System.Windows.Forms.ComboBox();
+            this.cbxEspecialidad = new System.Windows.Forms.ComboBox();
+            this.txtDescripcion = new System.Windows.Forms.RichTextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtNumeroCita = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -55,41 +67,147 @@
             this.txtApellidoMaterno = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dtpFechaCita = new System.Windows.Forms.DateTimePicker();
-            this.cbxDoctor = new System.Windows.Forms.ComboBox();
-            this.cbxEspecialidad = new System.Windows.Forms.ComboBox();
-            this.txtDescripcion = new System.Windows.Forms.RichTextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtNumeroCita = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnBuscarRecepcionista = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtCedulaRecepcionista = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtApellidoPaternoRecepcionista = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtNombresRecepcionista = new System.Windows.Forms.TextBox();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.dtpFechaCita);
+            this.panel4.Controls.Add(this.cbxDoctor);
+            this.panel4.Controls.Add(this.cbxEspecialidad);
+            this.panel4.Controls.Add(this.txtDescripcion);
+            this.panel4.Controls.Add(this.label20);
+            this.panel4.Controls.Add(this.label14);
+            this.panel4.Controls.Add(this.txtNumeroCita);
+            this.panel4.Controls.Add(this.label17);
+            this.panel4.Controls.Add(this.label15);
+            this.panel4.Controls.Add(this.label18);
+            this.panel4.Controls.Add(this.label19);
+            this.panel4.Location = new System.Drawing.Point(378, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(384, 228);
+            this.panel4.TabIndex = 43;
+            // 
+            // dtpFechaCita
+            // 
+            this.dtpFechaCita.Location = new System.Drawing.Point(166, 62);
+            this.dtpFechaCita.Name = "dtpFechaCita";
+            this.dtpFechaCita.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaCita.TabIndex = 65;
+            // 
+            // cbxDoctor
+            // 
+            this.cbxDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDoctor.FormattingEnabled = true;
+            this.cbxDoctor.Location = new System.Drawing.Point(166, 138);
+            this.cbxDoctor.Name = "cbxDoctor";
+            this.cbxDoctor.Size = new System.Drawing.Size(199, 21);
+            this.cbxDoctor.TabIndex = 64;
+            // 
+            // cbxEspecialidad
+            // 
+            this.cbxEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxEspecialidad.FormattingEnabled = true;
+            this.cbxEspecialidad.Location = new System.Drawing.Point(217, 98);
+            this.cbxEspecialidad.Name = "cbxEspecialidad";
+            this.cbxEspecialidad.Size = new System.Drawing.Size(148, 21);
+            this.cbxEspecialidad.TabIndex = 63;
+            this.cbxEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cbxEspecialidad_SelectedIndexChanged);
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(126, 171);
+            this.txtDescripcion.MaxLength = 100;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(240, 38);
+            this.txtDescripcion.TabIndex = 62;
+            this.txtDescripcion.Text = "";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label20.Location = new System.Drawing.Point(124, 12);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(147, 19);
+            this.label20.TabIndex = 35;
+            this.label20.Text = "DATOS DE LA CITA";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label14.Location = new System.Drawing.Point(22, 34);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(107, 19);
+            this.label14.TabIndex = 50;
+            this.label14.Text = "Número de Cita";
+            // 
+            // txtNumeroCita
+            // 
+            this.txtNumeroCita.Enabled = false;
+            this.txtNumeroCita.Location = new System.Drawing.Point(295, 34);
+            this.txtNumeroCita.Name = "txtNumeroCita";
+            this.txtNumeroCita.Size = new System.Drawing.Size(70, 20);
+            this.txtNumeroCita.TabIndex = 51;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label17.Location = new System.Drawing.Point(23, 171);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(54, 19);
+            this.label17.TabIndex = 54;
+            this.label17.Text = "Motivo";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label15.Location = new System.Drawing.Point(22, 62);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(46, 19);
+            this.label15.TabIndex = 52;
+            this.label15.Text = "Fecha";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label18.Location = new System.Drawing.Point(22, 98);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(87, 19);
+            this.label18.TabIndex = 56;
+            this.label18.Text = "Especialidad";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label19.Location = new System.Drawing.Point(22, 138);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(51, 19);
+            this.label19.TabIndex = 58;
+            this.label19.Text = "Doctor";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(507, 274);
+            this.pictureBox1.Location = new System.Drawing.Point(506, 275);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.TabIndex = 37;
+            this.pictureBox1.TabIndex = 42;
             this.pictureBox1.TabStop = false;
             // 
             // panel3
@@ -108,10 +226,10 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.txtApellidoMaterno);
-            this.panel3.Location = new System.Drawing.Point(6, 3);
+            this.panel3.Location = new System.Drawing.Point(5, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(368, 408);
-            this.panel3.TabIndex = 36;
+            this.panel3.TabIndex = 41;
             // 
             // btnBuscar
             // 
@@ -372,10 +490,10 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(611, 434);
+            this.btnCancelar.Location = new System.Drawing.Point(610, 435);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(116, 33);
-            this.btnCancelar.TabIndex = 35;
+            this.btnCancelar.TabIndex = 40;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -388,319 +506,80 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(419, 434);
+            this.btnGuardar.Location = new System.Drawing.Point(418, 435);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(116, 33);
-            this.btnGuardar.TabIndex = 34;
+            this.btnGuardar.TabIndex = 39;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.dtpFechaCita);
-            this.panel4.Controls.Add(this.cbxDoctor);
-            this.panel4.Controls.Add(this.cbxEspecialidad);
-            this.panel4.Controls.Add(this.txtDescripcion);
-            this.panel4.Controls.Add(this.label20);
-            this.panel4.Controls.Add(this.label14);
-            this.panel4.Controls.Add(this.txtNumeroCita);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.label15);
-            this.panel4.Controls.Add(this.label18);
-            this.panel4.Controls.Add(this.label19);
-            this.panel4.Location = new System.Drawing.Point(379, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(384, 228);
-            this.panel4.TabIndex = 38;
-            // 
-            // dtpFechaCita
-            // 
-            this.dtpFechaCita.Location = new System.Drawing.Point(166, 62);
-            this.dtpFechaCita.Name = "dtpFechaCita";
-            this.dtpFechaCita.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaCita.TabIndex = 65;
-            // 
-            // cbxDoctor
-            // 
-            this.cbxDoctor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDoctor.FormattingEnabled = true;
-            this.cbxDoctor.Location = new System.Drawing.Point(166, 138);
-            this.cbxDoctor.Name = "cbxDoctor";
-            this.cbxDoctor.Size = new System.Drawing.Size(199, 21);
-            this.cbxDoctor.TabIndex = 64;
-            // 
-            // cbxEspecialidad
-            // 
-            this.cbxEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxEspecialidad.FormattingEnabled = true;
-            this.cbxEspecialidad.Location = new System.Drawing.Point(217, 98);
-            this.cbxEspecialidad.Name = "cbxEspecialidad";
-            this.cbxEspecialidad.Size = new System.Drawing.Size(148, 21);
-            this.cbxEspecialidad.TabIndex = 63;
-            this.cbxEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cbxEspecialidad_SelectedIndexChanged);
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Location = new System.Drawing.Point(126, 171);
-            this.txtDescripcion.MaxLength = 100;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(240, 38);
-            this.txtDescripcion.TabIndex = 62;
-            this.txtDescripcion.Text = "";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label20.Location = new System.Drawing.Point(124, 12);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(147, 19);
-            this.label20.TabIndex = 35;
-            this.label20.Text = "DATOS DE LA CITA";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label14.Location = new System.Drawing.Point(22, 34);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 19);
-            this.label14.TabIndex = 50;
-            this.label14.Text = "Número de Cita";
-            // 
-            // txtNumeroCita
-            // 
-            this.txtNumeroCita.Enabled = false;
-            this.txtNumeroCita.Location = new System.Drawing.Point(295, 34);
-            this.txtNumeroCita.Name = "txtNumeroCita";
-            this.txtNumeroCita.Size = new System.Drawing.Size(70, 20);
-            this.txtNumeroCita.TabIndex = 51;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label17.Location = new System.Drawing.Point(23, 171);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(54, 19);
-            this.label17.TabIndex = 54;
-            this.label17.Text = "Motivo";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label15.Location = new System.Drawing.Point(22, 62);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(46, 19);
-            this.label15.TabIndex = 52;
-            this.label15.Text = "Fecha";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label18.Location = new System.Drawing.Point(22, 98);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(87, 19);
-            this.label18.TabIndex = 56;
-            this.label18.Text = "Especialidad";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label19.Location = new System.Drawing.Point(22, 138);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(51, 19);
-            this.label19.TabIndex = 58;
-            this.label19.Text = "Doctor";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnBuscarRecepcionista);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.txtCedulaRecepcionista);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtApellidoPaternoRecepcionista);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.txtNombresRecepcionista);
-            this.panel1.Location = new System.Drawing.Point(6, 426);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(383, 148);
-            this.panel1.TabIndex = 51;
-            // 
-            // btnBuscarRecepcionista
-            // 
-            this.btnBuscarRecepcionista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarRecepcionista.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarRecepcionista.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.btnBuscarRecepcionista.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarRecepcionista.Image")));
-            this.btnBuscarRecepcionista.Location = new System.Drawing.Point(177, 56);
-            this.btnBuscarRecepcionista.Name = "btnBuscarRecepcionista";
-            this.btnBuscarRecepcionista.Size = new System.Drawing.Size(21, 21);
-            this.btnBuscarRecepcionista.TabIndex = 46;
-            this.btnBuscarRecepcionista.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarRecepcionista.UseVisualStyleBackColor = true;
-            this.btnBuscarRecepcionista.Click += new System.EventHandler(this.btnBuscarRecepcionista_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label9.Location = new System.Drawing.Point(93, 20);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(218, 19);
-            this.label9.TabIndex = 46;
-            this.label9.Text = "DATOS DEL RECEPCIONISTA";
-            // 
-            // txtCedulaRecepcionista
-            // 
-            this.txtCedulaRecepcionista.Location = new System.Drawing.Point(206, 57);
-            this.txtCedulaRecepcionista.MaxLength = 10;
-            this.txtCedulaRecepcionista.Name = "txtCedulaRecepcionista";
-            this.txtCedulaRecepcionista.Size = new System.Drawing.Size(163, 20);
-            this.txtCedulaRecepcionista.TabIndex = 26;
-            this.txtCedulaRecepcionista.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtCedulaRecepcionista.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaRecepcionista_KeyPress);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label5.Location = new System.Drawing.Point(9, 84);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 19);
-            this.label5.TabIndex = 46;
-            this.label5.Text = "Nombres";
-            // 
-            // txtApellidoPaternoRecepcionista
-            // 
-            this.txtApellidoPaternoRecepcionista.Enabled = false;
-            this.txtApellidoPaternoRecepcionista.Location = new System.Drawing.Point(170, 115);
-            this.txtApellidoPaternoRecepcionista.Name = "txtApellidoPaternoRecepcionista";
-            this.txtApellidoPaternoRecepcionista.Size = new System.Drawing.Size(199, 20);
-            this.txtApellidoPaternoRecepcionista.TabIndex = 49;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label16.Location = new System.Drawing.Point(9, 58);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(161, 19);
-            this.label16.TabIndex = 25;
-            this.label16.Text = "Cédula del Recepcionista";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label21.Location = new System.Drawing.Point(9, 115);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(112, 19);
-            this.label21.TabIndex = 48;
-            this.label21.Text = "Apellido Paterno";
-            // 
-            // txtNombresRecepcionista
-            // 
-            this.txtNombresRecepcionista.Enabled = false;
-            this.txtNombresRecepcionista.Location = new System.Drawing.Point(170, 84);
-            this.txtNombresRecepcionista.Name = "txtNombresRecepcionista";
-            this.txtNombresRecepcionista.Size = new System.Drawing.Size(199, 20);
-            this.txtNombresRecepcionista.TabIndex = 47;
-            // 
-            // FrmIngresarCita
+            // FrmRecepcionistaIngresarCita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(775, 589);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(775, 474);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmIngresarCita";
+            this.Name = "FrmRecepcionistaIngresarCita";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Citas";
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        public System.Windows.Forms.Panel panel4;
+        public System.Windows.Forms.DateTimePicker dtpFechaCita;
+        public System.Windows.Forms.ComboBox cbxDoctor;
+        public System.Windows.Forms.ComboBox cbxEspecialidad;
+        public System.Windows.Forms.RichTextBox txtDescripcion;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label14;
+        public System.Windows.Forms.TextBox txtNumeroCita;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.ComboBox cbxProvincia;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox txtCedulaRecepcionista;
-        private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox txtApellidoPaternoRecepcionista;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label21;
-        public System.Windows.Forms.TextBox txtNombresRecepcionista;
-        public System.Windows.Forms.ComboBox cbxProvincia;
-        public System.Windows.Forms.Panel panel3;
-        public System.Windows.Forms.TextBox txtCedula;
-        public System.Windows.Forms.TextBox txtNombres;
-        public System.Windows.Forms.TextBox txtApellidoPaterno;
-        public System.Windows.Forms.TextBox txtCorreo;
-        public System.Windows.Forms.TextBox txtApellidoMaterno;
         public System.Windows.Forms.TextBox txtTelefono;
         public System.Windows.Forms.TextBox txtCanton;
         public System.Windows.Forms.TextBox txtDireccion;
-        public System.Windows.Forms.TextBox txtNumeroCita;
-        public System.Windows.Forms.DateTimePicker dtpFechaCita;
-        public System.Windows.Forms.ComboBox cbxDoctor;
-        public System.Windows.Forms.ComboBox cbxEspecialidad;
-        public System.Windows.Forms.RichTextBox txtDescripcion;
-        public System.Windows.Forms.Button btnBuscarRecepcionista;
-        public System.Windows.Forms.Button btnBuscar;
+        public System.Windows.Forms.TextBox txtNombres;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox txtApellidoPaterno;
+        public System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox txtApellidoMaterno;
         public System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Button btnGuardar;
-        public System.Windows.Forms.Panel panel4;
-        public System.Windows.Forms.Panel panel1;
     }
 }

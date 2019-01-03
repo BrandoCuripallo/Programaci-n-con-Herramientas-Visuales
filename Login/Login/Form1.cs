@@ -1,6 +1,8 @@
 ﻿using Login.Clases;
 using Login.Farmaceuticos;
 using Login.Pacientes;
+using Login.Recepcionistas;
+using Login.Doctores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,9 +64,33 @@ namespace Login
                                 break;
                             case "DOCTOR":
                                 Doctor doctor = new Doctor(txtUsuario.Text, txtContrasenia.Text);
+                                if (doctor.validarDoctor())
+                                {
+                                    MessageBox.Show("Bienvenido al sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    FrmDoctor frmDoctor = new FrmDoctor();
+                                    frmDoctor.asignarDoctor(doctor);
+                                    frmDoctor.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Usuario no existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
                                 break;
                             case "RECEPCIONISTA":
                                 Recepcionista recepcionista = new Recepcionista(txtUsuario.Text, txtContrasenia.Text);
+                                if (recepcionista.validarRecepcionista())
+                                {
+                                    MessageBox.Show("Bienvenido al sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    FrmRecepcionista frmRecepcionista = new FrmRecepcionista();
+                                    frmRecepcionista.asignarRecepcionista(recepcionista);
+                                    frmRecepcionista.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Usuario no existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
                                 break;
                             case "FARMACEÚTICO":
                                 Farmaceutico farmaceutico = new Farmaceutico(txtUsuario.Text, txtContrasenia.Text);

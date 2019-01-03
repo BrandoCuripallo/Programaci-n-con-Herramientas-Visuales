@@ -22,7 +22,6 @@ namespace Login
         CitaMedica citaMedica;
         List<Especialidad> especialidades;
         List<Doctor> doctores;
-        DataTable tbl;
         public FrmIngresarCita()
         {
             InitializeComponent();
