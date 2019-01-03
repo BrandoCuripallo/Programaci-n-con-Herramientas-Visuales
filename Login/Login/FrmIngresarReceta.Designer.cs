@@ -599,6 +599,7 @@
             this.Name = "FrmIngresarReceta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recetas";
+            this.Load += new System.EventHandler(this.FrmIngresarReceta_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentos)).EndInit();

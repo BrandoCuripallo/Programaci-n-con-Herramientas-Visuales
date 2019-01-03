@@ -244,5 +244,16 @@ namespace Login
             txtIndicaciones.Text = "";
             btnEliminar.Enabled = false;
         }
+
+        private void FrmIngresarReceta_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                var item = indicaciones.Last();
+                if (item != null)
+                    id = item.NumeroIndicacion + 1;
+            }
+            catch { }
+        }
     }
 }

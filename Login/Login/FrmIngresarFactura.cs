@@ -290,5 +290,17 @@ namespace Login
             txtStock.Text = Convert.ToString(medicamento.Stock);
             btnEliminar.Enabled = false;
         }
+
+        private void FrmIngresarFactura_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                var item = detalles.Last();
+                if (item != null)
+                    id = item.IdDetalle + 1;
+            }
+            catch
+            { }
+        }
     }
 }

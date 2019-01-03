@@ -639,6 +639,7 @@
             this.Name = "FrmIngresarFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturas";
+            this.Load += new System.EventHandler(this.FrmIngresarFactura_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
