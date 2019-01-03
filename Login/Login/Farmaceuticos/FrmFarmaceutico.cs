@@ -8,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Login.Clases;
-namespace Login.Pacientes
+namespace Login.Farmaceuticos
 {
-    public partial class FrmPaciente : Form
+    public partial class FrmFarmaceutico : Form
     {
-        Paciente paciente;
-        public FrmPaciente()
+        Farmaceutico farmaceutico;
+        public FrmFarmaceutico()
         {
             InitializeComponent();
         }
-        public void asignarPaciente(Object paciente)
+        public void asignarFarmaceutico(Object farmaceutico)
         {
-            this.paciente = (Paciente)paciente;
+            this.farmaceutico = (Farmaceutico)farmaceutico;
         }
         private void tmrFecha_Tick(object sender, EventArgs e)
         {
@@ -41,19 +41,6 @@ namespace Login.Pacientes
                 pnlMenu.Width = i;
             }
             tmrOcultar.Enabled = false;
-        }
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            if (pnlMenu.Width == 167)
-            {
-                tmrOcultar.Enabled = true;
-                btnMenu.Location = new Point(4, 16);
-            }
-            else
-            {
-                tmrMostrar.Enabled = true;
-                btnMenu.Location = new Point(127, 16);
-            }
         }
         private void panelExtendido()
         {
@@ -79,22 +66,22 @@ namespace Login.Pacientes
             pnlContenedor.Tag = fh;
             fh.Show();//Mostramos el formulario
         }
-        private void btnCitas_Click(object sender, EventArgs e)
+        private void btnMenu_Click(object sender, EventArgs e)
         {
-            if (pnlMenu.Width != 167)
-                panelExtendido();
-            FrmPacienteCita frmPacienteCita = new FrmPacienteCita();
-            frmPacienteCita.asignarPaciente(this.paciente);
-            frmPacienteCita.llenarDataGridView();
-            pnlCitas.Visible = true;
-            pnlFacturas.Visible = false;
-            pnlRecetas.Visible = false;
-            abrirFormHijo(frmPacienteCita);
+            if (pnlMenu.Width == 167)
+            {
+                tmrOcultar.Enabled = true;
+                btnMenu.Location = new Point(4, 16);
+            }
+            else
+            {
+                tmrMostrar.Enabled = true;
+                btnMenu.Location = new Point(127, 16);
+            }
         }
-
-        private void FrmPaciente_Load(object sender, EventArgs e)
+        private void FrmFarmaceutico_Load(object sender, EventArgs e)
         {
-            lblNombre.Text = paciente.Nombres + " " + paciente.ApellidoPaterno + " " + paciente.ApellidoMaterno;
+            lblNombre.Text = farmaceutico.Nombres + " " + farmaceutico.ApellidoPaterno + " " + farmaceutico.ApellidoMaterno;
             FrmInicio frmInicio = new FrmInicio();
             abrirFormHijo(frmInicio);
         }
@@ -106,30 +93,16 @@ namespace Login.Pacientes
             this.Close();
         }
 
-        private void btnRecetasMedicas_Click(object sender, EventArgs e)
-        {
-            if (pnlMenu.Width != 167)
-                panelExtendido();
-            pnlCitas.Visible = false;
-            pnlFacturas.Visible = false;
-            FrmPacienteReceta frmPacienteReceta = new FrmPacienteReceta();
-            frmPacienteReceta.asignarPaciente(this.paciente);
-            frmPacienteReceta.llenarDataGridView();
-            pnlRecetas.Visible = true;
-            abrirFormHijo(frmPacienteReceta);
-        }
-
         private void btnFacturas_Click(object sender, EventArgs e)
         {
             if (pnlMenu.Width != 167)
                 panelExtendido();
-            FrmPacienteFactura frmPacienteFactura = new FrmPacienteFactura();
-            frmPacienteFactura.asignarPaciente(this.paciente);
-            frmPacienteFactura.llenarDataGridView();
+            FrmFarmaceuticoFactura frmFarmaceuticoFactura = new FrmFarmaceuticoFactura();
+            frmFarmaceuticoFactura.asignarFarmaceutico(this.farmaceutico);
+            frmFarmaceuticoFactura.llenarDataGridView();
+            frmFarmaceuticoFactura.llenarMedicamentos();
             pnlFacturas.Visible = true;
-            pnlCitas.Visible = false;
-            pnlRecetas.Visible = false;
-            abrirFormHijo(frmPacienteFactura);
+            abrirFormHijo(frmFarmaceuticoFactura);
         }
     }
 }

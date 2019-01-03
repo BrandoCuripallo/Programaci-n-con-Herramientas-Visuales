@@ -1,4 +1,5 @@
 ﻿using Login.Clases;
+using Login.Farmaceuticos;
 using Login.Pacientes;
 using System;
 using System.Collections.Generic;
@@ -67,6 +68,18 @@ namespace Login
                                 break;
                             case "FARMACEÚTICO":
                                 Farmaceutico farmaceutico = new Farmaceutico(txtUsuario.Text, txtContrasenia.Text);
+                                if (farmaceutico.validarFarmaceutico())
+                                {
+                                    MessageBox.Show("Bienvenido al sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    FrmFarmaceutico frmFarmaceutico = new FrmFarmaceutico();
+                                    frmFarmaceutico.asignarFarmaceutico(farmaceutico);
+                                    frmFarmaceutico.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Usuario no existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
                                 break;
                             case "PACIENTE":
                                 Paciente paciente = new Paciente(txtUsuario.Text, txtContrasenia.Text);
