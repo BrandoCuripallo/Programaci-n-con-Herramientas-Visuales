@@ -25,7 +25,6 @@ namespace Login
         {
             InitializeComponent();
         }
-
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmIngresarOperacion frmIngresarOperacion = new FrmIngresarOperacion();
@@ -109,7 +108,6 @@ namespace Login
             }
             dgvOperacionesQuirurgicas.DataSource = tbl;
         }
-
         private void dgvOperacionesQuirurgicas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -169,7 +167,6 @@ namespace Login
                 DataBase.cerrarConexion(conexion);
             }
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try

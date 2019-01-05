@@ -189,6 +189,8 @@ namespace Login
                 frmIngresarReceta.llenarDataGridView();
                 frmIngresarReceta.txtCedula.Enabled = false;
                 frmIngresarReceta.txtCedulaDoctor.Enabled = false;
+                frmIngresarReceta.btnBuscar.Enabled = false;
+                frmIngresarReceta.btnBuscarDoctor.Enabled = false;
                 frmIngresarReceta.Show();
             }
             catch

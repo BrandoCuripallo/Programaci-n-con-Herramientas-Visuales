@@ -1108,7 +1108,7 @@ namespace Login.Clases
         {
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "UPDATE tblReceta SET cedulaPaciente = '" + receta.Paciente.Cedula + "', cedulaDoctor = '" + receta.Doctor.Cedula + "', fechaEmision = '" +
-                    receta.FechaEmision + "'";
+                    receta.FechaEmision + "' WHERE idReceta = " + receta.IdReceta;
             SqlCommand comando = new SqlCommand(consulta, conexion);
             if (comando.ExecuteNonQuery() > 0)
             {

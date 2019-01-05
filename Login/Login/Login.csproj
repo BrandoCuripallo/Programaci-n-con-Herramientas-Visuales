@@ -51,6 +51,54 @@
   <ItemGroup>
     <Compile Include="Clases\DataBase.cs" />
     <Compile Include="Clases\Indicacion.cs" />
+    <Compile Include="Doctores\FrmDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctor.Designer.cs">
+      <DependentUpon>FrmDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorAtencionQuirugica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorAtencionQuirugica.Designer.cs">
+      <DependentUpon>FrmDoctorAtencionQuirugica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorCita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorCita.Designer.cs">
+      <DependentUpon>FrmDoctorCita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorHistoriaClinica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorHistoriaClinica.Designer.cs">
+      <DependentUpon>FrmDoctorHistoriaClinica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorIngresarAtencion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorIngresarAtencion.Designer.cs">
+      <DependentUpon>FrmDoctorIngresarAtencion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorIngresarOperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorIngresarOperacion.Designer.cs">
+      <DependentUpon>FrmDoctorIngresarOperacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorIngresarReceta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorIngresarReceta.Designer.cs">
+      <DependentUpon>FrmDoctorIngresarReceta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorReceta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctores\FrmDoctorReceta.Designer.cs">
+      <DependentUpon>FrmDoctorReceta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Farmaceuticos\FrmFarmaceutico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +327,30 @@
     <Compile Include="Recepcionistas\FrmRecepcionistaIngresarCita.Designer.cs">
       <DependentUpon>FrmRecepcionistaIngresarCita.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Doctores\FrmDoctor.resx">
+      <DependentUpon>FrmDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctores\FrmDoctorAtencionQuirugica.resx">
+      <DependentUpon>FrmDoctorAtencionQuirugica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctores\FrmDoctorCita.resx">
+      <DependentUpon>FrmDoctorCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctores\FrmDoctorHistoriaClinica.resx">
+      <DependentUpon>FrmDoctorHistoriaClinica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctores\FrmDoctorIngresarAtencion.resx">
+      <DependentUpon>FrmDoctorIngresarAtencion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctores\FrmDoctorIngresarOperacion.resx">
+      <DependentUpon>FrmDoctorIngresarOperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctores\FrmDoctorIngresarReceta.resx">
+      <DependentUpon>FrmDoctorIngresarReceta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctores\FrmDoctorReceta.resx">
+      <DependentUpon>FrmDoctorReceta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Farmaceuticos\FrmFarmaceutico.resx">
       <DependentUpon>FrmFarmaceutico.cs</DependentUpon>
     </EmbeddedResource>

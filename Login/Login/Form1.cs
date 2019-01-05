@@ -68,6 +68,7 @@ namespace Login
                                 {
                                     MessageBox.Show("Bienvenido al sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     FrmDoctor frmDoctor = new FrmDoctor();
+                                    doctor.asignarEspecialidad(doctor.Especialidad.IdEspecialidad);
                                     frmDoctor.asignarDoctor(doctor);
                                     frmDoctor.Show();
                                     this.Hide();

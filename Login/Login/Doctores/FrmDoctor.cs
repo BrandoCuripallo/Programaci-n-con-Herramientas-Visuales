@@ -8,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Login.Clases;
-namespace Login.Pacientes
+namespace Login.Doctores
 {
-    public partial class FrmPaciente : Form
+    public partial class FrmDoctor : Form
     {
-        Paciente paciente;
-        public FrmPaciente()
+        Doctor doctor;
+        public FrmDoctor()
         {
             InitializeComponent();
         }
-        public void asignarPaciente(Object paciente)
+        public void asignarDoctor(Object doctor)
         {
-            this.paciente = (Paciente)paciente;
+            this.doctor = (Doctor)doctor;
         }
         private void tmrFecha_Tick(object sender, EventArgs e)
         {
@@ -79,21 +79,9 @@ namespace Login.Pacientes
             pnlContenedor.Tag = fh;
             fh.Show();//Mostramos el formulario
         }
-        private void btnCitas_Click(object sender, EventArgs e)
+        private void FrmDoctor_Load(object sender, EventArgs e)
         {
-            if (pnlMenu.Width != 167)
-                panelExtendido();
-            FrmPacienteCita frmPacienteCita = new FrmPacienteCita();
-            frmPacienteCita.asignarPaciente(this.paciente);
-            frmPacienteCita.llenarDataGridView();
-            pnlCitas.Visible = true;
-            pnlFacturas.Visible = false;
-            pnlRecetas.Visible = false;
-            abrirFormHijo(frmPacienteCita);
-        }
-        private void FrmPaciente_Load(object sender, EventArgs e)
-        {
-            lblNombre.Text = paciente.Nombres + " " + paciente.ApellidoPaterno + " " + paciente.ApellidoMaterno;
+            lblNombre.Text = doctor.Nombres + " " + doctor.ApellidoPaterno + " " + doctor.ApellidoMaterno;
             FrmInicio frmInicio = new FrmInicio();
             abrirFormHijo(frmInicio);
         }
@@ -104,29 +92,63 @@ namespace Login.Pacientes
             frmLogin.Show();
             this.Close();
         }
+        private void btnCitas_Click(object sender, EventArgs e)
+        {
+            if (pnlMenu.Width != 167)
+                panelExtendido();
+            FrmDoctorCita frmDoctorCita = new FrmDoctorCita();
+            frmDoctorCita.asignarDoctor(this.doctor);
+            frmDoctorCita.llenarDataGridView();
+            pnlCitas.Visible = true;
+            pnlHistoriasClinicas.Visible = false;
+            pnlRecetas.Visible = false;
+            pnlOperaciones.Visible = false;
+            abrirFormHijo(frmDoctorCita);
+        }
+
+        private void btnHistoriasClinicas_Click(object sender, EventArgs e)
+        {
+            if (pnlMenu.Width != 167)
+                panelExtendido();
+            FrmDoctorHistoriaClinica frmDoctorHistoriaClinica = new FrmDoctorHistoriaClinica();
+            frmDoctorHistoriaClinica.asignarDoctor(this.doctor);
+            frmDoctorHistoriaClinica.llenarDataGridView();
+            pnlCitas.Visible = false;
+            pnlHistoriasClinicas.Visible = true;
+            pnlRecetas.Visible = false;
+            pnlOperaciones.Visible = false;
+            abrirFormHijo(frmDoctorHistoriaClinica);
+        }
+
         private void btnRecetasMedicas_Click(object sender, EventArgs e)
         {
             if (pnlMenu.Width != 167)
                 panelExtendido();
+            FrmDoctorReceta frmDoctorReceta = new FrmDoctorReceta();
+            frmDoctorReceta.asignarDoctor(this.doctor);
+            frmDoctorReceta.llenarMedicamentos();
+            frmDoctorReceta.llenarDataGridView();
             pnlCitas.Visible = false;
-            pnlFacturas.Visible = false;
-            FrmPacienteReceta frmPacienteReceta = new FrmPacienteReceta();
-            frmPacienteReceta.asignarPaciente(this.paciente);
-            frmPacienteReceta.llenarDataGridView();
+            pnlHistoriasClinicas.Visible = false;
             pnlRecetas.Visible = true;
-            abrirFormHijo(frmPacienteReceta);
+            pnlOperaciones.Visible = false;
+            abrirFormHijo(frmDoctorReceta);
         }
-        private void btnFacturas_Click(object sender, EventArgs e)
+
+        private void btnOperaciones_Click(object sender, EventArgs e)
         {
             if (pnlMenu.Width != 167)
                 panelExtendido();
-            FrmPacienteFactura frmPacienteFactura = new FrmPacienteFactura();
-            frmPacienteFactura.asignarPaciente(this.paciente);
-            frmPacienteFactura.llenarDataGridView();
-            pnlFacturas.Visible = true;
+            FrmDoctorAtencionQuirugica frmDoctorAtencionQuirugica = new FrmDoctorAtencionQuirugica();
+            frmDoctorAtencionQuirugica.asignarDoctor(this.doctor);
+            frmDoctorAtencionQuirugica.llenarCirugias();
+            frmDoctorAtencionQuirugica.llenarDoctores();
+            frmDoctorAtencionQuirugica.llenarDataGridView();
             pnlCitas.Visible = false;
+            pnlHistoriasClinicas.Visible = false;
             pnlRecetas.Visible = false;
-            abrirFormHijo(frmPacienteFactura);
+            pnlOperaciones.Visible = true;
+            abrirFormHijo(frmDoctorAtencionQuirugica);
         }
     }
 }

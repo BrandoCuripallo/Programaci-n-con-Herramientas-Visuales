@@ -350,11 +350,6 @@ namespace Login
 
         private void FrmIngresarAtencion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("¿Desea salir sin Guardar los cambios?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultado == DialogResult.No)
-            {
-                e.Cancel = true;
-            }
         }
     }
 }

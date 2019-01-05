@@ -8,22 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Login.Clases;
-namespace Login.Pacientes
+namespace Login.Doctores
 {
-    public partial class FrmPacienteCita : Form
+    public partial class FrmDoctorCita : Form
     {
-        Paciente paciente;
-        public FrmPacienteCita()
+        Doctor doctor;
+        public FrmDoctorCita()
         {
             InitializeComponent();
         }
-        public void asignarPaciente(Object paciente)
+        public void asignarDoctor(Object doctor)
         {
-            this.paciente = (Paciente)paciente;
+            this.doctor = (Doctor)doctor;
         }
         public void llenarDataGridView()
         {
-            DataTable tbl = paciente.buscarCitas();
+            DataTable tbl = doctor.buscarCitas();
             dgvCitas.DataSource = tbl;
         }
     }
