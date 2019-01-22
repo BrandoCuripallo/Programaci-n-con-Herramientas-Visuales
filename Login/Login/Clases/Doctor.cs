@@ -107,7 +107,7 @@ namespace Login.Clases
             {
                 while (reader.Read())
                 {
-                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1).ToString("dd/MM/yy"), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
+                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
                 }
                 reader.Close();
                 DataBase.cerrarConexion(conexion);
@@ -471,7 +471,7 @@ namespace Login.Clases
             {
                 while (reader.Read())
                 {
-                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1).ToString("hh/MM/yy"), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6));
+                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6));
                 
 }
                 reader.Close();
@@ -632,6 +632,23 @@ namespace Login.Clases
                 reader.Close();
                 DataBase.cerrarConexion(conexion);
                 return null;
+            }
+        }
+        public bool validarFechaCirugia(DateTime fechaCirugia, string cedulaDoctor)
+        {
+            SqlConnection conexion = DataBase.obtenerConexion();
+            string consulta = "SELECT * FROM tblCirugiaPaciente WHERE cedulaDoctor = '" + cedulaDoctor + "' AND fecha = '" + fechaCirugia + "'";
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.HasRows)
+            {
+                DataBase.cerrarConexion(conexion);
+                return false;
+            }
+            else
+            {
+                DataBase.cerrarConexion(conexion);
+                return true;
             }
         }
     }

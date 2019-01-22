@@ -36,9 +36,9 @@
             this.txtDescripcion = new System.Windows.Forms.RichTextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.txtNumeroCirugia = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -81,9 +81,11 @@
             // 
             // dtpFechaCirugia
             // 
-            this.dtpFechaCirugia.Location = new System.Drawing.Point(155, 60);
+            this.dtpFechaCirugia.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy HH:mm:ss";
+            this.dtpFechaCirugia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaCirugia.Location = new System.Drawing.Point(98, 60);
             this.dtpFechaCirugia.Name = "dtpFechaCirugia";
-            this.dtpFechaCirugia.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaCirugia.Size = new System.Drawing.Size(257, 20);
             this.dtpFechaCirugia.TabIndex = 65;
             // 
             // cbxDoctor
@@ -136,6 +138,17 @@
             this.label14.TabIndex = 50;
             this.label14.Text = "Número de Cirugía";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.label17.Location = new System.Drawing.Point(11, 161);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(81, 19);
+            this.label17.TabIndex = 54;
+            this.label17.Text = "Descripción";
+            // 
             // txtNumeroCirugia
             // 
             this.txtNumeroCirugia.Enabled = false;
@@ -154,17 +167,6 @@
             this.label15.Size = new System.Drawing.Size(46, 19);
             this.label15.TabIndex = 52;
             this.label15.Text = "Fecha";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Bell MT", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.label17.Location = new System.Drawing.Point(11, 161);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(81, 19);
-            this.label17.TabIndex = 54;
-            this.label17.Text = "Descripción";
             // 
             // label18
             // 

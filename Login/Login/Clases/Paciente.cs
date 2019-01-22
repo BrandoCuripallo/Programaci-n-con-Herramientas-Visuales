@@ -83,7 +83,7 @@ namespace Login.Clases
             {
                 while (reader.Read())
                 {
-                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1).ToString("dd/MM/yy"), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
+                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
                 }
                 reader.Close();
                 DataBase.cerrarConexion(conexion);
@@ -174,7 +174,7 @@ namespace Login.Clases
             {
                 while (reader.Read())
                 {
-                    tbl.Rows.Add(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(3).ToString("dd/MM/yy"), Convert.ToDouble(Convert.ToString(reader.GetSqlMoney(4))));
+                    tbl.Rows.Add(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(3), Convert.ToDouble(Convert.ToString(reader.GetSqlMoney(4))));
                 }
                 reader.Close();
                 DataBase.cerrarConexion(conexion);

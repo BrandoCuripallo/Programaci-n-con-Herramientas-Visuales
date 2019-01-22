@@ -81,9 +81,11 @@
             // 
             // dtpFechaCirugia
             // 
-            this.dtpFechaCirugia.Location = new System.Drawing.Point(155, 60);
+            this.dtpFechaCirugia.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy HH:mm:ss";
+            this.dtpFechaCirugia.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaCirugia.Location = new System.Drawing.Point(98, 60);
             this.dtpFechaCirugia.Name = "dtpFechaCirugia";
-            this.dtpFechaCirugia.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaCirugia.Size = new System.Drawing.Size(257, 20);
             this.dtpFechaCirugia.TabIndex = 65;
             // 
             // cbxDoctor

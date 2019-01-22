@@ -418,9 +418,11 @@
             // 
             // dtpFechaCita
             // 
-            this.dtpFechaCita.Location = new System.Drawing.Point(166, 62);
+            this.dtpFechaCita.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy HH:mm:ss";
+            this.dtpFechaCita.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFechaCita.Location = new System.Drawing.Point(106, 62);
             this.dtpFechaCita.Name = "dtpFechaCita";
-            this.dtpFechaCita.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaCita.Size = new System.Drawing.Size(260, 20);
             this.dtpFechaCita.TabIndex = 65;
             // 
             // cbxDoctor

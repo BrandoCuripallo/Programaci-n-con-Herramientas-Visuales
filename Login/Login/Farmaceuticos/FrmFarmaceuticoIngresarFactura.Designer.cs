@@ -87,6 +87,7 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // panel4
             // 
@@ -228,9 +229,11 @@
             // 
             // dtpFechaEmision
             // 
+            this.dtpFechaEmision.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy HH:mm:ss";
+            this.dtpFechaEmision.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFechaEmision.Location = new System.Drawing.Point(166, 62);
             this.dtpFechaEmision.Name = "dtpFechaEmision";
-            this.dtpFechaEmision.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaEmision.Size = new System.Drawing.Size(279, 20);
             this.dtpFechaEmision.TabIndex = 65;
             // 
             // label20

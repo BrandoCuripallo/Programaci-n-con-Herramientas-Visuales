@@ -55,7 +55,7 @@
             this.dgvFacturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFacturas.EnableHeadersVisualStyles = false;
             this.dgvFacturas.GridColor = System.Drawing.Color.SteelBlue;
-            this.dgvFacturas.Location = new System.Drawing.Point(12, 64);
+            this.dgvFacturas.Location = new System.Drawing.Point(38, 64);
             this.dgvFacturas.Name = "dgvFacturas";
             this.dgvFacturas.ReadOnly = true;
             this.dgvFacturas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -75,7 +75,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dgvFacturas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFacturas.Size = new System.Drawing.Size(656, 317);
+            this.dgvFacturas.Size = new System.Drawing.Size(603, 317);
             this.dgvFacturas.TabIndex = 31;
             this.dgvFacturas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFacturas_CellClick);
             // 

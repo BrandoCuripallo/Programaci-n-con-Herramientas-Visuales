@@ -70,70 +70,87 @@ namespace Login.Doctores
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (txtCedula.Text != "")
+            try
             {
-                if (cbxCirugia.Text != "")
+                if (dtpFechaCirugia.Value > DateTime.Today)
                 {
-                    if (txtDescripcion.Text != "")
+                    if (txtCedula.Text != "")
                     {
-                        if (cbxDoctor.Text != "")
+                        if (cbxCirugia.Text != "")
                         {
-                            DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (resultado == DialogResult.Yes)
+                            if (txtDescripcion.Text != "")
                             {
-                                try
+                                if (cbxDoctor.Text != "")
                                 {
-                                    atencionQuirurgica = new AtencionQuirurgica();
-                                    atencionQuirurgica.IdAtencionQuirurgica = Convert.ToInt32(txtNumeroCirugia.Text);
-                                    atencionQuirurgica.Paciente = paciente;
-                                    atencionQuirurgica.FechaCirugia = dtpFechaCirugia.Value;
-                                    atencionQuirurgica.Descripcion = txtDescripcion.Text;
-                                    cirugia = cirugias.SingleOrDefault(aux => aux.NombreCirugia == cbxCirugia.Text);
-                                    atencionQuirurgica.Cirugia = cirugia;
-                                    doc = doctores.SingleOrDefault(aux => aux.ApellidoPaterno == cbxDoctor.Text);
-                                    atencionQuirurgica.Doctor = doc;
-                                    if (editar)
+                                    DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                    if (resultado == DialogResult.Yes)
                                     {
-                                        paciente = new Paciente();
-                                        paciente.Cedula = txtCedula.Text;
-                                        atencionQuirurgica.Paciente = paciente;
-                                        if (doctor.modificarOperacionQuirurgica(atencionQuirurgica))
+                                        try
                                         {
-                                            MessageBox.Show("Cirugía modificada con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                            this.Close();
-                                        }
-                                        else
-                                            MessageBox.Show("La Cirugía ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    }
-                                    else
-                                    {
-                                        if (doctor.ingresarOperacionQuirurgica(atencionQuirurgica))
-                                        {
+                                            atencionQuirurgica = new AtencionQuirurgica();
+                                            atencionQuirurgica.IdAtencionQuirurgica = Convert.ToInt32(txtNumeroCirugia.Text);
+                                            atencionQuirurgica.Paciente = paciente;
+                                            atencionQuirurgica.FechaCirugia = dtpFechaCirugia.Value;
+                                            atencionQuirurgica.Descripcion = txtDescripcion.Text;
+                                            cirugia = cirugias.SingleOrDefault(aux => aux.NombreCirugia == cbxCirugia.Text);
+                                            atencionQuirurgica.Cirugia = cirugia;
+                                            doc = doctores.SingleOrDefault(aux => aux.ApellidoPaterno == cbxDoctor.Text);
+                                            atencionQuirurgica.Doctor = doc;
+                                            if (editar)
+                                            {
+                                                paciente = new Paciente();
+                                                paciente.Cedula = txtCedula.Text;
+                                                atencionQuirurgica.Paciente = paciente;
+                                                if (doctor.modificarOperacionQuirurgica(atencionQuirurgica))
+                                                {
+                                                    MessageBox.Show("Cirugía modificada con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    this.Close();
+                                                }
+                                                else
+                                                    MessageBox.Show("La Cirugía ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            }
+                                            else
+                                            {
+                                                if (doctor.validarFechaCirugia(dtpFechaCirugia.Value, doctor.Cedula))
+                                                {
+                                                    if (doctor.ingresarOperacionQuirurgica(atencionQuirurgica))
+                                                    {
 
-                                            MessageBox.Show("Cirugía ingresada con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                            this.Close();
+                                                        MessageBox.Show("Cirugía ingresada con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        this.Close();
+                                                    }
+                                                    else
+                                                        MessageBox.Show("La Cirugía ya se encuentra registrada", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                }
+                                                else
+                                                    MessageBox.Show("La fecha de la cirguía coincide con otra asignada", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            }
                                         }
-                                        else
-                                            MessageBox.Show("La Cirugía ya se encuentra registrada", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        catch
+                                        {
+                                            MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
                                     }
                                 }
-                                catch
-                                {
-                                    MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
+                                else
+                                    MessageBox.Show("Seleccione el Médico para la especialidad", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
+                            else
+                                MessageBox.Show("Ingrese el motivo de la cita", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                         else
-                            MessageBox.Show("Seleccione el Médico para la especialidad", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Seleccione el tipo de Cirugía", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     else
-                        MessageBox.Show("Ingrese el motivo de la cita", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Ingrese la cédula del paciente", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 else
-                    MessageBox.Show("Seleccione el tipo de Cirugía", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("La fecha ingresada no puede ser menor a la fecha actual", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else
-                MessageBox.Show("Ingrese la cédula del paciente", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            catch
+            {
+                MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

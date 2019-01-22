@@ -555,10 +555,12 @@
             // 
             // tmrMostrar
             // 
+            this.tmrMostrar.Interval = 10;
             this.tmrMostrar.Tick += new System.EventHandler(this.tmrMostrar_Tick);
             // 
             // tmrOcultar
             // 
+            this.tmrOcultar.Interval = 10;
             this.tmrOcultar.Tick += new System.EventHandler(this.tmrOcultar_Tick);
             // 
             // pnlContenedor

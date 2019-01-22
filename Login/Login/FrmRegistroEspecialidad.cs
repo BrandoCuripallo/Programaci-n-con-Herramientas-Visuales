@@ -34,6 +34,10 @@ namespace Login
         }
         public void llenarDataGridView()
         {
+            DataTable tbl = new DataTable();
+            tbl.Columns.Add("Código");
+            tbl.Columns.Add("Nombre");
+            tbl.Columns.Add("Descripción");
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "SELECT * FROM tblEspecialidad";
             SqlCommand comando = new SqlCommand(consulta, conexion);
@@ -50,16 +54,12 @@ namespace Login
                     especialidad = new Especialidad();
                 }
                 DataBase.cerrarConexion(conexion);
-                DataTable tbl = new DataTable();
-                tbl.Columns.Add("Código");
-                tbl.Columns.Add("Nombre");
-                tbl.Columns.Add("Descripción");
                 foreach (var aux in especialidades)
                 {
                     tbl.Rows.Add(aux.IdEspecialidad, aux.NombreEspecialidad, aux.Descripcion);
                 }
-                dgvEspecialidades.DataSource = tbl;
             }
+            dgvEspecialidades.DataSource = tbl;
         }
 
         private void dgvEspecialidades_CellClick(object sender, DataGridViewCellEventArgs e)

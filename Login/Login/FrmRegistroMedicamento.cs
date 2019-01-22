@@ -33,6 +33,12 @@ namespace Login
         }
         public void llenarDataGridView()
         {
+            DataTable tbl = new DataTable();
+            tbl.Columns.Add("Código");
+            tbl.Columns.Add("Nombre");
+            tbl.Columns.Add("Descripción");
+            tbl.Columns.Add("Stock");
+            tbl.Columns.Add("Precio Unitario");
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "SELECT * FROM tblMedicamento";
             SqlCommand comando = new SqlCommand(consulta, conexion);
@@ -51,18 +57,12 @@ namespace Login
                     medicamento = new Medicamento();
                 }
                 DataBase.cerrarConexion(conexion);
-                DataTable tbl = new DataTable();
-                tbl.Columns.Add("Código");
-                tbl.Columns.Add("Nombre");
-                tbl.Columns.Add("Descripción");
-                tbl.Columns.Add("Stock");
-                tbl.Columns.Add("Precio Unitario");
                 foreach (var aux in medicamentos)
                 {
                     tbl.Rows.Add(aux.CodigoMedicamento, aux.NombreMedicamento, aux.Descripcion, aux.Stock, aux.PrecioUnitario);
                 }
-                dgvMedicamentos.DataSource = tbl;
             }
+            dgvMedicamentos.DataSource = tbl;
         }
 
         private void dgvMedicamentos_CellClick(object sender, DataGridViewCellEventArgs e)

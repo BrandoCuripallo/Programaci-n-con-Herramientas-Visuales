@@ -108,10 +108,10 @@ namespace Login
                 DataBase.cerrarConexion(conexion);
                 foreach (var aux in facturas)
                 {
-                    tbl.Rows.Add(aux.IdFactura, aux.Farmaceutico.Cedula, aux.Paciente.Cedula, aux.FechaEmision.ToString("dd/MM/yy"), aux.Total);
+                    tbl.Rows.Add(aux.IdFactura, aux.Farmaceutico.Cedula, aux.Paciente.Cedula, aux.FechaEmision, aux.Total);
                 }
-                dgvFacturas.DataSource = tbl;
             }
+            dgvFacturas.DataSource = tbl;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

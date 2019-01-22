@@ -80,7 +80,7 @@ namespace Login.Clases
             {
                 while (reader.Read())
                 {
-                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1).ToString("dd/MM/yy"), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetString(7), reader.GetString(8));
+                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetString(7), reader.GetString(8));
                 }
             }
             reader.Close();
@@ -137,6 +137,23 @@ namespace Login.Clases
             {
                 DataBase.cerrarConexion(conexion);
                 return false;
+            }
+        }
+        public bool validarFechaCita(DateTime fechaCirugia, string cedulaDoctor)
+        {
+            SqlConnection conexion = DataBase.obtenerConexion();
+            string consulta = "SELECT * FROM tblCitaMedica WHERE cedulaDoctor = '" + cedulaDoctor + "' AND fechaCita = '" + fechaCirugia + "'";
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.HasRows)
+            {
+                DataBase.cerrarConexion(conexion);
+                return false;
+            }
+            else
+            {
+                DataBase.cerrarConexion(conexion);
+                return true;
             }
         }
     }

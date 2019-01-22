@@ -34,6 +34,20 @@ namespace Login
         }
         public void llenarDataGridView()
         {
+            DataTable tbl = new DataTable();
+            tbl.Columns.Add("Cédula");
+            tbl.Columns.Add("Nombres");
+            tbl.Columns.Add("Apellido Paterno");
+            tbl.Columns.Add("Apellido Materno");
+            tbl.Columns.Add("Fecha de Nacimiento");
+            tbl.Columns.Add("Edad");
+            tbl.Columns.Add("Sexo");
+            tbl.Columns.Add("Correo Electrónico");
+            tbl.Columns.Add("Provincia");
+            tbl.Columns.Add("Ciudad");
+            tbl.Columns.Add("Dirección");
+            tbl.Columns.Add("Teléfono");
+            tbl.Columns.Add("Contraseñia");
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "SELECT * FROM tblPaciente";
             SqlCommand comando = new SqlCommand(consulta, conexion);
@@ -60,26 +74,12 @@ namespace Login
                     paciente = new Paciente();
                 }
                 DataBase.cerrarConexion(conexion);
-                DataTable tbl = new DataTable();
-                tbl.Columns.Add("Cédula");
-                tbl.Columns.Add("Nombres");
-                tbl.Columns.Add("Apellido Paterno");
-                tbl.Columns.Add("Apellido Materno");
-                tbl.Columns.Add("Fecha de Nacimiento");
-                tbl.Columns.Add("Edad");
-                tbl.Columns.Add("Sexo");
-                tbl.Columns.Add("Correo Electrónico");
-                tbl.Columns.Add("Provincia");
-                tbl.Columns.Add("Ciudad");
-                tbl.Columns.Add("Dirección");
-                tbl.Columns.Add("Teléfono");
-                tbl.Columns.Add("Contraseñia");
                 foreach (var aux in pacientes)
                 {
                     tbl.Rows.Add(aux.Cedula, aux.Nombres, aux.ApellidoPaterno, aux.ApellidoMaterno, aux.getFechaNacimiento(), aux.Edad, aux.Sexo, aux.CorreoElectronico, aux.Provincia, aux.Canton, aux.Direccion, aux.Telefono, aux.ContraseniaPaciente);
                 }
-                dgvPacientes.DataSource = tbl;
             }
+            dgvPacientes.DataSource = tbl;
         }
 
         private void dgvPacientes_CellClick(object sender, DataGridViewCellEventArgs e)

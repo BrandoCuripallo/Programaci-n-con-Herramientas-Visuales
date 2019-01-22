@@ -302,5 +302,31 @@ namespace Login
             catch
             { }
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Emision datos = new Emision();
+            FrmFactura frmFactura = new FrmFactura();
+            for (int i = 0; i < dgvProductos.Rows.Count - 1; i++)
+            {
+                datos = new Emision();
+                datos.CedulaPaciente = txtCedula.Text;
+                datos.Nombres = txtNombres.Text;
+                datos.ApellidoPaterno = txtApellidoPaterno.Text;
+                datos.CorreoElectronico = txtCorreo.Text;
+                datos.Direccion = txtDireccion.Text;
+                datos.Telefono = txtTelefono.Text;
+                datos.NumeroFactura = Convert.ToInt32(txtNumeroFactura.Text);
+                datos.Fecha = dtpFechaEmision.Value;
+                datos.Total = Convert.ToDouble(txtTotal.Text);
+                datos.Numero = Convert.ToInt32(dgvProductos.Rows[i].Cells[0].Value);
+                datos.Descripcion = Convert.ToString(dgvProductos.Rows[i].Cells[1].Value);
+                datos.Cantidad = Convert.ToInt32(dgvProductos.Rows[i].Cells[2].Value);
+                datos.PrecioUnitario = Convert.ToDouble(dgvProductos.Rows[i].Cells[3].Value);
+                datos.SubTotal = Convert.ToDouble(dgvProductos.Rows[i].Cells[4].Value);
+                frmFactura.datos.Add(datos);
+            }
+            frmFactura.ShowDialog();
+        }
     }
 }

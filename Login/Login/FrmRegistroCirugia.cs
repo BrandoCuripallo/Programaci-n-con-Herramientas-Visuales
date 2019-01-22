@@ -34,6 +34,9 @@ namespace Login
         }
         public void llenarDataGridView()
         {
+            DataTable tbl = new DataTable();
+            tbl.Columns.Add("Código");
+            tbl.Columns.Add("Nombre");
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "SELECT * FROM tblCirugia";
             SqlCommand comando = new SqlCommand(consulta, conexion);
@@ -49,15 +52,12 @@ namespace Login
                     cirugia = new Cirugia();
                 }
                 DataBase.cerrarConexion(conexion);
-                DataTable tbl = new DataTable();
-                tbl.Columns.Add("Código");
-                tbl.Columns.Add("Nombre");
                 foreach (var aux in cirugias)
                 {
                     tbl.Rows.Add(aux.IdCirugia, aux.NombreCirugia);
                 }
-                dgvCirugias.DataSource = tbl;
             }
+            dgvCirugias.DataSource = tbl;
         }
         private void FrmRegistroCirugia_Load(object sender, EventArgs e)
         {

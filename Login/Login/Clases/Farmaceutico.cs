@@ -74,7 +74,7 @@ namespace Login.Clases
             {
                 while (reader.Read())
                 {
-                    tbl.Rows.Add(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4).ToString("dd/MM/yy"), Convert.ToDouble(Convert.ToString(reader.GetSqlMoney(5))));
+                    tbl.Rows.Add(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetDateTime(4), Convert.ToDouble(Convert.ToString(reader.GetSqlMoney(5))));
                 }
                 reader.Close();
                 DataBase.cerrarConexion(conexion);

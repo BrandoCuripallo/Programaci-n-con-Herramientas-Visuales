@@ -129,55 +129,64 @@ namespace Login
                         {
                             if(cbxDoctor.Text != "")
                             {
-                                DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                                if (resultado == DialogResult.Yes)
+                                if(dtpFechaCita.Value > DateTime.Today)
                                 {
-                                    try
+                                    DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                    if (resultado == DialogResult.Yes)
                                     {
-                                        citaMedica = new CitaMedica();
-                                        citaMedica.NumeroCita = Convert.ToInt32(txtNumeroCita.Text);
-                                        citaMedica.Paciente = paciente;
-                                        citaMedica.FechaCita = dtpFechaCita.Value;
-                                        citaMedica.Descripcion = txtDescripcion.Text;
-                                        especialidad = especialidades.SingleOrDefault(aux => aux.NombreEspecialidad == cbxEspecialidad.Text);
-                                        citaMedica.Especialidad = especialidad;
-                                        doctor = doctores.SingleOrDefault(aux => aux.ApellidoPaterno == cbxDoctor.Text);
-                                        citaMedica.Doctor = doctor;
-                                        if (editar)
+                                        try
                                         {
-                                            recepcionista = new Recepcionista();
-                                            recepcionista.Cedula = txtCedulaRecepcionista.Text;
-                                            citaMedica.Recepcionista = recepcionista;
-                                            paciente = new Paciente();
-                                            paciente.Cedula = txtCedula.Text;
+                                            citaMedica = new CitaMedica();
+                                            citaMedica.NumeroCita = Convert.ToInt32(txtNumeroCita.Text);
                                             citaMedica.Paciente = paciente;
-                                            if (administrador.modificarCitaMedica(citaMedica))
+                                            citaMedica.FechaCita = dtpFechaCita.Value;
+                                            citaMedica.Descripcion = txtDescripcion.Text;
+                                            especialidad = especialidades.SingleOrDefault(aux => aux.NombreEspecialidad == cbxEspecialidad.Text);
+                                            citaMedica.Especialidad = especialidad;
+                                            doctor = doctores.SingleOrDefault(aux => aux.ApellidoPaterno == cbxDoctor.Text);
+                                            citaMedica.Doctor = doctor;
+                                            if (editar)
                                             {
-                                                MessageBox.Show("Cita modificada con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                this.Close();
+                                                recepcionista = new Recepcionista();
+                                                recepcionista.Cedula = txtCedulaRecepcionista.Text;
+                                                citaMedica.Recepcionista = recepcionista;
+                                                paciente = new Paciente();
+                                                paciente.Cedula = txtCedula.Text;
+                                                citaMedica.Paciente = paciente;
+                                                if (administrador.modificarCitaMedica(citaMedica))
+                                                {
+                                                    MessageBox.Show("Cita modificada con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    this.Close();
+                                                }
+                                                else
+                                                    MessageBox.Show("La Cita ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                             }
                                             else
-                                                MessageBox.Show("La Cita ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                        }
-                                        else
-                                        {
-                                            citaMedica.Recepcionista = recepcionista;
-                                            citaMedica.Recepcionista = recepcionista;
-                                            if (administrador.ingresarCitaMedica(citaMedica))
                                             {
+                                                if(administrador.validarFechaCita(dtpFechaCita.Value, doctor.Cedula))
+                                                {
+                                                    citaMedica.Recepcionista = recepcionista;
+                                                    if (administrador.ingresarCitaMedica(citaMedica))
+                                                    {
 
-                                                MessageBox.Show("Cita ingresada con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                limpiarTextos();
+                                                        MessageBox.Show("Cita ingresada con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        limpiarTextos();
+                                                    }
+                                                    else
+                                                        MessageBox.Show("La Cita ya se encuentra registrada", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                }
+                                                else
+                                                    MessageBox.Show("La fecha de la cita coincide con otra asignada", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                             }
-                                            else
-                                                MessageBox.Show("La Cita ya se encuentra registrada", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        }
+                                        catch
+                                        {
+                                            MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
                                     }
-                                    catch
-                                    {
-                                        MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    }
-                                }   
+                                }
+                                else
+                                    MessageBox.Show("La fecha ingresada no puede ser menor a la fecha actual", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                             else
                                 MessageBox.Show("Seleccione el Médico para la especialidad", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

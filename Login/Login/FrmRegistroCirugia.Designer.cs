@@ -158,7 +158,7 @@
             this.dgvCirugias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCirugias.EnableHeadersVisualStyles = false;
             this.dgvCirugias.GridColor = System.Drawing.Color.SteelBlue;
-            this.dgvCirugias.Location = new System.Drawing.Point(12, 64);
+            this.dgvCirugias.Location = new System.Drawing.Point(76, 64);
             this.dgvCirugias.Name = "dgvCirugias";
             this.dgvCirugias.ReadOnly = true;
             this.dgvCirugias.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -178,7 +178,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dgvCirugias.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCirugias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCirugias.Size = new System.Drawing.Size(419, 317);
+            this.dgvCirugias.Size = new System.Drawing.Size(290, 317);
             this.dgvCirugias.TabIndex = 46;
             this.dgvCirugias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCirugias_CellClick);
             // 

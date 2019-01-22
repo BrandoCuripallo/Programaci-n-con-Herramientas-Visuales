@@ -1009,6 +1009,23 @@ namespace Login.Clases
                 return false;
             }
         }
+        public bool validarFechaCita(DateTime fechaCirugia, string cedulaDoctor)
+        {
+            SqlConnection conexion = DataBase.obtenerConexion();
+            string consulta = "SELECT * FROM tblCitaMedica WHERE cedulaDoctor = '" + cedulaDoctor + "' AND fechaCita = '" + fechaCirugia + "'";
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.HasRows)
+            {
+                DataBase.cerrarConexion(conexion);
+                return false;
+            }
+            else
+            {
+                DataBase.cerrarConexion(conexion);
+                return true;
+            }
+        }
         /*************************************************************************/
         /*
          * Métodos de conexión a la DB para la Operacion Quirúrgica
@@ -1062,6 +1079,23 @@ namespace Login.Clases
             {
                 DataBase.cerrarConexion(conexion);
                 return false;
+            }
+        }
+        public bool validarFechaCirugia(DateTime fechaCirugia, string cedulaDoctor)
+        {
+            SqlConnection conexion = DataBase.obtenerConexion();
+            string consulta = "SELECT * FROM tblCirugiaPaciente WHERE cedulaDoctor = '" + cedulaDoctor + "' AND fecha = '" + fechaCirugia + "'";
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.HasRows)
+            {
+                DataBase.cerrarConexion(conexion);
+                return false;
+            }
+            else
+            {
+                DataBase.cerrarConexion(conexion);
+                return true;
             }
         }
         /*************************************************************************/

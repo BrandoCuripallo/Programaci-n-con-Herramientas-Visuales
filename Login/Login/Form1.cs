@@ -52,10 +52,11 @@ namespace Login
                                 if (administrador.validarAdministrador())
                                 {
                                     MessageBox.Show("Bienvenido al sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    desplazar();
+                                    this.Hide();
                                     FrmAdministrador frmAdministrador = new FrmAdministrador();
                                     frmAdministrador.asignarAdministrador(administrador);
-                                    frmAdministrador.Show();
-                                    this.Hide();
+                                    frmAdministrador.Show();                                    
                                 }
                                 else
                                 {
@@ -67,6 +68,8 @@ namespace Login
                                 if (doctor.validarDoctor())
                                 {
                                     MessageBox.Show("Bienvenido al sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    desplazar();
+                                    this.Hide();
                                     FrmDoctor frmDoctor = new FrmDoctor();
                                     doctor.asignarEspecialidad(doctor.Especialidad.IdEspecialidad);
                                     frmDoctor.asignarDoctor(doctor);
@@ -83,10 +86,11 @@ namespace Login
                                 if (recepcionista.validarRecepcionista())
                                 {
                                     MessageBox.Show("Bienvenido al sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    desplazar();
+                                    this.Hide();
                                     FrmRecepcionista frmRecepcionista = new FrmRecepcionista();
                                     frmRecepcionista.asignarRecepcionista(recepcionista);
                                     frmRecepcionista.Show();
-                                    this.Hide();
                                 }
                                 else
                                 {
@@ -98,6 +102,8 @@ namespace Login
                                 if (farmaceutico.validarFarmaceutico())
                                 {
                                     MessageBox.Show("Bienvenido al sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    desplazar();
+                                    this.Hide();
                                     FrmFarmaceutico frmFarmaceutico = new FrmFarmaceutico();
                                     frmFarmaceutico.asignarFarmaceutico(farmaceutico);
                                     frmFarmaceutico.Show();
@@ -113,6 +119,8 @@ namespace Login
                                 if (paciente.validarPaciente())
                                 {
                                     MessageBox.Show("Bienvenido al sistema", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    desplazar();
+                                    this.Hide();
                                     FrmPaciente frmPaciente = new FrmPaciente();
                                     frmPaciente.asignarPaciente(paciente);
                                     frmPaciente.Show();
@@ -152,5 +160,33 @@ namespace Login
                 lblUsuario.Text = "USUARIO";
             }
         }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 39)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtContrasenia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 39)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+        private void desplazar()
+        {
+            Point punto = new Point(this.Location.X, this.Location.Y);
+            for (int i = 0; i < 500; i++)
+            {
+                punto.X += 1;
+                this.Location = punto;
+            }
+        }
+        
     }
 }

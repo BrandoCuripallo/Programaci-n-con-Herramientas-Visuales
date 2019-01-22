@@ -52,7 +52,7 @@ cedulaPaciente varchar(10) FOREIGN KEY REFERENCES tblPaciente (cedulaPaciente) O
 GO
 CREATE TABLE tblFactura (idFactura int PRIMARY KEY IDENTITY, cedulaFarmaceutico varchar(10) 
 FOREIGN KEY REFERENCES tblFarmaceutico (cedulaFarmaceutico) ON UPDATE CASCADE, cedulaPaciente varchar(10) 
-FOREIGN KEY REFERENCES tblPaciente (cedulaPaciente) ON UPDATE CASCADE ON DELETE CASCADE, fechaEmision date, total money)
+FOREIGN KEY REFERENCES tblPaciente (cedulaPaciente) ON UPDATE CASCADE ON DELETE CASCADE, fechaEmision datetime, total money)
 GO
 CREATE TABLE tblMedicamento (codigoMedicamento varchar(5) PRIMARY KEY, nombreMedicamento varchar(50), descripcion varchar(100), stock int, 
 precioUnitario money)

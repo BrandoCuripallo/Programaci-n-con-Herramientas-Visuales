@@ -109,7 +109,7 @@ namespace Login
                 DataBase.cerrarConexion(conexion);
                 foreach (var aux in citasMedicas)
                 {
-                    tbl.Rows.Add(aux.NumeroCita, aux.FechaCita.ToString("dd/MM/yy"), aux.Paciente.Cedula, aux.Paciente.Nombres, aux.Paciente.ApellidoPaterno, aux.Especialidad.NombreEspecialidad, aux.Descripcion, aux.Doctor.Nombres, aux.Doctor.ApellidoPaterno);
+                    tbl.Rows.Add(aux.NumeroCita, aux.FechaCita, aux.Paciente.Cedula, aux.Paciente.Nombres, aux.Paciente.ApellidoPaterno, aux.Especialidad.NombreEspecialidad, aux.Descripcion, aux.Doctor.Nombres, aux.Doctor.ApellidoPaterno);
                 }
                 
             }

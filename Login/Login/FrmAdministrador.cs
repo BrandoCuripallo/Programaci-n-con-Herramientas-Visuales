@@ -267,5 +267,19 @@ namespace Login
         {
             this.administrador = (Administrador)administrador;
         }
+        public void desplazar()
+        {
+            Point punto = new Point(this.Location.X, this.Location.Y);
+            for (int i = 0; i < 500; i++)
+            {
+                punto.X -= 1;
+                this.Location = punto;
+            }
+            for (int i = 0; i < 500; i++)
+            {
+                punto.X += 1;
+                this.Location = punto;
+            }
+        }
     }
 }

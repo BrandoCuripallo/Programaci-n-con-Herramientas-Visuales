@@ -36,6 +36,22 @@ namespace Login
         }
         public void llenarDataGridView()
         {
+            DataTable tbl = new DataTable();
+            tbl.Columns.Add("Cédula");
+            tbl.Columns.Add("Nombres");
+            tbl.Columns.Add("Apellido Paterno");
+            tbl.Columns.Add("Apellido Materno");
+            tbl.Columns.Add("Fecha de Nacimiento");
+            tbl.Columns.Add("Edad");
+            tbl.Columns.Add("Sexo");
+            tbl.Columns.Add("Correo Electrónico");
+            tbl.Columns.Add("Provincia");
+            tbl.Columns.Add("Ciudad");
+            tbl.Columns.Add("Dirección");
+            tbl.Columns.Add("Teléfono");
+            tbl.Columns.Add("Usuario");
+            tbl.Columns.Add("Contraseñia");
+            tbl.Columns.Add("Especialidad");
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "SELECT * FROM tblDoctor LEFT JOIN tblEspecialidad ON tblDoctor.codigoEspecialidad = tblEspecialidad.codigoEspecialidad";
             SqlCommand comando = new SqlCommand(consulta, conexion);
@@ -70,28 +86,12 @@ namespace Login
                 }
                 reader.Close();
                 DataBase.cerrarConexion(conexion);
-                DataTable tbl = new DataTable();
-                tbl.Columns.Add("Cédula");
-                tbl.Columns.Add("Nombres");
-                tbl.Columns.Add("Apellido Paterno");
-                tbl.Columns.Add("Apellido Materno");
-                tbl.Columns.Add("Fecha de Nacimiento");
-                tbl.Columns.Add("Edad");
-                tbl.Columns.Add("Sexo");
-                tbl.Columns.Add("Correo Electrónico");
-                tbl.Columns.Add("Provincia");
-                tbl.Columns.Add("Ciudad");
-                tbl.Columns.Add("Dirección");
-                tbl.Columns.Add("Teléfono");
-                tbl.Columns.Add("Usuario");
-                tbl.Columns.Add("Contraseñia");
-                tbl.Columns.Add("Especialidad");
                 foreach (var aux in doctores)
                 {
                     tbl.Rows.Add(aux.Cedula, aux.Nombres, aux.ApellidoPaterno, aux.ApellidoMaterno, aux.getFechaNacimiento(), aux.Edad, aux.Sexo, aux.CorreoElectronico, aux.Provincia, aux.Canton, aux.Direccion, aux.Telefono, aux.UsuarioDoctor, aux.ContraseniaDoctor, aux.Especialidad.NombreEspecialidad);
                 }
-                dgvDoctores.DataSource = tbl;
             }
+            dgvDoctores.DataSource = tbl;
         }
 
         private void dgvDoctores_CellClick(object sender, DataGridViewCellEventArgs e)
