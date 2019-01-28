@@ -308,7 +308,7 @@
             this.btnHistoriasClinicas.FlatAppearance.BorderSize = 0;
             this.btnHistoriasClinicas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btnHistoriasClinicas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistoriasClinicas.Font = new System.Drawing.Font("AVGmdBU", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistoriasClinicas.Font = new System.Drawing.Font("AVGmdBU", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistoriasClinicas.ForeColor = System.Drawing.Color.Snow;
             this.btnHistoriasClinicas.Image = ((System.Drawing.Image)(resources.GetObject("btnHistoriasClinicas.Image")));
             this.btnHistoriasClinicas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -317,7 +317,6 @@
             this.btnHistoriasClinicas.Size = new System.Drawing.Size(190, 43);
             this.btnHistoriasClinicas.TabIndex = 4;
             this.btnHistoriasClinicas.Text = "Historias Clinicas";
-            this.btnHistoriasClinicas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHistoriasClinicas.UseVisualStyleBackColor = true;
             this.btnHistoriasClinicas.Click += new System.EventHandler(this.btnHistoriasClinicas_Click);
             // 

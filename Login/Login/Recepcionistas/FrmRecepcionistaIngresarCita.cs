@@ -134,6 +134,7 @@ namespace Login.Recepcionistas
                                         doctor = doctores.SingleOrDefault(aux => aux.ApellidoPaterno == cbxDoctor.Text);
                                         citaMedica.Doctor = doctor;
                                         citaMedica.Recepcionista = recepcionista;
+                                        citaMedica.Estado = "Activa";
                                         if (recepcionista.validarFechaCita(dtpFechaCita.Value, doctor.Cedula))
                                         {
                                             if (recepcionista.ingresarCitaMedica(citaMedica))

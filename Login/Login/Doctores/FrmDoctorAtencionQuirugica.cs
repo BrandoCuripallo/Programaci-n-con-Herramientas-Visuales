@@ -16,7 +16,6 @@ namespace Login.Doctores
         Doctor doctor;
         Doctor doc;
         AtencionQuirurgica atencionQuirurgica;
-        Paciente paciente;
         Cirugia cirugia;
         List<Cirugia> cirugias = new List<Cirugia>();
         List<Doctor> doctores = new List<Doctor>();
@@ -47,7 +46,6 @@ namespace Login.Doctores
             }
             catch
             {
-                MessageBox.Show("Seleccione una fila correcta", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void llenarCirugias()

@@ -57,7 +57,7 @@ namespace Login
         {
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "SELECT idCita, fechaCita, tblCitaMedica.cedulaPaciente, tblPaciente.nombres, tblPaciente.apellidoPaterno, nombreEspecialidad, " + 
-                "tblcitaMedica.descripcion, tblDoctor.cedulaDoctor, tblDoctor.nombres, tblDoctor.apellidoPaterno, tblCitaMedica.cedulaRecepcionista FROM tblCitaMedica INNER JOIN tblPaciente " + 
+                "tblcitaMedica.descripcion, tblDoctor.cedulaDoctor, tblDoctor.nombres, tblDoctor.apellidoPaterno, tblCitaMedica.cedulaRecepcionista, estado FROM tblCitaMedica INNER JOIN tblPaciente " + 
                 "ON tblCitaMedica.cedulaPaciente = tblPaciente.cedulaPaciente INNER JOIN tblEspecialidad ON tblCitaMedica.codigoEspecialidad = tblEspecialidad.codigoEspecialidad " + 
                 "INNER JOIN tblDoctor ON tblCitaMedica.cedulaDoctor = tblDoctor.cedulaDoctor INNER JOIN tblRecepcionista ON tblCitaMedica.cedulaRecepcionista = tblRecepcionista.cedulaRecepcionista";
             SqlCommand comando = new SqlCommand(consulta, conexion);
@@ -72,6 +72,7 @@ namespace Login
             tbl.Columns.Add("Motivo de la Cita");
             tbl.Columns.Add("Nombre del Doctor");
             tbl.Columns.Add("Apellido");
+            tbl.Columns.Add("Estado");
             especialidad = new Especialidad();
             doctor = new Doctor();
             paciente = new Paciente();
@@ -97,6 +98,7 @@ namespace Login
                     citaMedica.Doctor = doctor;
                     recepcionista.Cedula = reader.GetString(10);
                     citaMedica.Recepcionista = recepcionista;
+                    citaMedica.Estado = reader.GetString(11);
                     citasMedicas.Add(citaMedica);
                     especialidad = new Especialidad();
                     doctor = new Doctor();
@@ -109,7 +111,7 @@ namespace Login
                 DataBase.cerrarConexion(conexion);
                 foreach (var aux in citasMedicas)
                 {
-                    tbl.Rows.Add(aux.NumeroCita, aux.FechaCita, aux.Paciente.Cedula, aux.Paciente.Nombres, aux.Paciente.ApellidoPaterno, aux.Especialidad.NombreEspecialidad, aux.Descripcion, aux.Doctor.Nombres, aux.Doctor.ApellidoPaterno);
+                    tbl.Rows.Add(aux.NumeroCita, aux.FechaCita, aux.Paciente.Cedula, aux.Paciente.Nombres, aux.Paciente.ApellidoPaterno, aux.Especialidad.NombreEspecialidad, aux.Descripcion, aux.Doctor.Nombres, aux.Doctor.ApellidoPaterno, aux.Estado);
                 }
                 
             }
@@ -130,7 +132,6 @@ namespace Login
             }
             catch
             {
-                MessageBox.Show("Seleccione una fila correcta", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void llenarEspecialidades()

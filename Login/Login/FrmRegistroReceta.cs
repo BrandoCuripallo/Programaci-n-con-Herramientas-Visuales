@@ -137,7 +137,6 @@ namespace Login
             }
             catch
             {
-                MessageBox.Show("Seleccione una fila correcta", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -15,6 +15,7 @@ namespace Login.Clases
         private Especialidad especialidad;
         private Doctor doctor;
         private Recepcionista recepcionista;
+        private string estado;
         public CitaMedica()
         {
 
@@ -34,6 +35,7 @@ namespace Login.Clases
         public DateTime FechaCita { get => fechaCita; set => fechaCita = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public Doctor Doctor { get => doctor; set => doctor = value; }
+        public string Estado { get => estado; set => estado = value; }
         internal Paciente Paciente { get => paciente; set => paciente = value; }
         internal Especialidad Especialidad { get => especialidad; set => especialidad = value; }
         internal Recepcionista Recepcionista { get => recepcionista; set => recepcionista = value; }

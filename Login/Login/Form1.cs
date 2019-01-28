@@ -151,6 +151,8 @@ namespace Login
 
         private void cbxModo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtUsuario.Text = "";
+            txtContrasenia.Text = "";
             if(cbxModo.Text == "PACIENTE")
             {
                 lblUsuario.Text = "CÉDULA";

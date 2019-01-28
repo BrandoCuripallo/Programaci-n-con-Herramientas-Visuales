@@ -41,13 +41,18 @@ namespace Login.Recepcionistas
                 {
                     citaMedica = new CitaMedica();
                     citaMedica.NumeroCita = Convert.ToInt32(dgvCitas.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    citaMedica.FechaCita = Convert.ToDateTime(dgvCitas.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    citaMedica.Estado = Convert.ToString(dgvCitas.Rows[e.RowIndex].Cells[9].Value.ToString());
+                    if(citaMedica.Estado == "Activa")
+                        btnCancelar.Enabled = true;
+                    else
+                        btnCancelar.Enabled = false;
                 }
                 else
                     MessageBox.Show("Por favor seleccione una fila", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch
             {
-                MessageBox.Show("Seleccione una fila correcta", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void llenarEspecialidades()
@@ -99,6 +104,7 @@ namespace Login.Recepcionistas
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            btnCancelar.Enabled = false;
             FrmRecepcionistaIngresarCita frmRecepcionistaIngresarCita = new FrmRecepcionistaIngresarCita();
             frmRecepcionistaIngresarCita.asignarRecepcionista(this.recepcionista);
             frmRecepcionistaIngresarCita.llenarEspecialidades(this.especialidades);
@@ -119,6 +125,26 @@ namespace Login.Recepcionistas
             else
                 frmRecepcionistaIngresarCita.txtNumeroCita.Text = "1";
             frmRecepcionistaIngresarCita.Show();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Desea cancelar la cita seleccionada?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                citaMedica.Estado = "Cancelada";
+                if (recepcionista.cancelarCita(citaMedica))
+                    MessageBox.Show("Cita cancelada", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("La Cita debe ser cancelada con 12 horas de anticipación", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnNuevoPaciente_Click(object sender, EventArgs e)
+        {
+            FrmRecepcionistaIngresarPaciente frmRecepcionistaIngresarPaciente = new FrmRecepcionistaIngresarPaciente();
+            frmRecepcionistaIngresarPaciente.asignarRecepcionista(this.recepcionista);
+            frmRecepcionistaIngresarPaciente.Show();
         }
     }
 }

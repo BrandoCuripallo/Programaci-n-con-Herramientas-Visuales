@@ -352,6 +352,12 @@
     <Compile Include="Recepcionistas\FrmRecepcionistaIngresarCita.Designer.cs">
       <DependentUpon>FrmRecepcionistaIngresarCita.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recepcionistas\FrmRecepcionistaIngresarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepcionistas\FrmRecepcionistaIngresarPaciente.Designer.cs">
+      <DependentUpon>FrmRecepcionistaIngresarPaciente.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="Doctores\FrmDoctor.resx">
       <DependentUpon>FrmDoctor.cs</DependentUpon>
@@ -493,6 +499,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recepcionistas\FrmRecepcionistaIngresarCita.resx">
       <DependentUpon>FrmRecepcionistaIngresarCita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recepcionistas\FrmRecepcionistaIngresarPaciente.resx">
+      <DependentUpon>FrmRecepcionistaIngresarPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <None Include="packages.config" />

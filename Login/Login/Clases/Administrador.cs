@@ -962,7 +962,7 @@ namespace Login.Clases
         {
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "INSERT INTO tblCitaMedica VALUES ('" + citaMedica.FechaCita + "', '" + citaMedica.Descripcion + "', '" + citaMedica.Paciente.Cedula + "', " +
-                citaMedica.Especialidad.IdEspecialidad + ", '" + citaMedica.Recepcionista.Cedula + "', '" + citaMedica.Doctor.Cedula + "')";
+                citaMedica.Especialidad.IdEspecialidad + ", '" + citaMedica.Recepcionista.Cedula + "', '" + citaMedica.Doctor.Cedula + "', '" + citaMedica.Estado + "')";
             SqlCommand comando = new SqlCommand(consulta, conexion);
             if (comando.ExecuteNonQuery() > 0)
             {
@@ -1012,7 +1012,7 @@ namespace Login.Clases
         public bool validarFechaCita(DateTime fechaCirugia, string cedulaDoctor)
         {
             SqlConnection conexion = DataBase.obtenerConexion();
-            string consulta = "SELECT * FROM tblCitaMedica WHERE cedulaDoctor = '" + cedulaDoctor + "' AND fechaCita = '" + fechaCirugia + "'";
+            string consulta = "SELECT * FROM tblCitaMedica WHERE cedulaDoctor = '" + cedulaDoctor + "' AND fechaCita = '" + fechaCirugia + "' AND estado = 'Activa'";
             SqlCommand comando = new SqlCommand(consulta, conexion);
             SqlDataReader reader = comando.ExecuteReader();
             if (reader.HasRows)

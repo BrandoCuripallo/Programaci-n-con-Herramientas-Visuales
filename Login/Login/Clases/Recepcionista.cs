@@ -61,7 +61,7 @@ namespace Login.Clases
         {
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "SELECT idCita, fechaCita, tblCitaMedica.cedulaPaciente, tblPaciente.nombres, tblPaciente.apellidoPaterno, nombreEspecialidad, " +
-                "tblcitaMedica.descripcion, tblDoctor.nombres, tblDoctor.apellidoPaterno FROM tblCitaMedica INNER JOIN tblPaciente ON tblCitaMedica.cedulaPaciente = tblPaciente.cedulaPaciente " + 
+                "tblcitaMedica.descripcion, tblDoctor.nombres, tblDoctor.apellidoPaterno, estado FROM tblCitaMedica INNER JOIN tblPaciente ON tblCitaMedica.cedulaPaciente = tblPaciente.cedulaPaciente " + 
                 "INNER JOIN tblEspecialidad ON tblCitaMedica.codigoEspecialidad = tblEspecialidad.codigoEspecialidad INNER JOIN tblDoctor ON tblCitaMedica.cedulaDoctor = tblDoctor.cedulaDoctor " + 
                 "INNER JOIN tblRecepcionista ON tblCitaMedica.cedulaRecepcionista = tblRecepcionista.cedulaRecepcionista WHERE tblCitaMedica.cedulaRecepcionista = '" + Cedula + "'";
             SqlCommand comando = new SqlCommand(consulta, conexion);
@@ -76,11 +76,12 @@ namespace Login.Clases
             tbl.Columns.Add("Motivo de la Cita");
             tbl.Columns.Add("Nombre del Doctor");
             tbl.Columns.Add("Apellido");
+            tbl.Columns.Add("Estado");
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetString(7), reader.GetString(8));
+                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetString(7), reader.GetString(8), reader.GetString(9));
                 }
             }
             reader.Close();
@@ -126,7 +127,7 @@ namespace Login.Clases
         {
             SqlConnection conexion = DataBase.obtenerConexion();
             string consulta = "INSERT INTO tblCitaMedica VALUES ('" + citaMedica.FechaCita + "', '" + citaMedica.Descripcion + "', '" + citaMedica.Paciente.Cedula + "', " +
-                citaMedica.Especialidad.IdEspecialidad + ", '" + citaMedica.Recepcionista.Cedula + "', '" + citaMedica.Doctor.Cedula + "')";
+                citaMedica.Especialidad.IdEspecialidad + ", '" + citaMedica.Recepcionista.Cedula + "', '" + citaMedica.Doctor.Cedula + "', '" + citaMedica.Estado + "')";
             SqlCommand comando = new SqlCommand(consulta, conexion);
             if (comando.ExecuteNonQuery() > 0)
             {
@@ -142,7 +143,7 @@ namespace Login.Clases
         public bool validarFechaCita(DateTime fechaCirugia, string cedulaDoctor)
         {
             SqlConnection conexion = DataBase.obtenerConexion();
-            string consulta = "SELECT * FROM tblCitaMedica WHERE cedulaDoctor = '" + cedulaDoctor + "' AND fechaCita = '" + fechaCirugia + "'";
+            string consulta = "SELECT * FROM tblCitaMedica WHERE cedulaDoctor = '" + cedulaDoctor + "' AND fechaCita = '" + fechaCirugia + "' AND estado = 'Activa'";
             SqlCommand comando = new SqlCommand(consulta, conexion);
             SqlDataReader reader = comando.ExecuteReader();
             if (reader.HasRows)
@@ -155,6 +156,71 @@ namespace Login.Clases
                 DataBase.cerrarConexion(conexion);
                 return true;
             }
+        }
+        public bool cancelarCita(CitaMedica citaMedica)
+        {
+            if ((citaMedica.FechaCita - DateTime.Now).TotalHours > 12)
+            {
+                SqlConnection conexion = DataBase.obtenerConexion();
+                string consulta = "UPDATE tblCitaMedica SET estado = '" + citaMedica.Estado + "' WHERE idCita = " + citaMedica.NumeroCita;
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                if (comando.ExecuteNonQuery() > 0)
+                {
+                    DataBase.cerrarConexion(conexion);
+                    return true;
+                }
+                else
+                {
+                    DataBase.cerrarConexion(conexion);
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool ingresarPaciente(Paciente paciente)
+        {
+            SqlConnection conexion = DataBase.obtenerConexion();
+            string consulta = "SELECT * FROM tblPaciente WHERE cedulaPaciente = '" + paciente.Cedula + "'";
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.HasRows)
+            {
+                reader.Close();
+                DataBase.cerrarConexion(conexion);
+                return false;
+            }
+            else
+            {
+                reader.Close();
+                consulta = "INSERT INTO tblPaciente VALUES ('" + paciente.Cedula + "', '" + paciente.Nombres + "', '" + paciente.ApellidoPaterno + "', '" +
+                    paciente.ApellidoMaterno + "', '" + paciente.getFechaNacimiento() + "', '" + paciente.Sexo + "', '" + paciente.CorreoElectronico + "', '" +
+                    paciente.Provincia + "', '" + paciente.Canton + "', '" + paciente.Direccion + "', '" + paciente.Telefono + "', '" + paciente.ContraseniaPaciente + "')";
+                comando = new SqlCommand(consulta, conexion);
+                if (comando.ExecuteNonQuery() > 0)
+                {
+                    consulta = "INSERT INTO tblHistoriaClinica VALUES ('" + paciente.Cedula + "')";
+                    comando = new SqlCommand(consulta, conexion);
+                    if (comando.ExecuteNonQuery() > 0)
+                    {
+                        DataBase.cerrarConexion(conexion);
+                        return true;
+                    }
+                    else
+                    {
+                        DataBase.cerrarConexion(conexion);
+                        return false;
+                    }
+                }
+                else
+                {
+                    DataBase.cerrarConexion(conexion);
+                    return false;
+                }
+            }
+
         }
     }
 }

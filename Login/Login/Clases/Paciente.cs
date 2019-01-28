@@ -66,7 +66,7 @@ namespace Login.Clases
         public DataTable buscarCitas()
         {
             SqlConnection conexion = DataBase.obtenerConexion();
-            string consulta = "SELECT idCita, fechaCita, nombreEspecialidad, tblcitaMedica.descripcion, tblDoctor.nombres, tblDoctor.apellidoPaterno" +
+            string consulta = "SELECT idCita, fechaCita, nombreEspecialidad, tblcitaMedica.descripcion, tblDoctor.nombres, tblDoctor.apellidoPaterno, estado" +
                 " FROM tblCitaMedica INNER JOIN tblPaciente " +
                 "ON tblCitaMedica.cedulaPaciente = tblPaciente.cedulaPaciente INNER JOIN tblEspecialidad ON tblCitaMedica.codigoEspecialidad = tblEspecialidad.codigoEspecialidad " +
                 "INNER JOIN tblDoctor ON tblCitaMedica.cedulaDoctor = tblDoctor.cedulaDoctor WHERE tblCitaMedica.cedulaPaciente = '" + Cedula + "'";
@@ -79,11 +79,12 @@ namespace Login.Clases
             tbl.Columns.Add("Motivo de la Cita");
             tbl.Columns.Add("Nombres del Doctor");
             tbl.Columns.Add("Apellido");
+            tbl.Columns.Add("Estado");
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5));
+                    tbl.Rows.Add(reader.GetInt32(0), reader.GetDateTime(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6));
                 }
                 reader.Close();
                 DataBase.cerrarConexion(conexion);

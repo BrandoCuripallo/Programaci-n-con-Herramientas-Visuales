@@ -145,6 +145,7 @@ namespace Login
                                             citaMedica.Especialidad = especialidad;
                                             doctor = doctores.SingleOrDefault(aux => aux.ApellidoPaterno == cbxDoctor.Text);
                                             citaMedica.Doctor = doctor;
+                                            citaMedica.Estado = "Activa";
                                             if (editar)
                                             {
                                                 recepcionista = new Recepcionista();

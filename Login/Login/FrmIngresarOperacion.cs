@@ -18,7 +18,6 @@ namespace Login
         Doctor doctor;
         Cirugia cirugia;
         AtencionQuirurgica atencionQuirurgica;
-        DataTable tbl;
         List<Doctor> doctores = new List<Doctor>();
         List<Cirugia> cirugias = new List<Cirugia>();
         public FrmIngresarOperacion()
