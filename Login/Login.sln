@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{6D2AF10B-00B5-48EA-8586-21265044859A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "IESS Install", "IESS Install\IESS Install.vdproj", "{987EE812-2EE5-4A45-9D2D-64BE7D3C1FD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{6D2AF10B-00B5-48EA-8586-21265044859A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D2AF10B-00B5-48EA-8586-21265044859A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D2AF10B-00B5-48EA-8586-21265044859A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{987EE812-2EE5-4A45-9D2D-64BE7D3C1FD4}.Debug|Any CPU.ActiveCfg = Debug
+		{987EE812-2EE5-4A45-9D2D-64BE7D3C1FD4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
