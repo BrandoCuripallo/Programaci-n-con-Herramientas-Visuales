@@ -442,7 +442,8 @@ namespace Login.Clases
                 {
                     reader.Close();
                     DataBase.cerrarConexion(conexion);
-                    return null;
+                    receta.Indicaciones = indicaciones;
+                    return receta;
                 }
             }
             else

@@ -153,56 +153,61 @@ namespace Login
                                                     {
                                                         if (validarEmail(txtCorreo.Text))
                                                         {
-                                                            DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                                                            if (resultado == DialogResult.Yes)
+                                                            if (mcdFechaNacimiento.SelectionRange.Start.Date < DateTime.Today)
                                                             {
-                                                                try
+                                                                DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                                                if (resultado == DialogResult.Yes)
                                                                 {
-                                                                    recepcionista = new Recepcionista();
-                                                                    recepcionista.Cedula = txtCedula.Text;
-                                                                    recepcionista.Nombres = txtNombres.Text;
-                                                                    recepcionista.ApellidoPaterno = txtApellidoPaterno.Text;
-                                                                    recepcionista.ApellidoMaterno = txtApellidoMaterno.Text;
-                                                                    recepcionista.setFechaNacimiento(mcdFechaNacimiento.SelectionRange.Start.Date);
-                                                                    recepcionista.calcularEdad();
-                                                                    if (rdbMasculino.Checked)
-                                                                        recepcionista.Sexo = rdbMasculino.Text;
-                                                                    else
-                                                                        recepcionista.Sexo = rdbFemenino.Text;
-                                                                    recepcionista.CorreoElectronico = txtCorreo.Text;
-                                                                    recepcionista.Provincia = cbxProvincia.Text;
-                                                                    recepcionista.Canton = txtCanton.Text;
-                                                                    recepcionista.Direccion = txtDireccion.Text;
-                                                                    recepcionista.Telefono = txtTelefono.Text;
-                                                                    recepcionista.Usuario = txtUsuario.Text;
-                                                                    recepcionista.Contrasenia = txtContrasenia.Text;
-                                                                    if (editar)
+                                                                    try
                                                                     {
-                                                                        if (administrador.modificarRecepcionista(recepcionista, cedula))
+                                                                        recepcionista = new Recepcionista();
+                                                                        recepcionista.Cedula = txtCedula.Text;
+                                                                        recepcionista.Nombres = txtNombres.Text;
+                                                                        recepcionista.ApellidoPaterno = txtApellidoPaterno.Text;
+                                                                        recepcionista.ApellidoMaterno = txtApellidoMaterno.Text;
+                                                                        recepcionista.setFechaNacimiento(mcdFechaNacimiento.SelectionRange.Start.Date);
+                                                                        recepcionista.calcularEdad();
+                                                                        if (rdbMasculino.Checked)
+                                                                            recepcionista.Sexo = rdbMasculino.Text;
+                                                                        else
+                                                                            recepcionista.Sexo = rdbFemenino.Text;
+                                                                        recepcionista.CorreoElectronico = txtCorreo.Text;
+                                                                        recepcionista.Provincia = cbxProvincia.Text;
+                                                                        recepcionista.Canton = txtCanton.Text;
+                                                                        recepcionista.Direccion = txtDireccion.Text;
+                                                                        recepcionista.Telefono = txtTelefono.Text;
+                                                                        recepcionista.Usuario = txtUsuario.Text;
+                                                                        recepcionista.Contrasenia = txtContrasenia.Text;
+                                                                        if (editar)
                                                                         {
-                                                                            MessageBox.Show("Recepcionista modificado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                            limpiarTextos();
+                                                                            if (administrador.modificarRecepcionista(recepcionista, cedula))
+                                                                            {
+                                                                                MessageBox.Show("Recepcionista modificado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                                limpiarTextos();
+                                                                            }
+                                                                            else
+                                                                                MessageBox.Show("El Recepcionista ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                         }
                                                                         else
-                                                                            MessageBox.Show("El Recepcionista ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        if (administrador.ingresarRecepcionista(recepcionista))
                                                                         {
+                                                                            if (administrador.ingresarRecepcionista(recepcionista))
+                                                                            {
 
-                                                                            MessageBox.Show("Recepcionista ingresado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                            limpiarTextos();
+                                                                                MessageBox.Show("Recepcionista ingresado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                                limpiarTextos();
+                                                                            }
+                                                                            else
+                                                                                MessageBox.Show("El Recepcionista ya se encuentra registrado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                         }
-                                                                        else
-                                                                            MessageBox.Show("El Recepcionista ya se encuentra registrado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                     }
-                                                                }
-                                                                catch
-                                                                {
-                                                                    MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                                    catch
+                                                                    {
+                                                                        MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                                    }
                                                                 }
                                                             }
+                                                            else
+                                                                MessageBox.Show("La fecha de nacimiento no puede ser mayor a la fecha actual", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                                                         }
                                                         else
                                                             MessageBox.Show("La dirección de Correo Electrónico es incorrecta", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);

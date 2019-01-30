@@ -110,6 +110,7 @@ namespace Login.Farmaceuticos
                     txtCantidad.Text = "";
                     cbxProductos.SelectedIndex = 0;
                     btnEliminar.Enabled = true;
+                    btnAgregar.Enabled = false;
                 }
                 else
                     MessageBox.Show("Por favor seleccione una fila", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -154,6 +155,7 @@ namespace Login.Farmaceuticos
             medicamento = farmaceutico.buscarMedicamentoPorNombre(cbxProductos.Text);
             txtStock.Text = Convert.ToString(medicamento.Stock);
             btnEliminar.Enabled = false;
+            btnAgregar.Enabled = true;
         }
 
         private void FrmFarmaceuticoIngresarFactura_Load(object sender, EventArgs e)
@@ -238,6 +240,7 @@ namespace Login.Farmaceuticos
                         txtCantidad.Text = "";
                         llenarDataGridView();
                         producto = true;
+                        btnAgregar.Enabled = false;
                     }
                     else
                     {

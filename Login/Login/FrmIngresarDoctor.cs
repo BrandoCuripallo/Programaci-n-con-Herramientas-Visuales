@@ -165,57 +165,62 @@ namespace Login
                                                         {
                                                             if (validarEmail(txtCorreo.Text))
                                                             {
-                                                                DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                                                                if (resultado == DialogResult.Yes)
+                                                                if (mcdFechaNacimiento.SelectionRange.Start.Date < DateTime.Today)
                                                                 {
-                                                                    try
+                                                                    DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                                                    if (resultado == DialogResult.Yes)
                                                                     {
-                                                                        doctor = new Doctor();
-                                                                        doctor.Cedula = txtCedula.Text;
-                                                                        doctor.Nombres = txtNombres.Text;
-                                                                        doctor.ApellidoPaterno = txtApellidoPaterno.Text;
-                                                                        doctor.ApellidoMaterno = txtApellidoMaterno.Text;
-                                                                        doctor.setFechaNacimiento(mcdFechaNacimiento.SelectionRange.Start.Date);
-                                                                        doctor.calcularEdad();
-                                                                        if (rdbMasculino.Checked)
-                                                                            doctor.Sexo = rdbMasculino.Text;
-                                                                        else
-                                                                            doctor.Sexo = rdbFemenino.Text;
-                                                                        doctor.CorreoElectronico = txtCorreo.Text;
-                                                                        doctor.Provincia = cbxProvincia.Text;
-                                                                        doctor.Canton = txtCanton.Text;
-                                                                        doctor.Direccion = txtDireccion.Text;
-                                                                        doctor.Telefono = txtTelefono.Text;
-                                                                        doctor.UsuarioDoctor = txtUsuario.Text;
-                                                                        doctor.ContraseniaDoctor = txtContrasenia.Text;
-                                                                        doctor.Especialidad = obtenerIdEspecialidad(cbxEspecialidad.Text);
-                                                                        if (editar)
+                                                                        try
                                                                         {
-                                                                            if (administrador.modificarDoctor(doctor, cedula))
+                                                                            doctor = new Doctor();
+                                                                            doctor.Cedula = txtCedula.Text;
+                                                                            doctor.Nombres = txtNombres.Text;
+                                                                            doctor.ApellidoPaterno = txtApellidoPaterno.Text;
+                                                                            doctor.ApellidoMaterno = txtApellidoMaterno.Text;
+                                                                            doctor.setFechaNacimiento(mcdFechaNacimiento.SelectionRange.Start.Date);
+                                                                            doctor.calcularEdad();
+                                                                            if (rdbMasculino.Checked)
+                                                                                doctor.Sexo = rdbMasculino.Text;
+                                                                            else
+                                                                                doctor.Sexo = rdbFemenino.Text;
+                                                                            doctor.CorreoElectronico = txtCorreo.Text;
+                                                                            doctor.Provincia = cbxProvincia.Text;
+                                                                            doctor.Canton = txtCanton.Text;
+                                                                            doctor.Direccion = txtDireccion.Text;
+                                                                            doctor.Telefono = txtTelefono.Text;
+                                                                            doctor.UsuarioDoctor = txtUsuario.Text;
+                                                                            doctor.ContraseniaDoctor = txtContrasenia.Text;
+                                                                            doctor.Especialidad = obtenerIdEspecialidad(cbxEspecialidad.Text);
+                                                                            if (editar)
                                                                             {
-                                                                                MessageBox.Show("Doctor modificado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                                limpiarTextos();
+                                                                                if (administrador.modificarDoctor(doctor, cedula))
+                                                                                {
+                                                                                    MessageBox.Show("Doctor modificado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                                    limpiarTextos();
+                                                                                }
+                                                                                else
+                                                                                    MessageBox.Show("El doctor ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                             }
                                                                             else
-                                                                                MessageBox.Show("El doctor ya existe", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            if (administrador.ingresarDoctor(doctor))
                                                                             {
+                                                                                if (administrador.ingresarDoctor(doctor))
+                                                                                {
 
-                                                                                MessageBox.Show("Doctor ingresado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                                limpiarTextos();
+                                                                                    MessageBox.Show("Doctor ingresado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                                    limpiarTextos();
+                                                                                }
+                                                                                else
+                                                                                    MessageBox.Show("El doctor ya se encuentra registrado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                             }
-                                                                            else
-                                                                                MessageBox.Show("El doctor ya se encuentra registrado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                         }
-                                                                    }
-                                                                    catch
-                                                                    {
-                                                                        MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                                        catch
+                                                                        {
+                                                                            MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                                        }
                                                                     }
                                                                 }
+                                                                else
+                                                                    MessageBox.Show("La fecha de nacimiento no puede ser mayor a la fecha actual", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                                                             }
                                                             else
                                                                 MessageBox.Show("La dirección de Correo Electrónico es incorrecta", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);

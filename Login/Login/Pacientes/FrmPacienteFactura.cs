@@ -73,6 +73,7 @@ namespace Login.Pacientes
             frmIngresarFactura.btnEliminar.Visible = false;
             frmIngresarFactura.btnGuardar.Visible = false;
             frmIngresarFactura.btnCancelar.Visible = false;
+            frmIngresarFactura.dtpFechaEmision.Enabled = false;
             frmIngresarFactura.Show();
         }
     }

@@ -94,14 +94,21 @@ namespace Login.Doctores
         }
         public void llenarDataGridView()
         {
-            tbl = new DataTable();
-            tbl.Columns.Add("Número");
-            tbl.Columns.Add("Nombre del Medicamento");
-            foreach (var aux in indicaciones)
+            try
             {
-                tbl.Rows.Add(aux.NumeroIndicacion, aux.Medicamento.NombreMedicamento);
+                tbl = new DataTable();
+                tbl.Columns.Add("Número");
+                tbl.Columns.Add("Nombre del Medicamento");
+                foreach (var aux in indicaciones)
+                {
+                    tbl.Rows.Add(aux.NumeroIndicacion, aux.Medicamento.NombreMedicamento);
+                }
+                dgvMedicamentos.DataSource = tbl;
             }
-            dgvMedicamentos.DataSource = tbl;
+            catch
+            {
+                MessageBox.Show("Debe eliminar un item y volver a añadir para editar", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void dgvMedicamentos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -115,6 +122,7 @@ namespace Login.Doctores
                     indicacion = indicaciones.SingleOrDefault(aux => aux.NumeroIndicacion == indicacion.NumeroIndicacion);
                     txtIndicaciones.Text = indicacion.Indicaciones;
                     btnEliminar.Enabled = true;
+                    btnAgregar.Enabled = false;
                 }
                 else
                     MessageBox.Show("Por favor seleccione una fila", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -173,7 +181,7 @@ namespace Login.Doctores
                             receta.Indicaciones = indicaciones;
                             if (editar)
                             {
-                                if (doctor.modificarReceta(receta, indicacionesAnteriores))
+                                if (doctor.modificarReceta(receta, indicaciones))
                                 {
                                     MessageBox.Show("Receta modificada con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     this.Close();
@@ -210,6 +218,7 @@ namespace Login.Doctores
         {
             txtIndicaciones.Text = "";
             btnEliminar.Enabled = false;
+            btnAgregar.Enabled = true;
         }
 
         private void FrmDoctorIngresarReceta_Load(object sender, EventArgs e)

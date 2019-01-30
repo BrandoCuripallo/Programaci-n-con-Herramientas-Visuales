@@ -130,42 +130,46 @@ namespace Login.Recepcionistas
                                                 {
                                                     if (validarEmail(txtCorreo.Text))
                                                     {
-                                                        DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                                                        if (resultado == DialogResult.Yes)
+                                                        if (mcdFechaNacimiento.SelectionRange.Start.Date < DateTime.Today)
                                                         {
-                                                            try
+                                                            DialogResult resultado = MessageBox.Show("¿Desea guardar el Registro?", "IESS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                                            if (resultado == DialogResult.Yes)
                                                             {
-                                                                paciente = new Paciente();
-                                                                paciente.Cedula = txtCedula.Text;
-                                                                paciente.Nombres = txtNombres.Text;
-                                                                paciente.ApellidoPaterno = txtApellidoPaterno.Text;
-                                                                paciente.ApellidoMaterno = txtApellidoMaterno.Text;
-                                                                paciente.setFechaNacimiento(mcdFechaNacimiento.SelectionRange.Start.Date);
-                                                                paciente.calcularEdad();
-                                                                if (rdbMasculino.Checked)
-                                                                    paciente.Sexo = rdbMasculino.Text;
-                                                                else
-                                                                    paciente.Sexo = rdbFemenino.Text;
-                                                                paciente.CorreoElectronico = txtCorreo.Text;
-                                                                paciente.Provincia = cbxProvincia.Text;
-                                                                paciente.Canton = txtCanton.Text;
-                                                                paciente.Direccion = txtDireccion.Text;
-                                                                paciente.Telefono = txtTelefono.Text;
-                                                                paciente.ContraseniaPaciente = txtContrasenia.Text;
-                                                                if (recepcionista.ingresarPaciente(paciente))
+                                                                try
                                                                 {
-                                                                    MessageBox.Show("Paciente ingresado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                    limpiarTextos();
+                                                                    paciente = new Paciente();
+                                                                    paciente.Cedula = txtCedula.Text;
+                                                                    paciente.Nombres = txtNombres.Text;
+                                                                    paciente.ApellidoPaterno = txtApellidoPaterno.Text;
+                                                                    paciente.ApellidoMaterno = txtApellidoMaterno.Text;
+                                                                    paciente.setFechaNacimiento(mcdFechaNacimiento.SelectionRange.Start.Date);
+                                                                    paciente.calcularEdad();
+                                                                    if (rdbMasculino.Checked)
+                                                                        paciente.Sexo = rdbMasculino.Text;
+                                                                    else
+                                                                        paciente.Sexo = rdbFemenino.Text;
+                                                                    paciente.CorreoElectronico = txtCorreo.Text;
+                                                                    paciente.Provincia = cbxProvincia.Text;
+                                                                    paciente.Canton = txtCanton.Text;
+                                                                    paciente.Direccion = txtDireccion.Text;
+                                                                    paciente.Telefono = txtTelefono.Text;
+                                                                    paciente.ContraseniaPaciente = txtContrasenia.Text;
+                                                                    if (recepcionista.ingresarPaciente(paciente))
+                                                                    {
+                                                                        MessageBox.Show("Paciente ingresado con éxito", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                        limpiarTextos();
+                                                                    }
+                                                                    else
+                                                                        MessageBox.Show("El paciente ya se encuentra registrado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                                 }
-                                                                else
-                                                                    MessageBox.Show("El paciente ya se encuentra registrado", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                            }
-                                                            catch
-                                                            {
-                                                                MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                                catch
+                                                                {
+                                                                    MessageBox.Show("Error de ingreso de datos", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                                }
                                                             }
                                                         }
-
+                                                        else
+                                                            MessageBox.Show("La fecha de nacimiento no puede ser mayor a la fecha actual", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                                                     }
                                                     else
                                                         MessageBox.Show("La dirección de Correo Electrónico es incorrecta", "IESS", MessageBoxButtons.OK, MessageBoxIcon.Error);
